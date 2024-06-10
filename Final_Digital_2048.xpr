@@ -81,14 +81,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/imports/Laboratorio_4/debounce.vhd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Miguel Temp/21_09_22/Laboratorio_4/Codigos_profesor/Trial_3/trial3/trial3.srcs/sources_1/imports/Laboratorio_4/debounce.vhd"/>
-          <Attr Name="ImportTime" Val="1570458982"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/new/deisyseis.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -125,22 +117,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/imports/Laboratorio_4/ps2_keyboard.vhd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Miguel Temp/21_09_22/Laboratorio_4/Codigos_profesor/Trial_3/trial3/trial3.srcs/sources_1/imports/Laboratorio_4/ps2_keyboard.vhd"/>
-          <Attr Name="ImportTime" Val="1571171654"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Miguel Temp/21_09_22/Laboratorio_4/Codigos_profesor/Trial_3/trial3/trial3.srcs/sources_1/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd"/>
-          <Attr Name="ImportTime" Val="1662157702"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/new/quinientosdoce.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -171,6 +147,33 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../Miguel Temp/21_09_22/Laboratorio_4/Codigos_profesor/Trial_3/trial3/trial3.srcs/sources_1/imports/Demo21/VGACounter.vhd"/>
           <Attr Name="ImportTime" Val="1663790130"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/imports/Laboratorio_4/debounce.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Miguel Temp/21_09_22/Laboratorio_4/Codigos_profesor/Trial_3/trial3/trial3.srcs/sources_1/imports/Laboratorio_4/debounce.vhd"/>
+          <Attr Name="ImportTime" Val="1570458982"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/imports/Laboratorio_4/ps2_keyboard.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Miguel Temp/21_09_22/Laboratorio_4/Codigos_profesor/Trial_3/trial3/trial3.srcs/sources_1/imports/Laboratorio_4/ps2_keyboard.vhd"/>
+          <Attr Name="ImportTime" Val="1571171654"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Miguel Temp/21_09_22/Laboratorio_4/Codigos_profesor/Trial_3/trial3/trial3.srcs/sources_1/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd"/>
+          <Attr Name="ImportTime" Val="1662157702"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>

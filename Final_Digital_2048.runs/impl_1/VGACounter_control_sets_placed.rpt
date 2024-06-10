@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Fri Oct 14 17:56:58 2022
+| Date         : Fri Oct 21 17:55:20 2022
 | Host         : PARALED03 running 64-bit Ubuntu 18.04.6 LTS
 | Command      : report_control_sets -verbose -file VGACounter_control_sets_placed.rpt
 | Design       : VGACounter
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    16 |
-| Unused register locations in slices containing registers |    52 |
+| Number of unique control sets                            |    22 |
+| Unused register locations in slices containing registers |    40 |
 +----------------------------------------------------------+-------+
 
 
@@ -35,9 +35,8 @@ Table of Contents
 | Fanout | Control Sets |
 +--------+--------------+
 |      2 |            3 |
-|     12 |            1 |
-|     14 |            2 |
-|    16+ |           10 |
+|      8 |           12 |
+|    16+ |            7 |
 +--------+--------------+
 
 
@@ -47,37 +46,43 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              82 |           21 |
+| No           | No                    | No                     |              60 |           15 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              50 |            8 |
-| Yes          | No                    | No                     |              44 |            8 |
+| No           | Yes                   | No                     |             168 |           45 |
+| Yes          | No                    | No                     |              70 |           11 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             132 |           20 |
+| Yes          | Yes                   | No                     |             126 |           25 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------------------------------+--------------------------------------------------------------------+------------------------------------------------------+------------------+----------------+
-|                 Clock Signal                 |                            Enable Signal                           |                   Set/Reset Signal                   | Slice Load Count | Bel Load Count |
-+----------------------------------------------+--------------------------------------------------------------------+------------------------------------------------------+------------------+----------------+
-|  CLK_IBUF_BUFG                               | Teclado/ascii_new_i_1_n_0                                          | Teclado/ascii_new0_out                               |                1 |              2 |
-|  HS_reg_i_2_n_0                              |                                                                    | Inst_vga_ctrl_640x480_60Hz/VS0                       |                1 |              2 |
-|  HS_reg_i_2_n_0                              |                                                                    | Inst_vga_ctrl_640x480_60Hz/HS0                       |                1 |              2 |
-|  clk                                         |                                                                    |                                                      |                3 |             12 |
-|  CLK_IBUF_BUFG                               | Teclado/ps2_keyboard_0/ascii_reg[6]_0                              |                                                      |                4 |             14 |
-|  CLK_IBUF_BUFG                               | Teclado/sig_ascii_new_i_1_n_0                                      |                                                      |                2 |             14 |
-|  CLK_IBUF_BUFG                               | Teclado/ps2_keyboard_0/ps2_code_new0                               |                                                      |                2 |             16 |
-|  CLK_IBUF_BUFG                               | Teclado/ps2_keyboard_0/debounce_ps2_data/counter_out[8]_i_2__0_n_0 | Teclado/ps2_keyboard_0/debounce_ps2_data/counter_set |                2 |             18 |
-|  CLK_IBUF_BUFG                               | Teclado/ps2_keyboard_0/debounce_ps2_clk/sel                        | Teclado/ps2_keyboard_0/debounce_ps2_clk/counter_set  |                3 |             18 |
-|  HS_reg_i_2_n_0                              |                                                                    | Inst_vga_ctrl_640x480_60Hz/eqOp                      |                4 |             22 |
-|  HS_reg_i_2_n_0                              | Inst_vga_ctrl_640x480_60Hz/eqOp                                    | Inst_vga_ctrl_640x480_60Hz/vcounter                  |                4 |             22 |
-| ~Teclado/ps2_keyboard_0/debounce_ps2_clk/CLK |                                                                    |                                                      |                5 |             22 |
-|  HS_reg_i_2_n_0                              |                                                                    | Inst_vga_ctrl_640x480_60Hz/rgb_out[11]_i_1_n_0       |                2 |             24 |
-|  CLK_IBUF_BUFG                               | Teclado/ps2_keyboard_0/count_idle[0]_i_2_n_0                       | Teclado/ps2_keyboard_0/debounce_ps2_clk/clear        |                4 |             26 |
-|  CLK_IBUF_BUFG                               | Teclado/st1                                                        | Teclado/ascii_new0_out                               |                6 |             46 |
-|  CLK_IBUF_BUFG                               |                                                                    |                                                      |               13 |             48 |
-+----------------------------------------------+--------------------------------------------------------------------+------------------------------------------------------+------------------+----------------+
++-----------------+-----------------------------------+------------------------------------------------+------------------+----------------+
+|   Clock Signal  |           Enable Signal           |                Set/Reset Signal                | Slice Load Count | Bel Load Count |
++-----------------+-----------------------------------+------------------------------------------------+------------------+----------------+
+|  HS_reg_i_2_n_0 |                                   | Inst_vga_ctrl_640x480_60Hz/VS0                 |                1 |              2 |
+|  CLK_IBUF_BUFG  |                                   |                                                |                1 |              2 |
+|  HS_reg_i_2_n_0 |                                   | Inst_vga_ctrl_640x480_60Hz/HS0                 |                1 |              2 |
+|  clk_BUFG       | press[3]_i_1_n_0                  |                                                |                2 |              8 |
+|  clk_BUFG       |                                   | Inst_vga_ctrl_640x480_60Hz/PosXn512            |                1 |              8 |
+|  clk_BUFG       |                                   | Inst_vga_ctrl_640x480_60Hz/PosXn4              |                3 |              8 |
+|  clk_BUFG       |                                   | Inst_vga_ctrl_640x480_60Hz/PosXn64             |                2 |              8 |
+|  clk_BUFG       |                                   | Inst_vga_ctrl_640x480_60Hz/PosXn32             |                2 |              8 |
+|  clk_BUFG       |                                   | Inst_vga_ctrl_640x480_60Hz/PosYn2048_reg[9]    |                2 |              8 |
+|  clk_BUFG       |                                   | Inst_vga_ctrl_640x480_60Hz/PosYn16_reg[9]      |                2 |              8 |
+|  clk_BUFG       |                                   | Inst_vga_ctrl_640x480_60Hz/PosXn128            |                2 |              8 |
+|  clk_BUFG       |                                   | Inst_vga_ctrl_640x480_60Hz/PosXn256            |                2 |              8 |
+|  clk_BUFG       |                                   | Inst_vga_ctrl_640x480_60Hz/PosYn2_reg[9]       |                2 |              8 |
+|  clk_BUFG       |                                   | Inst_vga_ctrl_640x480_60Hz/PosYn1024_reg[9]    |                2 |              8 |
+|  clk_BUFG       |                                   | Inst_vga_ctrl_640x480_60Hz/PosXn8              |                2 |              8 |
+|  clk_BUFG       | Inst_vga_ctrl_640x480_60Hz/e4_reg | Inst_vga_ctrl_640x480_60Hz/e2048_reg           |                7 |             20 |
+|  HS_reg_i_2_n_0 |                                   | Inst_vga_ctrl_640x480_60Hz/rgb_out[11]_i_1_n_0 |               11 |             24 |
+|  HS_reg_i_2_n_0 | Inst_vga_ctrl_640x480_60Hz/eqOp   | Inst_vga_ctrl_640x480_60Hz/vcounter            |                9 |             42 |
+|  HS_reg_i_2_n_0 |                                   | Inst_vga_ctrl_640x480_60Hz/eqOp                |               10 |             52 |
+|  clk_BUFG       |                                   |                                                |               14 |             58 |
+|  clk_BUFG       | n16                               |                                                |                9 |             62 |
+|  clk_BUFG       | clk_count                         | clk_count[31]_i_1_n_0                          |                9 |             64 |
++-----------------+-----------------------------------+------------------------------------------------+------------------+----------------+
 
 

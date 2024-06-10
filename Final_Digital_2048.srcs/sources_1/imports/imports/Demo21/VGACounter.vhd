@@ -31,11 +31,9 @@ entity VGACounter is
            BLF: in  STD_LOGIC;
            BRG: in  STD_LOGIC;
            TecladoData: in Std_logic;
-           led: out std_logic_vector(6 downto 0);
-           IndicadorSalida: out std_logic;
-           Indicadorestado:out std_logic_vector (1 downto 0);
            TecladoClk: in std_logic;
            HS : out  STD_LOGIC;
+           press: out std_logic_vector(3 downto 0):="0000";
            VS : out  STD_LOGIC;
            RGB : out  STD_LOGIC_VECTOR (11 downto 0));
 			  
@@ -209,7 +207,7 @@ COMPONENT quinientosdoce
 	signal n1: integer:=0;
 	signal n2: integer:=0;
 	signal n3: integer:=0;
-	signal n4: integer:=2;
+	signal n4: integer:=0;
 	signal n5: integer:=0;
 	signal n6: integer:=0;
 	signal n7: integer:=0;
@@ -217,7 +215,7 @@ COMPONENT quinientosdoce
 	signal n9: integer:=0;
 	signal n10: integer:=0;
 	signal n11: integer:=0;
-	signal n12: integer:=0;
+	signal n12: integer:=2;
 	signal n13: integer:=0;
 	signal n14: integer:=0;
 	signal n15: integer:=0;
@@ -1229,6 +1227,7 @@ begin
     end process;
     process(clk_interno)
     begin
+    if(clk_interno'event and clk_interno='1')then
     case Presionado is
     When Ready=>
     if(BUP='1')then
@@ -1236,53 +1235,89 @@ begin
     elsif(BDW='1')then
     Presionado<=Down;
     elsif(BLF='1')then
-    Presionado<=Down;
+    Presionado<=Right;
     elsif(BRG='1')then
-    Presionado<=Down;
+    Presionado<=Left;
     else
+    press<="0000";
     Presionado<=Ready;
     end if;
+
     --n1  n2  n3  n4
     --n5  n6  n7  n8
     --n9  n10 n11 n12
     --n13 n14 n15 n16
     When Up=>
+    press<="0001";
+    
+         if(clk_count=50000000)then
+         clk_count<=0;
+         Presionado<=Ready;
+         else 
+         clk_count<=clk_count+1;
+         Presionado<=Up;
+         end if;
+
+    
     When Down=>
+     press<="0010";
+
+             if(clk_count=1)then
+             if(n12 = n16)then
+             n16<=n16+n16;
+             elsif(n16=0)then
+             n16<=n12;
+             n12<=0;
+             else
+             n12<=n12;
+             end if;
+             end if;
+             if(clk_count=50000000)then
+             clk_count<=0;
+             Presionado<=Ready;
+             else 
+             clk_count<=clk_count+1;
+             Presionado<=Down;
+             end if;
+
     When Right=>
-    if(clk_interno'event and clk_interno='1' )then
-     if(clk_count=3)then
-     clk_count<=0;
-     Presionado<=Ready;
-     else 
-     clk_count<=clk_count+1;
-     end if;
-    end if;
-    
-    if(not(n3=0)and clk_count=0)then
-     if(n4=0)then
-     n4<=n3;
-     elsif(n4=n3)then
-     n4<=n3+n3;
-     else
-     n3<=n3;
-     end if;
-    end if;
+    press<="0100";
+
+             
+             if(clk_count=50000000)then
+             clk_count<=0;
+             Presionado<=Ready;
+             else 
+             clk_count<=clk_count+1;
+             Presionado<=Right;
+             end if;
+
+ 
+--    if(not(n3=0)and clk_count=0)then
+--     if(n4=0)then
+--     n4<=n3;
+--     elsif(n4=n3)then
+--     n4<=n3+n3;
+--     else
+--     n3<=n3;
+--     end if;
+--    end if;
     When Left=>
+    press<="1000";
+
+             
+             if(clk_count=50000000)then
+             clk_count<=0;
+             Presionado<=Ready;
+             else 
+             clk_count<=clk_count+1;
+             Presionado<=Left;
+             end if;
+ 
     end case;
+    end if;
     end process;
-        tecladocl<=Tecladoclk;
-        tecladoda<=TecladoData;
-        IndicadorSalida<=indicador;
-        directo<=clk;
-        led<=TecladoSalida;
-    
-	Teclado: ps2_keyboard_to_ascii
-	port map(
-	clk=> directo,                 
-    ps2_clk=>Tecladocl,             
-    ps2_data=>Tecladoda,
-    ascii_code=>TecladoSalida,
-    ascii_new=>Indicador);
+
     Principal: Panel
         port map(
         POSX=>0,
