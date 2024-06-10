@@ -33,6 +33,8 @@ set_property src_info {type:XDC file:1 line:48 export:INPUT save:INPUT read:READ
 set_property PACKAGE_PIN U19 [get_ports {press[2]}]
 set_property src_info {type:XDC file:1 line:50 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN V19 [get_ports {press[3]}]
+set_property src_info {type:XDC file:1 line:104 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN U18 [get_ports PBTON]
 set_property src_info {type:XDC file:1 line:106 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN T18 [get_ports BUP]
 set_property src_info {type:XDC file:1 line:108 export:INPUT save:INPUT read:READ} [current_design]

@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date             : Wed Oct 26 16:11:43 2022
+| Date             : Fri Oct 28 15:55:56 2022
 | Host             : PARALED03 running 64-bit Ubuntu 18.04.6 LTS
 | Command          : report_power -file VGACounter_power_routed.rpt -pb VGACounter_power_summary_routed.pb -rpx VGACounter_power_routed.rpx
 | Design           : VGACounter
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.071        |
+| Total On-Chip Power (W)  | 0.090        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.009        |
+| Dynamic (W)              | 0.028        |
 | Device Static (W)        | 0.062        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 99.6         |
@@ -53,16 +53,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.004 |    10014 |       --- |             --- |
-|   LUT as Logic |     0.004 |     6748 |     20800 |           32.44 |
-|   CARRY4       |    <0.001 |     1346 |      8150 |           16.52 |
+| Slice Logic    |     0.012 |    10516 |       --- |             --- |
+|   LUT as Logic |     0.010 |     7195 |     20800 |           34.59 |
+|   CARRY4       |     0.002 |     1466 |      8150 |           17.99 |
 |   BUFG         |    <0.001 |        2 |        32 |            6.25 |
-|   Register     |    <0.001 |      799 |     41600 |            1.92 |
-|   Others       |     0.000 |        4 |       --- |             --- |
-| Signals        |     0.005 |     7519 |       --- |             --- |
-| I/O            |    <0.001 |       35 |       106 |           33.02 |
+|   Register     |    <0.001 |      830 |     41600 |            2.00 |
+|   F7/F8 Muxes  |    <0.001 |        1 |     32600 |           <0.01 |
+|   Others       |     0.000 |       42 |       --- |             --- |
+| Signals        |     0.015 |     7715 |       --- |             --- |
+| I/O            |     0.001 |       36 |       106 |           33.96 |
 | Static Power   |     0.062 |          |           |                 |
-| Total          |     0.071 |          |           |                 |
+| Total          |     0.090 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       0.950 |     0.016 |       0.010 |      0.006 |
+| Vccint    |       0.950 |     0.034 |       0.028 |      0.006 |
 | Vccaux    |       1.800 |     0.011 |       0.000 |      0.011 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -141,8 +142,20 @@ Table of Contents
 +------------------------------+-----------+
 | Name                         | Power (W) |
 +------------------------------+-----------+
-| VGACounter                   |     0.009 |
+| VGACounter                   |     0.028 |
 |   Inst_vga_ctrl_640x480_60Hz |     0.007 |
+|   Num1024                    |    <0.001 |
+|   Num128                     |    <0.001 |
+|   Num16                      |    <0.001 |
+|   Num2                       |    <0.001 |
+|   Num2048                    |    <0.001 |
+|   Num256                     |    <0.001 |
+|   Num32                      |    <0.001 |
+|   Num4                       |    <0.001 |
+|   Num512                     |    <0.001 |
+|   Num64                      |    <0.001 |
+|   Num8                       |    <0.001 |
+|   Principal                  |    <0.001 |
 +------------------------------+-----------+
 
 
