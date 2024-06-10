@@ -1,0 +1,584 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Fri Oct  7 16:39:05 2022
+# Process ID: 19781
+# Current directory: /home/estudiante/Final_Digital_2048/Final_Digital_2048.runs/synth_1
+# Command line: vivado -log VGACounter.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source VGACounter.tcl
+# Log file: /home/estudiante/Final_Digital_2048/Final_Digital_2048.runs/synth_1/VGACounter.vds
+# Journal file: /home/estudiante/Final_Digital_2048/Final_Digital_2048.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source VGACounter.tcl -notrace
+Command: synth_design -top VGACounter -part xc7a35ticpg236-1L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 19789 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1245.305 ; gain = 57.758 ; free physical = 25003 ; free virtual = 90879
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'VGACounter' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:42]
+INFO: [Synth 8-3491] module 'ps2_keyboard_to_ascii' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd:29' bound to instance 'Teclado' of component 'ps2_keyboard_to_ascii' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:202]
+INFO: [Synth 8-638] synthesizing module 'ps2_keyboard_to_ascii' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd:41]
+	Parameter clk_freq bound to: 100000000 - type: integer 
+	Parameter ps2_debounce_counter_size bound to: 8 - type: integer 
+	Parameter clk_freq bound to: 100000000 - type: integer 
+	Parameter debounce_counter_size bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'ps2_keyboard' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard.vhd:26' bound to instance 'ps2_keyboard_0' of component 'ps2_keyboard' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd:74]
+INFO: [Synth 8-638] synthesizing module 'ps2_keyboard' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard.vhd:38]
+	Parameter clk_freq bound to: 100000000 - type: integer 
+	Parameter debounce_counter_size bound to: 8 - type: integer 
+	Parameter counter_size bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'debounce' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/debounce.vhd:27' bound to instance 'debounce_ps2_clk' of component 'debounce' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard.vhd:67]
+INFO: [Synth 8-638] synthesizing module 'debounce' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/debounce.vhd:36]
+	Parameter counter_size bound to: 8 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'debounce' (1#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/debounce.vhd:36]
+	Parameter counter_size bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'debounce' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/debounce.vhd:27' bound to instance 'debounce_ps2_data' of component 'debounce' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard.vhd:70]
+INFO: [Synth 8-256] done synthesizing module 'ps2_keyboard' (2#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard.vhd:38]
+WARNING: [Synth 8-6014] Unused sequential element tecla1_reg was removed.  [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd:110]
+WARNING: [Synth 8-6014] Unused sequential element tecla2_reg was removed.  [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd:111]
+INFO: [Synth 8-256] done synthesizing module 'ps2_keyboard_to_ascii' (3#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd:41]
+INFO: [Synth 8-3491] module 'Panel' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/new/Dibujo2.vhd:35' bound to instance 'Principal' of component 'Panel' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:209]
+INFO: [Synth 8-638] synthesizing module 'Panel' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/new/Dibujo2.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'Panel' (4#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/new/Dibujo2.vhd:43]
+INFO: [Synth 8-3491] module 'dos' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dos.vhd:15' bound to instance 'Num2' of component 'Dos' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:216]
+INFO: [Synth 8-638] synthesizing module 'dos' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dos.vhd:23]
+INFO: [Synth 8-256] done synthesizing module 'dos' (5#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dos.vhd:23]
+INFO: [Synth 8-3491] module 'cuatro' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cuatro.vhd:15' bound to instance 'Num4' of component 'Cuatro' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:223]
+INFO: [Synth 8-638] synthesizing module 'cuatro' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cuatro.vhd:23]
+INFO: [Synth 8-256] done synthesizing module 'cuatro' (6#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cuatro.vhd:23]
+INFO: [Synth 8-3491] module 'ocho' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/ocho.vhd:15' bound to instance 'Num8' of component 'Ocho' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:230]
+INFO: [Synth 8-638] synthesizing module 'ocho' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/ocho.vhd:23]
+INFO: [Synth 8-256] done synthesizing module 'ocho' (7#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/ocho.vhd:23]
+INFO: [Synth 8-3491] module 'diesyseis' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/deisyseis.vhd:15' bound to instance 'Num16' of component 'diesyseis' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:237]
+INFO: [Synth 8-638] synthesizing module 'diesyseis' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/deisyseis.vhd:23]
+INFO: [Synth 8-256] done synthesizing module 'diesyseis' (8#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/deisyseis.vhd:23]
+INFO: [Synth 8-3491] module 'treintaydos' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/treintaydos.vhd:5' bound to instance 'Num32' of component 'treintaydos' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:244]
+INFO: [Synth 8-638] synthesizing module 'treintaydos' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/treintaydos.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'treintaydos' (9#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/treintaydos.vhd:13]
+INFO: [Synth 8-3491] module 'sesentaycuatro' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/sesentaycuatro.vhd:5' bound to instance 'Num64' of component 'Sesentaycuatro' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:251]
+INFO: [Synth 8-638] synthesizing module 'sesentaycuatro' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/sesentaycuatro.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'sesentaycuatro' (10#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/sesentaycuatro.vhd:13]
+INFO: [Synth 8-3491] module 'vga_ctrl_640x480_60Hz' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/vga_ctrl_640x480_60Hz.vhd:71' bound to instance 'Inst_vga_ctrl_640x480_60Hz' of component 'vga_ctrl_640x480_60Hz' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:262]
+INFO: [Synth 8-638] synthesizing module 'vga_ctrl_640x480_60Hz' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/vga_ctrl_640x480_60Hz.vhd:86]
+INFO: [Synth 8-256] done synthesizing module 'vga_ctrl_640x480_60Hz' (11#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/vga_ctrl_640x480_60Hz.vhd:86]
+WARNING: [Synth 8-3848] Net Indicadorestado in module/entity VGACounter does not have driver. [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:34]
+INFO: [Synth 8-256] done synthesizing module 'VGACounter' (12#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:42]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[31]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[30]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[29]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[28]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[27]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[26]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[25]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[24]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[23]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[22]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[21]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[20]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[19]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[18]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[17]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[16]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[15]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[14]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[13]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSX[12]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[31]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[30]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[29]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[28]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[27]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[26]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[25]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[24]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[23]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[22]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[21]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[20]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[19]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[18]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[17]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[16]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[15]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[14]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[13]
+WARNING: [Synth 8-3331] design sesentaycuatro has unconnected port POSY[12]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[31]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[30]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[29]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[28]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[27]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[26]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[25]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[24]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[23]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[22]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[21]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[20]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[19]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[18]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[17]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[16]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[15]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[14]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[13]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSX[12]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[31]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[30]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[29]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[28]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[27]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[26]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[25]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[24]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[23]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[22]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[21]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[20]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[19]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[18]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[17]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[16]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[15]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[14]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[13]
+WARNING: [Synth 8-3331] design treintaydos has unconnected port POSY[12]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[31]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[30]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[29]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[28]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[27]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[26]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[25]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[24]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[23]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[22]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[21]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[20]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[19]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[18]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[17]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[16]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[15]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[14]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[13]
+WARNING: [Synth 8-3331] design diesyseis has unconnected port POSX[12]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1290.930 ; gain = 103.383 ; free physical = 25009 ; free virtual = 90885
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1290.930 ; gain = 103.383 ; free physical = 25011 ; free virtual = 90887
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1290.930 ; gain = 103.383 ; free physical = 25011 ; free virtual = 90887
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35ticpg236-1L
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/constrs_1/imports/Descargas/Basys3_Master.xdc]
+Finished Parsing XDC File [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/constrs_1/imports/Descargas/Basys3_Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/constrs_1/imports/Descargas/Basys3_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/VGACounter_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/VGACounter_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1650.273 ; gain = 0.000 ; free physical = 24761 ; free virtual = 90638
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:16 . Memory (MB): peak = 1650.273 ; gain = 462.727 ; free physical = 24837 ; free virtual = 90714
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35ticpg236-1L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:16 . Memory (MB): peak = 1650.273 ; gain = 462.727 ; free physical = 24837 ; free virtual = 90714
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:16 . Memory (MB): peak = 1650.273 ; gain = 462.727 ; free physical = 24839 ; free virtual = 90716
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ps2_keyboard_to_ascii'
+INFO: [Synth 8-5546] ROM "ascii_new" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "st1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "break" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ascii" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "shift_l" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "shift_r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   ready |                               00 |                               00
+                new_code |                               01 |                               01
+               translate |                               10 |                               10
+                  output |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'ps2_keyboard_to_ascii'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:17 . Memory (MB): peak = 1650.273 ; gain = 462.727 ; free physical = 24829 ; free virtual = 90706
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     24 Bit       Adders := 1     
+	   3 Input     13 Bit       Adders := 43    
+	   2 Input     12 Bit       Adders := 87    
+	   2 Input     11 Bit       Adders := 2     
+	   2 Input      9 Bit       Adders := 2     
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
+	   9 Input      1 Bit         XORs := 1     
++---Registers : 
+	               24 Bit    Registers := 1     
+	               12 Bit    Registers := 1     
+	               11 Bit    Registers := 3     
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                7 Bit    Registers := 1     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 19    
++---Muxes : 
+	   2 Input     24 Bit        Muxes := 1     
+	   2 Input     12 Bit        Muxes := 1     
+	   7 Input      8 Bit        Muxes := 1     
+	  27 Input      8 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 10    
+	  22 Input      8 Bit        Muxes := 4     
+	  35 Input      8 Bit        Muxes := 2     
+	   3 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 2     
+	   7 Input      3 Bit        Muxes := 1     
+	  33 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 12    
+	   3 Input      1 Bit        Muxes := 3     
+	   5 Input      1 Bit        Muxes := 5     
+	   4 Input      1 Bit        Muxes := 10    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module VGACounter 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     12 Bit        Muxes := 1     
+Module debounce 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	                9 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module ps2_keyboard 
+Detailed RTL Component Info : 
++---XORs : 
+	   9 Input      1 Bit         XORs := 1     
++---Registers : 
+	               11 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module ps2_keyboard_to_ascii 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     24 Bit       Adders := 1     
++---Registers : 
+	               24 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                7 Bit    Registers := 1     
+	                1 Bit    Registers := 11    
++---Muxes : 
+	   2 Input     24 Bit        Muxes := 1     
+	   7 Input      8 Bit        Muxes := 1     
+	  27 Input      8 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 10    
+	  22 Input      8 Bit        Muxes := 4     
+	  35 Input      8 Bit        Muxes := 2     
+	   3 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 2     
+	   7 Input      3 Bit        Muxes := 1     
+	  33 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 10    
+	   3 Input      1 Bit        Muxes := 3     
+	   5 Input      1 Bit        Muxes := 5     
+	   4 Input      1 Bit        Muxes := 10    
+Module Panel 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     13 Bit       Adders := 10    
+	   2 Input     12 Bit       Adders := 20    
+Module dos 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     13 Bit       Adders := 5     
+	   2 Input     12 Bit       Adders := 10    
+Module cuatro 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     13 Bit       Adders := 4     
+	   2 Input     12 Bit       Adders := 8     
+Module ocho 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     13 Bit       Adders := 5     
+	   2 Input     12 Bit       Adders := 10    
+Module diesyseis 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     13 Bit       Adders := 6     
+	   2 Input     12 Bit       Adders := 12    
+Module treintaydos 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     13 Bit       Adders := 6     
+	   2 Input     12 Bit       Adders := 13    
+Module sesentaycuatro 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     13 Bit       Adders := 7     
+	   2 Input     12 Bit       Adders := 14    
+Module vga_ctrl_640x480_60Hz 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 2     
++---Registers : 
+	               12 Bit    Registers := 1     
+	               11 Bit    Registers := 2     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5546] ROM "p_1_out1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "break" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "shift_l" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "shift_r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ascii_new" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3332] Sequential element (Inst_vga_ctrl_640x480_60Hz/blank_reg) is unused and will be removed from module VGACounter.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:20 . Memory (MB): peak = 1650.273 ; gain = 462.727 ; free physical = 24808 ; free virtual = 90688
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:26 . Memory (MB): peak = 1650.273 ; gain = 462.727 ; free physical = 24690 ; free virtual = 90570
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:26 . Memory (MB): peak = 1650.273 ; gain = 462.727 ; free physical = 24680 ; free virtual = 90559
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:26 . Memory (MB): peak = 1650.273 ; gain = 462.727 ; free physical = 24680 ; free virtual = 90560
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:18 ; elapsed = 00:00:27 . Memory (MB): peak = 1650.273 ; gain = 462.727 ; free physical = 24680 ; free virtual = 90560
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:18 ; elapsed = 00:00:27 . Memory (MB): peak = 1650.273 ; gain = 462.727 ; free physical = 24680 ; free virtual = 90560
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:18 ; elapsed = 00:00:27 . Memory (MB): peak = 1650.273 ; gain = 462.727 ; free physical = 24680 ; free virtual = 90560
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:18 ; elapsed = 00:00:27 . Memory (MB): peak = 1650.273 ; gain = 462.727 ; free physical = 24680 ; free virtual = 90560
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:27 . Memory (MB): peak = 1650.273 ; gain = 462.727 ; free physical = 24680 ; free virtual = 90560
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:18 ; elapsed = 00:00:27 . Memory (MB): peak = 1650.273 ; gain = 462.727 ; free physical = 24680 ; free virtual = 90560
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     2|
+|2     |CARRY4 |   235|
+|3     |LUT1   |   329|
+|4     |LUT2   |   396|
+|5     |LUT3   |    11|
+|6     |LUT4   |    40|
+|7     |LUT5   |    32|
+|8     |LUT6   |   118|
+|9     |MUXF7  |    15|
+|10    |MUXF8  |     2|
+|11    |FDRE   |   149|
+|12    |IBUF   |    16|
+|13    |OBUF   |    22|
+|14    |OBUFT  |     2|
++------+-------+------+
+
+Report Instance Areas: 
++------+-----------------------------+----------------------+------+
+|      |Instance                     |Module                |Cells |
++------+-----------------------------+----------------------+------+
+|1     |top                          |                      |  1369|
+|2     |  Inst_vga_ctrl_640x480_60Hz |vga_ctrl_640x480_60Hz |   904|
+|3     |  Num16                      |diesyseis             |    18|
+|4     |  Num2                       |dos                   |    15|
+|5     |  Num32                      |treintaydos           |    20|
+|6     |  Num4                       |cuatro                |    12|
+|7     |  Num64                      |sesentaycuatro        |    24|
+|8     |  Num8                       |ocho                  |    15|
+|9     |  Principal                  |Panel                 |    34|
+|10    |  Teclado                    |ps2_keyboard_to_ascii |   283|
+|11    |    ps2_keyboard_0           |ps2_keyboard          |   214|
+|12    |      debounce_ps2_clk       |debounce              |    26|
+|13    |      debounce_ps2_data      |debounce_0            |    25|
++------+-----------------------------+----------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:18 ; elapsed = 00:00:27 . Memory (MB): peak = 1650.273 ; gain = 462.727 ; free physical = 24680 ; free virtual = 90560
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 284 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1650.273 ; gain = 103.383 ; free physical = 24732 ; free virtual = 90612
+Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:27 . Memory (MB): peak = 1650.273 ; gain = 462.727 ; free physical = 24732 ; free virtual = 90612
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 268 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+63 Infos, 104 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:28 . Memory (MB): peak = 1658.281 ; gain = 470.977 ; free physical = 24734 ; free virtual = 90613
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/home/estudiante/Final_Digital_2048/Final_Digital_2048.runs/synth_1/VGACounter.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file VGACounter_utilization_synth.rpt -pb VGACounter_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.14 . Memory (MB): peak = 1682.293 ; gain = 0.000 ; free physical = 24734 ; free virtual = 90614
+INFO: [Common 17-206] Exiting Vivado at Fri Oct  7 16:39:37 2022...
