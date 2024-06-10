@@ -1,0 +1,24 @@
+0.6
+2018.2
+Jun 14 2018
+20:07:38
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/Demo21/BIN2BCD_0a999.vhd,1667420598,vhdl,,,,bin2bcd_0a999,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/Descargas/display34segm2.vhd,1667590509,vhdl,,,,display34segm,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/Display.vhd,1667420125,vhdl,,,,numero,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd,1667592006,vhdl,,,,vgacounter,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/vga_ctrl_640x480_60Hz.vhd,1661535612,vhdl,,,,vga_ctrl_640x480_60hz,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/debounce.vhd,1570458982,vhdl,,,,debounce,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard.vhd,1571171654,vhdl,,,,ps2_keyboard,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd,1662157702,vhdl,,,,ps2_keyboard_to_ascii,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/new/Dibujo2.vhd,1665167271,vhdl,,,,panel,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cientoveintiocho.vhd,1665607667,vhdl,,,,cientoveintiocho,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cuatro.vhd,1665607667,vhdl,,,,cuatro,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/deisyseis.vhd,1665607667,vhdl,,,,diesyseis,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dos.vhd,1665607667,vhdl,,,,dos,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/doscientoscincuentayseis.vhd,1665607667,vhdl,,,,doscientoscincuentayseis,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dosmilcuarentayocho.vhd,1665611471,vhdl,,,,dosmilcuarentayocho,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/milveinticuatro.vhd,1665609771,vhdl,,,,milveinticuatro,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/ocho.vhd,1665607667,vhdl,,,,ocho,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/quinientosdoce.vhd,1665609939,vhdl,,,,quinientosdoce,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/sesentaycuatro.vhd,1665607667,vhdl,,,,sesentaycuatro,,,,,,,,
+/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/treintaydos.vhd,1665607667,vhdl,,,,treintaydos,,,,,,,,

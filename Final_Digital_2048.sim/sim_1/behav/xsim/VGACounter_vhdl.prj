@@ -1,0 +1,25 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Final_Digital_2048.srcs/sources_1/imports/Demo21/BIN2BCD_0a999.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/imports/new/Dibujo2.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/Display.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/new/cientoveintiocho.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/new/cuatro.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/debounce.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/new/deisyseis.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/imports/Descargas/display34segm2.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/new/dos.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/new/doscientoscincuentayseis.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/new/dosmilcuarentayocho.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/new/milveinticuatro.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/new/ocho.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/new/quinientosdoce.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/new/sesentaycuatro.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/new/treintaydos.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/vga_ctrl_640x480_60Hz.vhd" \
+"../../../../Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd" \
+
+# Do not sort compile order
+nosort

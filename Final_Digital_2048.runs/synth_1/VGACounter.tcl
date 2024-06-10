@@ -18,8 +18,6 @@ proc create_report { reportName command } {
   }
 }
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a35ticpg236-1L
 
 set_param project.singleFileAddWarning.threshold 0
@@ -35,10 +33,13 @@ read_vhdl -library xil_defaultlib {
   /home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/Demo21/BIN2BCD_0a999.vhd
   /home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/new/Dibujo2.vhd
   /home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/Display.vhd
+  {/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/Ejemplo Demo/MouseCtl.vhd}
+  {/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/Ejemplo Demo/Ps2Interface.vhd}
   /home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cientoveintiocho.vhd
   /home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cuatro.vhd
   /home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/debounce.vhd
   /home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/deisyseis.vhd
+  /home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/Descargas/display34segm2.vhd
   /home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dos.vhd
   /home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/doscientoscincuentayseis.vhd
   /home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dosmilcuarentayocho.vhd

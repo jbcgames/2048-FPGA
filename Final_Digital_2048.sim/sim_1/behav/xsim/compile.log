@@ -1,0 +1,40 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/Demo21/BIN2BCD_0a999.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BIN2BCD_0a999
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/new/Dibujo2.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Panel
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/Display.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Numero
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cientoveintiocho.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity cientoveintiocho
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cuatro.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity cuatro
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/debounce.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity debounce
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/deisyseis.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity diesyseis
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/Descargas/display34segm2.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity display34segm
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dos.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity dos
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/doscientoscincuentayseis.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity doscientoscincuentayseis
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dosmilcuarentayocho.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity dosmilcuarentayocho
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/milveinticuatro.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity milveinticuatro
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/ocho.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ocho
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ps2_keyboard
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ps2_keyboard_to_ascii
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/quinientosdoce.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity quinientosdoce
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/sesentaycuatro.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity sesentaycuatro
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/treintaydos.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity treintaydos
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/vga_ctrl_640x480_60Hz.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity vga_ctrl_640x480_60Hz
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity VGACounter

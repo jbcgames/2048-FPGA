@@ -18,9 +18,11 @@
 --
 ----------------------------------------------------------------------------------
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+
 
 
 entity VGACounter is
@@ -31,8 +33,8 @@ entity VGACounter is
            BDW : in  STD_LOGIC;
            BLF: in  STD_LOGIC;
            BRG: in  STD_LOGIC;
-           TecladoData: in Std_logic;
-           TecladoClk: in std_logic;
+           TecladoData: inout Std_logic;
+           TecladoClk: inout std_logic;
            led: out std_logic_vector(6 downto 0);
            IndicadorSalida: out std_logic;
            HS : out  STD_LOGIC;
@@ -43,7 +45,32 @@ entity VGACounter is
 end VGACounter;
 
 architecture Behavioral of VGACounter is
-
+COMPONENT MouseCtl
+  GENERIC
+  (
+     SYSCLK_FREQUENCY_HZ : integer := 100000000;
+     CHECK_PERIOD_MS     : integer := 500;
+     TIMEOUT_PERIOD_MS   : integer := 100
+  );
+  PORT(
+      clk : IN std_logic;
+      rst : IN std_logic;
+      value : IN std_logic_vector(11 downto 0);
+      setx : IN std_logic;
+      sety : IN std_logic;
+      setmax_x : IN std_logic;
+      setmax_y : IN std_logic;    
+      ps2_clk : INout std_logic;
+      ps2_data : INout std_logic;      
+      xpos : OUT std_logic_vector(11 downto 0);
+      ypos : OUT std_logic_vector(11 downto 0);
+      zpos : OUT std_logic_vector(3 downto 0);
+      left : OUT std_logic;
+      middle : OUT std_logic;
+      right : OUT std_logic;
+      new_event : OUT std_logic
+      );
+  END COMPONENT;
 	COMPONENT vga_ctrl_640x480_60Hz
 	PORT(
 		rst : IN std_logic;
@@ -66,6 +93,16 @@ architecture Behavioral of VGACounter is
                BCD1 : out  integer;
                BCD0 : out  integer);
                    end component;
+COMPONENT display34segm
+                       
+                          PORT (  
+                              posx: in integer;
+                              posy: in integer;
+                              hcount : in  STD_LOGIC_VECTOR (10 downto 0);
+                                  vcount : in  STD_LOGIC_VECTOR (10 downto 0);
+                                  segments : in STD_LOGIC_VECTOR (33 downto 0);
+                                  paint : out  STD_LOGIC);
+                           end COMPONENT;
 COMPONENT Panel
         PORT(
             POSX: in integer;
@@ -215,17 +252,31 @@ COMPONENT quinientosdoce
 	signal puntaje: integer:=0;
 	Signal sumado: std_logic:='0';
 	Signal paint1: std_logic:='0';
+	Signal paint2: std_logic:='0';
+	Signal paint3: std_logic:='0';
+	Signal paint4: std_logic:='0';
+	Signal paint5: std_logic:='0';
+	Signal paint6: std_logic:='0';
+	Signal paint7: std_logic:='0';
+	Signal paint8: std_logic:='0';
+	Signal paint9: std_logic:='0';
+	Signal paint10: std_logic:='0';
+	Signal paint11: std_logic:='0';
 	Signal paint101: std_logic:='0';
 	Signal paint102: std_logic:='0';
 	Signal paint103: std_logic:='0';
 	Signal paint104: std_logic:='0';
 	Signal paint105: std_logic:='0';
 	Signal paint106: std_logic:='0';
+	signal MOUSE_X_POS: std_logic_vector (11 downto 0);
+    signal MOUSE_Y_POS: std_logic_vector (11 downto 0);
 	signal n1: integer:=0;
 	signal n2: integer:=0;
 	signal n3: integer:=0;
 	signal n4: integer:=0;
 	signal n5: integer:=0;
+	Signal mouse_clk: std_logic:=Tecladoclk;
+	Signal mouse_data:std_logic:=TecladoData;
 	signal n6: integer:=0;
 	signal n7: integer:=0;
 	signal n8: integer:=0;
@@ -242,6 +293,7 @@ COMPONENT quinientosdoce
 	signal edw: std_logic:='0';
 	signal elf: std_logic:='0';
 	signal erg: std_logic:='0';
+	signal x:integer:=0;
         signal n2p: integer:=0;
         signal n3p: integer:=0;
         signal n4p: integer:=0;
@@ -349,6 +401,7 @@ COMPONENT quinientosdoce
 	--n9  n10 n11 n12
 	--n13 n14 n15 n16
 begin
+    
     tecladocl<=Tecladoclk;
         tecladoda<=TecladoData;
         IndicadorSalida<=indicador;
@@ -1305,6 +1358,24 @@ begin
     Presionado<=Down;
     elsif(BLF='1' or (TecladoSalida="1100001" and indicador='1'))then
     Presionado<=Left;
+    elsif(TecladoSalida="0011011"and indicador='1')then
+    n1<=2;
+            n2<=4;
+            n3<=8;
+            n4<=16;
+            n5<=32;
+            n6<=64;
+            n7<=128;
+            n8<=256;
+            n9<=512;
+            n10<=1024;
+            n11<=2048;
+            n12<=2;
+            n13<=4;
+            n14<=8;
+            n15<=16;
+            n16<=32;
+            apress<="1111";
     elsif(BRG='1' or (TecladoSalida="1100100" and indicador='1'))then
     Presionado<=Right;
     elsif(apress="1111")then
@@ -2066,6 +2137,7 @@ begin
     end if;
     if(not (random_number=0))then
     clk_count<=0;
+    press<="0000";
     Presionado<=Ready;
     end if;
     when Create=>
@@ -2129,12 +2201,115 @@ begin
     end case;
     end if;
     end process;
+    Inst_MouseCtl: MouseCtl
+           GENERIC MAP
+        (
+           SYSCLK_FREQUENCY_HZ => 108000000,
+           CHECK_PERIOD_MS     => 500,
+           TIMEOUT_PERIOD_MS   => 100
+        )
+    PORT MAP
+           (
+              clk            => directo,
+              rst            => '0',
+              xpos           => MOUSE_X_POS,
+              ypos           => MOUSE_Y_POS,
+              zpos           => open,
+              left           => open,
+              middle         => open,
+              right          => open,
+              new_event      => open,
+              value          => x"000",
+              setx           => '0',
+              sety           => '0',
+              setmax_x       => '0',
+              setmax_y       => '0',
+              ps2_clk        => Mouse_clk,
+              ps2_data       => Mouse_data
+           );
+    LetraP: display34segm PORT MAP(
+                                                segments=>"1111001111000011000000000000000000",
+                                                POSX => to_integer(unsigned(MOUSE_X_POS)) ,
+                                                POSY => to_integer(unsigned(MOUSE_Y_POS)),
+                                            HCOUNT => hcount,
+                                            VCOUNT => vcount,
+                                            PAINT => paint2
+                                        );
+    LetraR: display34segm PORT MAP(
+                                                                                        segments=>"1111001111000011000000100100000000",
+                                                                                        POSX => 35,
+                                                                                        POSY => 50,
+                                                                                    HCOUNT => hcount,
+                                                                                    VCOUNT => vcount,
+                                                                                    PAINT => paint3
+                                                                                );
+    LetraE: display34segm PORT MAP(
+                                                                                                                                segments=>"1110111111000000000000000000000000",
+                                                                                                                                POSX => 60,
+                                                                                                                                POSY => 50,
+                                                                                                                            HCOUNT => hcount,
+                                                                                                                            VCOUNT => vcount,
+                                                                                                                            PAINT => paint4
+                                                                                                                        );
+    LetraS: display34segm PORT MAP(
+                                                                                                                                                                        segments=>"1111111100000000110000000000000000",
+                                                                                                                                                                        POSX => 85,
+                                                                                                                                                                        POSY => 50,
+                                                                                                                                                                    HCOUNT => hcount,
+                                                                                                                                                                    VCOUNT => vcount,
+                                                                                                                                                                    PAINT => paint5
+                                                                                                                                                                );
+    LetraS1: display34segm PORT MAP(
+                                                                                                                                                                                                                                                                                                                                        segments=>"1111111100000000110000000000000000",
+                                                                                                                                                                                                                                                                                                                                        POSX => 110,
+                                                                                                                                                                                                                                                                                                                                        POSY => 50,
+                                                                                                                                                                                                                                                                                                                                    HCOUNT => hcount,
+                                                                                                                                                                                                                                                                                                                                    VCOUNT => vcount,
+                                                                                                                                                                                                                                                                                                                                    PAINT => paint6
+                                                                                                                                                                                                                                                                                                                                );
+   LetraS2: display34segm PORT MAP(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        segments=>"1111111100000000110000000000000000",
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        POSX => 160,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        POSY => 50,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    HCOUNT => hcount,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    VCOUNT => vcount,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    PAINT => paint7
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                );                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+    LetraT: display34segm PORT MAP(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        segments=>"1100000000111100000000000000000000",
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        POSX => 185,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        POSY => 50,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    HCOUNT => hcount,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    VCOUNT => vcount,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    PAINT => paint8);
+    LetraA: display34segm PORT MAP(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            segments=>"0011000111000001110100000010000000",
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            POSX => 210,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            POSY => 50,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        HCOUNT => hcount,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        VCOUNT => vcount,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        PAINT => paint9
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    );    
+    LetraR1: display34segm PORT MAP(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            segments=>"1111001111000011000000100100000000",
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            POSX => 235,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            POSY => 50,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        HCOUNT => hcount,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        VCOUNT => vcount,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        PAINT => paint10);
+       LetraT1: display34segm PORT MAP(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             segments=>"1100000000111100000000000000000000",
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             POSX => 260,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             POSY => 50,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         HCOUNT => hcount,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         VCOUNT => vcount,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         PAINT => paint11);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
     Num6: Numero
             PORT MAP(
             DW=>12,
             LW=>1,
             DL=>20,
-            POSX=> 470,
+            POSX=> 400,
             POSY=> 3, 
             HCOUNT=> hcount,
             VCOUNT=> vcount,
@@ -2147,7 +2322,7 @@ begin
             DW=>12,
             LW=>1,
             DL=>20,
-            POSX=> 490,
+            POSX=> 420,
             POSY=> 3, 
             HCOUNT=> hcount,
             VCOUNT=> vcount,
@@ -2159,7 +2334,7 @@ begin
                 DW=>12,
                 LW=>1,
                 DL=>20,
-                POSX=> 510,
+                POSX=> 440,
                 POSY=> 3, 
                 HCOUNT=> hcount,
                 VCOUNT=> vcount,
@@ -2171,7 +2346,7 @@ Num3: Numero
         DW=>12,
         LW=>1,
         DL=>20,
-        POSX=> 530,
+        POSX=> 460,
         POSY=> 3, 
         HCOUNT=> hcount,
         VCOUNT=> vcount,
@@ -2184,7 +2359,7 @@ Num3: Numero
         DW=>12,
         LW=>1,
         DL=>20,
-        POSX=> 550,
+        POSX=> 480,
         POSY=> 3, 
         HCOUNT=> hcount,
         VCOUNT=> vcount,
@@ -2196,7 +2371,7 @@ Num3: Numero
             DW=>12,
             LW=>1,
             DL=>20,
-            POSX=> 570,
+            POSX=> 500,
             POSY=> 3, 
             HCOUNT=> hcount,
             VCOUNT=> vcount,
@@ -2316,51 +2491,53 @@ Num3: Numero
                                                                                                  FONDO=>fondodosmil); 
 	process
 	begin
-	if(paint1='1'or paint101='1'or paint102='1'or paint103='1'or paint104='1'or paint105='1'or paint106='1')then
-	rgb_aux1 <=  "111111101110";
-	elsif(ndos='1' and e2='1')then
+	if((random_number=0 or Random_number=17 or apress="1111") and (paint2='1'or paint3='1'or paint4='1'or paint5='1'or paint6='1'or paint7='1'or paint8='1'or paint9='1'or paint10='1'or paint11='1'))then
+	rgb_aux1 <=  "111100000000";
+	elsif((paint1='1'or paint101='1'or paint102='1'or paint103='1'or paint104='1'or paint105='1'or paint106='1')and not(random_number=0 or Random_number=17 or apress="1111"))then
+    rgb_aux1 <=  "111111101110";
+	elsif(ndos='1' and e2='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
 	rgb_aux1 <=  W+20;
-	elsif(ncuatro='1' and e4='1')then
+	elsif(ncuatro='1' and e4='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
         rgb_aux1 <=  W+30;
-        elsif(nocho='1'and e8='1')then
+        elsif(nocho='1'and e8='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
             rgb_aux1 <=  W+40;
-            elsif(ndiez='1'and e16='1')then
+            elsif(ndiez='1'and e16='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                 rgb_aux1 <=  W+50;
-                elsif(ntreinta='1'and e32='1')then
+                elsif(ntreinta='1'and e32='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                     rgb_aux1 <=  W+60;
-                    elsif(nsesenta ='1'and e64='1')then
+                    elsif(nsesenta ='1'and e64='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                         rgb_aux1 <=  W+70;
-                        elsif(ncien='1'and e128='1')then
+                        elsif(ncien='1'and e128='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                             rgb_aux1 <=  W+80;
-                            elsif(ndosientos ='1'and e256='1')then
+                            elsif(ndosientos ='1'and e256='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                                 rgb_aux1 <=  W+90;
-                                elsif( nquinientos='1'and e512='1')then
+                                elsif( nquinientos='1'and e512='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                                     rgb_aux1 <=  W+100;
-                                    elsif( nmil='1'and e1024='1')then
+                                    elsif( nmil='1'and e1024='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                                     rgb_aux1 <=  W+110;
-                                    elsif( ndosmil='1'and e2048='1')then
+                                    elsif( ndosmil='1'and e2048='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                                     rgb_aux1 <=  W+120;
-                                    elsif( fondodos='1'and e2='1')then
+                                    elsif( fondodos='1'and e2='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                                       rgb_aux1 <=  Not(W+20);
-                                        elsif( fondocuatro='1'and e4='1')then
+                                        elsif( fondocuatro='1'and e4='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                                         rgb_aux1 <=  Not(W+30);
-                                        elsif( fondoocho='1'and e8='1')then
+                                        elsif( fondoocho='1'and e8='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                                           rgb_aux1 <=  Not(W+40);
-                                        elsif( fondodiez='1'and e16='1')then
+                                        elsif( fondodiez='1'and e16='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                                             rgb_aux1 <=  Not(W+50);
-                                        elsif( fondotreinta='1'and e32='1')then
+                                        elsif( fondotreinta='1'and e32='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                                               rgb_aux1 <=  Not(W+60);
-                                        elsif( fondosesenta='1'and e64='1')then
+                                        elsif( fondosesenta='1'and e64='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                                                 rgb_aux1 <=  Not(W+70);
-                                        elsif( fondocien='1'and e128='1')then
+                                        elsif( fondocien='1'and e128='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                                                   rgb_aux1 <=  Not(W+80);
-                                                    elsif( fondodosientos='1'and e256='1')then
+                                                    elsif( fondodosientos='1'and e256='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                                                     rgb_aux1 <=  Not(W+90);
-                                                      elsif( fondoquinientos='1' and e512='1')then
+                                                      elsif( fondoquinientos='1' and e512='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                                                       rgb_aux1 <=  Not(W+100);
-                                                      elsif( fondomil='1'and e1024='1')then
+                                                      elsif( fondomil='1'and e1024='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                                                       rgb_aux1 <=  Not(W+110);
-                                                      elsif( fondodosmil='1'and e2048='1')then
+                                                      elsif( fondodosmil='1'and e2048='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
                                                       rgb_aux1 <=  Not(W+120);
                                                                                     
 	else 
