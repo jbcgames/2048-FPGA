@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Wed Oct 12 16:51:22 2022
-# Process ID: 18195
+# Start of session at: Fri Oct 14 17:55:35 2022
+# Process ID: 25227
 # Current directory: /home/estudiante/Final_Digital_2048/Final_Digital_2048.runs/synth_1
 # Command line: vivado -log VGACounter.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source VGACounter.tcl
 # Log file: /home/estudiante/Final_Digital_2048/Final_Digital_2048.runs/synth_1/VGACounter.vds
@@ -15,13 +15,21 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35ti'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 18215 
+INFO: Helper process launched with PID 25244 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1245.301 ; gain = 57.758 ; free physical = 25286 ; free virtual = 90615
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1245.301 ; gain = 57.758 ; free physical = 24799 ; free virtual = 90334
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-2551] possible infinite loop; process does not have a wait statement [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:372]
-INFO: [Synth 8-638] synthesizing module 'VGACounter' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:42]
-INFO: [Synth 8-3491] module 'ps2_keyboard_to_ascii' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd:29' bound to instance 'Teclado' of component 'ps2_keyboard_to_ascii' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:270]
+WARNING: [Synth 8-2551] possible infinite loop; process does not have a wait statement [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1381]
+INFO: [Synth 8-638] synthesizing module 'VGACounter' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:44]
+WARNING: [Synth 8-614] signal 'Presionado' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1230]
+WARNING: [Synth 8-614] signal 'BUP' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1230]
+WARNING: [Synth 8-614] signal 'BDW' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1230]
+WARNING: [Synth 8-614] signal 'BLF' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1230]
+WARNING: [Synth 8-614] signal 'BRG' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1230]
+WARNING: [Synth 8-614] signal 'n3' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1230]
+WARNING: [Synth 8-614] signal 'clk_count' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1230]
+WARNING: [Synth 8-614] signal 'n4' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1230]
+INFO: [Synth 8-3491] module 'ps2_keyboard_to_ascii' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd:29' bound to instance 'Teclado' of component 'ps2_keyboard_to_ascii' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1279]
 INFO: [Synth 8-638] synthesizing module 'ps2_keyboard_to_ascii' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd:41]
 	Parameter clk_freq bound to: 100000000 - type: integer 
 	Parameter ps2_debounce_counter_size bound to: 8 - type: integer 
@@ -42,58 +50,59 @@ INFO: [Synth 8-256] done synthesizing module 'ps2_keyboard' (2#1) [/home/estudia
 WARNING: [Synth 8-6014] Unused sequential element tecla1_reg was removed.  [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd:110]
 WARNING: [Synth 8-6014] Unused sequential element tecla2_reg was removed.  [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd:111]
 INFO: [Synth 8-256] done synthesizing module 'ps2_keyboard_to_ascii' (3#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Laboratorio_4/ps2_keyboard_to_ascii.vhd:41]
-INFO: [Synth 8-3491] module 'Panel' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/new/Dibujo2.vhd:35' bound to instance 'Principal' of component 'Panel' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:277]
+INFO: [Synth 8-3491] module 'Panel' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/new/Dibujo2.vhd:35' bound to instance 'Principal' of component 'Panel' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1286]
 INFO: [Synth 8-638] synthesizing module 'Panel' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/new/Dibujo2.vhd:43]
 INFO: [Synth 8-256] done synthesizing module 'Panel' (4#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/new/Dibujo2.vhd:43]
-INFO: [Synth 8-3491] module 'dos' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dos.vhd:15' bound to instance 'Num2' of component 'Dos' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:284]
+INFO: [Synth 8-3491] module 'dos' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dos.vhd:15' bound to instance 'Num2' of component 'Dos' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1293]
 INFO: [Synth 8-638] synthesizing module 'dos' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dos.vhd:24]
 WARNING: [Synth 8-614] signal 'cambio' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dos.vhd:44]
 INFO: [Synth 8-256] done synthesizing module 'dos' (5#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dos.vhd:24]
-INFO: [Synth 8-3491] module 'cuatro' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cuatro.vhd:15' bound to instance 'Num4' of component 'Cuatro' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:292]
+INFO: [Synth 8-3491] module 'cuatro' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cuatro.vhd:15' bound to instance 'Num4' of component 'Cuatro' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1301]
 INFO: [Synth 8-638] synthesizing module 'cuatro' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cuatro.vhd:24]
 WARNING: [Synth 8-614] signal 'cambio' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cuatro.vhd:43]
 INFO: [Synth 8-256] done synthesizing module 'cuatro' (6#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cuatro.vhd:24]
-INFO: [Synth 8-3491] module 'ocho' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/ocho.vhd:15' bound to instance 'Num8' of component 'Ocho' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:300]
+INFO: [Synth 8-3491] module 'ocho' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/ocho.vhd:15' bound to instance 'Num8' of component 'Ocho' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1309]
 INFO: [Synth 8-638] synthesizing module 'ocho' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/ocho.vhd:24]
 WARNING: [Synth 8-614] signal 'cambio' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/ocho.vhd:44]
 INFO: [Synth 8-256] done synthesizing module 'ocho' (7#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/ocho.vhd:24]
-INFO: [Synth 8-3491] module 'diesyseis' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/deisyseis.vhd:15' bound to instance 'Num16' of component 'diesyseis' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:308]
+INFO: [Synth 8-3491] module 'diesyseis' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/deisyseis.vhd:15' bound to instance 'Num16' of component 'diesyseis' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1317]
 INFO: [Synth 8-638] synthesizing module 'diesyseis' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/deisyseis.vhd:24]
 WARNING: [Synth 8-614] signal 'cambio' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/deisyseis.vhd:45]
 INFO: [Synth 8-256] done synthesizing module 'diesyseis' (8#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/deisyseis.vhd:24]
-INFO: [Synth 8-3491] module 'treintaydos' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/treintaydos.vhd:5' bound to instance 'Num32' of component 'treintaydos' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:316]
+INFO: [Synth 8-3491] module 'treintaydos' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/treintaydos.vhd:5' bound to instance 'Num32' of component 'treintaydos' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1325]
 INFO: [Synth 8-638] synthesizing module 'treintaydos' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/treintaydos.vhd:14]
 WARNING: [Synth 8-614] signal 'cambio' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/treintaydos.vhd:38]
 INFO: [Synth 8-256] done synthesizing module 'treintaydos' (9#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/treintaydos.vhd:14]
-INFO: [Synth 8-3491] module 'sesentaycuatro' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/sesentaycuatro.vhd:5' bound to instance 'Num64' of component 'Sesentaycuatro' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:324]
+INFO: [Synth 8-3491] module 'sesentaycuatro' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/sesentaycuatro.vhd:5' bound to instance 'Num64' of component 'Sesentaycuatro' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1333]
 INFO: [Synth 8-638] synthesizing module 'sesentaycuatro' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/sesentaycuatro.vhd:14]
 WARNING: [Synth 8-614] signal 'cambio' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/sesentaycuatro.vhd:37]
 INFO: [Synth 8-256] done synthesizing module 'sesentaycuatro' (10#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/sesentaycuatro.vhd:14]
-INFO: [Synth 8-3491] module 'cientoveintiocho' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cientoveintiocho.vhd:5' bound to instance 'Num128' of component 'cientoveintiocho' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:332]
+INFO: [Synth 8-3491] module 'cientoveintiocho' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cientoveintiocho.vhd:5' bound to instance 'Num128' of component 'cientoveintiocho' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1341]
 INFO: [Synth 8-638] synthesizing module 'cientoveintiocho' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cientoveintiocho.vhd:14]
 WARNING: [Synth 8-614] signal 'cambio' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cientoveintiocho.vhd:40]
 INFO: [Synth 8-256] done synthesizing module 'cientoveintiocho' (11#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/cientoveintiocho.vhd:14]
-INFO: [Synth 8-3491] module 'doscientoscincuentayseis' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/doscientoscincuentayseis.vhd:5' bound to instance 'Num256' of component 'doscientoscincuentayseis' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:340]
+INFO: [Synth 8-3491] module 'doscientoscincuentayseis' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/doscientoscincuentayseis.vhd:5' bound to instance 'Num256' of component 'doscientoscincuentayseis' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1349]
 INFO: [Synth 8-638] synthesizing module 'doscientoscincuentayseis' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/doscientoscincuentayseis.vhd:14]
 WARNING: [Synth 8-614] signal 'cambio' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/doscientoscincuentayseis.vhd:46]
 INFO: [Synth 8-256] done synthesizing module 'doscientoscincuentayseis' (12#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/doscientoscincuentayseis.vhd:14]
-INFO: [Synth 8-3491] module 'quinientosdoce' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/quinientosdoce.vhd:5' bound to instance 'Num512' of component 'quinientosdoce' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:348]
+INFO: [Synth 8-3491] module 'quinientosdoce' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/quinientosdoce.vhd:5' bound to instance 'Num512' of component 'quinientosdoce' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1357]
 INFO: [Synth 8-638] synthesizing module 'quinientosdoce' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/quinientosdoce.vhd:14]
 WARNING: [Synth 8-614] signal 'cambio' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/quinientosdoce.vhd:43]
 INFO: [Synth 8-256] done synthesizing module 'quinientosdoce' (13#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/quinientosdoce.vhd:14]
-INFO: [Synth 8-3491] module 'milveinticuatro' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/milveinticuatro.vhd:5' bound to instance 'Num1024' of component 'milveinticuatro' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:356]
+INFO: [Synth 8-3491] module 'milveinticuatro' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/milveinticuatro.vhd:5' bound to instance 'Num1024' of component 'milveinticuatro' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1365]
 INFO: [Synth 8-638] synthesizing module 'milveinticuatro' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/milveinticuatro.vhd:14]
 WARNING: [Synth 8-614] signal 'cambio' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/milveinticuatro.vhd:45]
 INFO: [Synth 8-256] done synthesizing module 'milveinticuatro' (14#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/milveinticuatro.vhd:14]
-INFO: [Synth 8-3491] module 'dosmilcuarentayocho' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dosmilcuarentayocho.vhd:5' bound to instance 'Num2048' of component 'dosmilcuarentayocho' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:364]
+INFO: [Synth 8-3491] module 'dosmilcuarentayocho' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dosmilcuarentayocho.vhd:5' bound to instance 'Num2048' of component 'dosmilcuarentayocho' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1373]
 INFO: [Synth 8-638] synthesizing module 'dosmilcuarentayocho' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dosmilcuarentayocho.vhd:14]
 WARNING: [Synth 8-614] signal 'cambio' is read in the process but is not in the sensitivity list [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dosmilcuarentayocho.vhd:49]
 INFO: [Synth 8-256] done synthesizing module 'dosmilcuarentayocho' (15#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/new/dosmilcuarentayocho.vhd:14]
-INFO: [Synth 8-3491] module 'vga_ctrl_640x480_60Hz' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/vga_ctrl_640x480_60Hz.vhd:71' bound to instance 'Inst_vga_ctrl_640x480_60Hz' of component 'vga_ctrl_640x480_60Hz' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:426]
+INFO: [Synth 8-3491] module 'vga_ctrl_640x480_60Hz' declared at '/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/vga_ctrl_640x480_60Hz.vhd:71' bound to instance 'Inst_vga_ctrl_640x480_60Hz' of component 'vga_ctrl_640x480_60Hz' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:1435]
 INFO: [Synth 8-638] synthesizing module 'vga_ctrl_640x480_60Hz' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/vga_ctrl_640x480_60Hz.vhd:86]
 INFO: [Synth 8-256] done synthesizing module 'vga_ctrl_640x480_60Hz' (16#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/vga_ctrl_640x480_60Hz.vhd:86]
-WARNING: [Synth 8-3848] Net Indicadorestado in module/entity VGACounter does not have driver. [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:34]
-INFO: [Synth 8-256] done synthesizing module 'VGACounter' (17#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:42]
+WARNING: [Synth 8-3848] Net Indicadorestado in module/entity VGACounter does not have driver. [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:36]
+WARNING: [Synth 8-3848] Net n3 in module/entity VGACounter does not have driver. [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:211]
+INFO: [Synth 8-256] done synthesizing module 'VGACounter' (17#1) [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:44]
 WARNING: [Synth 8-3331] design dosmilcuarentayocho has unconnected port POSX[31]
 WARNING: [Synth 8-3331] design dosmilcuarentayocho has unconnected port POSX[30]
 WARNING: [Synth 8-3331] design dosmilcuarentayocho has unconnected port POSX[29]
@@ -196,7 +205,7 @@ WARNING: [Synth 8-3331] design quinientosdoce has unconnected port POSX[13]
 WARNING: [Synth 8-3331] design quinientosdoce has unconnected port POSX[12]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1301.926 ; gain = 114.383 ; free physical = 25285 ; free virtual = 90615
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1336.926 ; gain = 149.383 ; free physical = 24760 ; free virtual = 90296
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -209,10 +218,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1301.926 ; gain = 114.383 ; free physical = 25287 ; free virtual = 90617
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1336.926 ; gain = 149.383 ; free physical = 24767 ; free virtual = 90303
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1301.926 ; gain = 114.383 ; free physical = 25287 ; free virtual = 90617
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1336.926 ; gain = 149.383 ; free physical = 24767 ; free virtual = 90303
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35ticpg236-1L
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -228,22 +237,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1656.254 ; gain = 0.000 ; free physical = 25038 ; free virtual = 90368
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 1693.285 ; gain = 0.000 ; free physical = 24508 ; free virtual = 90044
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:17 . Memory (MB): peak = 1656.254 ; gain = 468.711 ; free physical = 25118 ; free virtual = 90449
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:20 . Memory (MB): peak = 1693.285 ; gain = 505.742 ; free physical = 24599 ; free virtual = 90135
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticpg236-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:17 . Memory (MB): peak = 1656.254 ; gain = 468.711 ; free physical = 25118 ; free virtual = 90449
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:20 . Memory (MB): peak = 1693.285 ; gain = 505.742 ; free physical = 24599 ; free virtual = 90135
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:17 . Memory (MB): peak = 1656.254 ; gain = 468.711 ; free physical = 25118 ; free virtual = 90448
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:20 . Memory (MB): peak = 1693.285 ; gain = 505.742 ; free physical = 24599 ; free virtual = 90135
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ps2_keyboard_to_ascii'
 INFO: [Synth 8-5546] ROM "ascii_new" won't be mapped to RAM because it is too sparse
@@ -253,6 +262,122 @@ INFO: [Synth 8-5546] ROM "ascii" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "shift_l" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "shift_r" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "e2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e4" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e8" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e8" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e16" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e16" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e16" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e32" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e32" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e32" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e32" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e64" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e64" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e64" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e64" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e64" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e128" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e128" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e128" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e128" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e128" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e128" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e256" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e256" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e256" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e256" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e256" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e256" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e256" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e512" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e512" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e512" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e512" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e512" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e512" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e512" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e512" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e1024" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e1024" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e1024" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e1024" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e1024" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e1024" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e1024" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e1024" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e1024" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e2048" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e2048" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e2048" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e2048" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e2048" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e2048" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e2048" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e2048" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e2048" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e2048" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosYn2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn4" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn4" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn8" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn8" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn8" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn16" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn16" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn16" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn16" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn32" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn32" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn32" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn32" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn32" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn64" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn64" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn64" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn64" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn64" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn64" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn128" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn128" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn128" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn128" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn128" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn128" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn128" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn256" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn256" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn256" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn256" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn256" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn256" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn256" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn256" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn512" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn512" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn512" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "PosXn512" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Common 17-14] Message 'Synth 8-5545' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-5544] ROM "e2" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "e4" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "e8" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "e16" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "e32" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "e64" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "e128" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "e256" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "e512" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "e1024" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "e2048" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "PosXn2" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "PosXn4" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "PosXn8" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Presionado" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -262,8 +387,9 @@ INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address si
                   output |                               11 |                               11
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'ps2_keyboard_to_ascii'
+WARNING: [Synth 8-327] inferring latch for variable 'n4_reg' [/home/estudiante/Final_Digital_2048/Final_Digital_2048.srcs/sources_1/imports/imports/Demo21/VGACounter.vhd:496]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:18 . Memory (MB): peak = 1656.254 ; gain = 468.711 ; free physical = 25108 ; free virtual = 90439
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:22 . Memory (MB): peak = 1693.285 ; gain = 505.742 ; free physical = 24583 ; free virtual = 90119
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -276,6 +402,7 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
+	   2 Input     32 Bit       Adders := 2     
 	   2 Input     24 Bit       Adders := 1     
 	   3 Input     13 Bit       Adders := 111   
 	   2 Input     12 Bit       Adders := 214   
@@ -285,16 +412,46 @@ Detailed RTL Component Info :
 	   2 Input      1 Bit         XORs := 2     
 	   9 Input      1 Bit         XORs := 1     
 +---Registers : 
+	               32 Bit    Registers := 23    
 	               24 Bit    Registers := 1     
 	               12 Bit    Registers := 1     
 	               11 Bit    Registers := 3     
 	                9 Bit    Registers := 2     
 	                8 Bit    Registers := 2     
 	                7 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
 	                2 Bit    Registers := 3     
-	                1 Bit    Registers := 19    
+	                1 Bit    Registers := 30    
 +---Muxes : 
+	  14 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 24    
+	  13 Input     32 Bit        Muxes := 1     
+	  12 Input     32 Bit        Muxes := 1     
+	  11 Input     32 Bit        Muxes := 1     
+	  10 Input     32 Bit        Muxes := 1     
+	   9 Input     32 Bit        Muxes := 1     
+	   8 Input     32 Bit        Muxes := 1     
+	   7 Input     32 Bit        Muxes := 1     
+	   6 Input     32 Bit        Muxes := 1     
+	   5 Input     32 Bit        Muxes := 1     
+	   4 Input     32 Bit        Muxes := 1     
 	   2 Input     24 Bit        Muxes := 1     
+	   2 Input     14 Bit        Muxes := 1     
+	   2 Input     13 Bit        Muxes := 11    
+	   2 Input     12 Bit        Muxes := 11    
+	   2 Input     11 Bit        Muxes := 11    
+	   2 Input     10 Bit        Muxes := 10    
+	   3 Input     10 Bit        Muxes := 1     
+	  12 Input      9 Bit        Muxes := 1     
+	  11 Input      9 Bit        Muxes := 1     
+	  10 Input      9 Bit        Muxes := 1     
+	   9 Input      9 Bit        Muxes := 1     
+	   8 Input      9 Bit        Muxes := 1     
+	   7 Input      9 Bit        Muxes := 1     
+	   6 Input      9 Bit        Muxes := 1     
+	   5 Input      9 Bit        Muxes := 1     
+	   4 Input      9 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 1     
 	   7 Input      8 Bit        Muxes := 1     
 	  27 Input      8 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 10    
@@ -303,14 +460,24 @@ Detailed RTL Component Info :
 	   3 Input      8 Bit        Muxes := 1     
 	   4 Input      8 Bit        Muxes := 2     
 	   7 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 6     
 	  33 Input      2 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 2     
 	   3 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 12    
-	   3 Input      1 Bit        Muxes := 3     
-	   5 Input      1 Bit        Muxes := 5     
-	   4 Input      1 Bit        Muxes := 10    
+	   2 Input      1 Bit        Muxes := 71    
+	   3 Input      1 Bit        Muxes := 5     
+	   5 Input      1 Bit        Muxes := 9     
+	   4 Input      1 Bit        Muxes := 12    
+	  10 Input      1 Bit        Muxes := 4     
+	  14 Input      1 Bit        Muxes := 1     
+	  12 Input      1 Bit        Muxes := 3     
+	   9 Input      1 Bit        Muxes := 4     
+	  11 Input      1 Bit        Muxes := 3     
+	   8 Input      1 Bit        Muxes := 4     
+	   7 Input      1 Bit        Muxes := 4     
+	   6 Input      1 Bit        Muxes := 5     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -321,9 +488,55 @@ Hierarchical RTL Component report
 Module VGACounter 
 Detailed RTL Component Info : 
 +---Adders : 
+	   2 Input     32 Bit       Adders := 2     
 	   2 Input     12 Bit       Adders := 11    
 +---Registers : 
-	                1 Bit    Registers := 1     
+	               32 Bit    Registers := 23    
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 12    
++---Muxes : 
+	  14 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 24    
+	  13 Input     32 Bit        Muxes := 1     
+	  12 Input     32 Bit        Muxes := 1     
+	  11 Input     32 Bit        Muxes := 1     
+	  10 Input     32 Bit        Muxes := 1     
+	   9 Input     32 Bit        Muxes := 1     
+	   8 Input     32 Bit        Muxes := 1     
+	   7 Input     32 Bit        Muxes := 1     
+	   6 Input     32 Bit        Muxes := 1     
+	   5 Input     32 Bit        Muxes := 1     
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input     14 Bit        Muxes := 1     
+	   2 Input     13 Bit        Muxes := 11    
+	   2 Input     12 Bit        Muxes := 11    
+	   2 Input     11 Bit        Muxes := 11    
+	   2 Input     10 Bit        Muxes := 10    
+	   3 Input     10 Bit        Muxes := 1     
+	  12 Input      9 Bit        Muxes := 1     
+	  11 Input      9 Bit        Muxes := 1     
+	  10 Input      9 Bit        Muxes := 1     
+	   9 Input      9 Bit        Muxes := 1     
+	   8 Input      9 Bit        Muxes := 1     
+	   7 Input      9 Bit        Muxes := 1     
+	   6 Input      9 Bit        Muxes := 1     
+	   5 Input      9 Bit        Muxes := 1     
+	   4 Input      9 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 6     
+	  10 Input      1 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 59    
+	  14 Input      1 Bit        Muxes := 1     
+	  12 Input      1 Bit        Muxes := 3     
+	   9 Input      1 Bit        Muxes := 4     
+	  11 Input      1 Bit        Muxes := 3     
+	   8 Input      1 Bit        Muxes := 4     
+	   7 Input      1 Bit        Muxes := 4     
+	   6 Input      1 Bit        Muxes := 5     
+	   5 Input      1 Bit        Muxes := 4     
+	   4 Input      1 Bit        Muxes := 2     
+	   3 Input      1 Bit        Muxes := 2     
 Module debounce 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -461,9 +674,315 @@ INFO: [Synth 8-5546] ROM "break" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "shift_l" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "shift_r" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "ascii_new" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Presionado_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Presionado_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\Presionado_reg[2] )
+INFO: [Synth 8-3886] merging instance 'n4_reg[31]' (LD) to 'n4_reg[30]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[30]' (LD) to 'n4_reg[29]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[29]' (LD) to 'n4_reg[28]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[28]' (LD) to 'n4_reg[27]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[27]' (LD) to 'n4_reg[26]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[26]' (LD) to 'n4_reg[25]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[25]' (LD) to 'n4_reg[24]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[24]' (LD) to 'n4_reg[23]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[23]' (LD) to 'n4_reg[22]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[22]' (LD) to 'n4_reg[21]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[21]' (LD) to 'n4_reg[20]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[20]' (LD) to 'n4_reg[19]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[19]' (LD) to 'n4_reg[18]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[18]' (LD) to 'n4_reg[17]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[17]' (LD) to 'n4_reg[16]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[16]' (LD) to 'n4_reg[15]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[15]' (LD) to 'n4_reg[14]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[14]' (LD) to 'n4_reg[13]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[13]' (LD) to 'n4_reg[12]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[12]' (LD) to 'n4_reg[11]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[11]' (LD) to 'n4_reg[10]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[10]' (LD) to 'n4_reg[9]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[9]' (LD) to 'n4_reg[8]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[8]' (LD) to 'n4_reg[7]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[7]' (LD) to 'n4_reg[6]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[6]' (LD) to 'n4_reg[5]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[5]' (LD) to 'n4_reg[4]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[4]' (LD) to 'n4_reg[3]'
+INFO: [Synth 8-3886] merging instance 'n4_reg[3]' (LD) to 'n4_reg[2]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\n4_reg[2] )
+INFO: [Synth 8-3886] merging instance 'PosXn2048_reg[0]' (FDRE) to 'PosXn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosXn2048_reg[1]' (FDRE) to 'PosXn2048_reg[10]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn2048_reg[2] )
+INFO: [Synth 8-3886] merging instance 'PosXn2048_reg[3]' (FDSE) to 'PosXn2048_reg[5]'
+INFO: [Synth 8-3886] merging instance 'PosXn2048_reg[6]' (FDRE) to 'PosXn2048_reg[9]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn2048_reg[7] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn2048_reg[8] )
+INFO: [Synth 8-3886] merging instance 'PosXn2048_reg[10]' (FDRE) to 'PosXn2048_reg[11]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn2048_reg[11] )
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[0]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[12]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[13]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[14]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[15]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[16]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[17]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[18]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[19]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[20]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[21]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[22]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[23]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[24]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[25]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[26]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[27]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[28]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[29]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[30]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[31]' (FDRE) to 'PosYn2048_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[1]' (FDRE) to 'PosYn2048_reg[2]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[2]' (FDRE) to 'PosYn2048_reg[4]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[3]' (FDSE) to 'PosYn2048_reg[5]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[4]' (FDRE) to 'PosYn2048_reg[10]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosYn2048_reg[5] )
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[6]' (FDRE) to 'PosYn2048_reg[7]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[7]' (FDRE) to 'PosYn2048_reg[8]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[8]' (FDRE) to 'PosYn2048_reg[9]'
+INFO: [Synth 8-3886] merging instance 'PosYn2048_reg[10]' (FDRE) to 'PosYn2048_reg[11]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosYn2048_reg[11] )
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[0]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[12]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[13]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[14]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[15]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[16]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[17]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[18]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[19]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[20]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[21]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[22]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[23]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[24]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[25]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[26]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[27]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[28]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[29]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[30]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[31]' (FDRE) to 'PosYn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[1]' (FDRE) to 'PosYn1024_reg[2]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[2]' (FDRE) to 'PosYn1024_reg[4]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[3]' (FDSE) to 'PosYn1024_reg[5]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[4]' (FDRE) to 'PosYn1024_reg[10]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosYn1024_reg[5] )
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[6]' (FDRE) to 'PosYn1024_reg[7]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[7]' (FDRE) to 'PosYn1024_reg[8]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[8]' (FDRE) to 'PosYn1024_reg[9]'
+INFO: [Synth 8-3886] merging instance 'PosYn1024_reg[10]' (FDRE) to 'PosYn1024_reg[11]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosYn1024_reg[11] )
+INFO: [Synth 8-3886] merging instance 'PosXn1024_reg[0]' (FDRE) to 'PosXn1024_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosXn1024_reg[1]' (FDRE) to 'PosXn1024_reg[10]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn1024_reg[2] )
+INFO: [Synth 8-3886] merging instance 'PosXn1024_reg[3]' (FDSE) to 'PosXn1024_reg[5]'
+INFO: [Synth 8-3886] merging instance 'PosXn1024_reg[6]' (FDRE) to 'PosXn1024_reg[9]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn1024_reg[7] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn1024_reg[8] )
+INFO: [Synth 8-3886] merging instance 'PosXn1024_reg[10]' (FDRE) to 'PosXn1024_reg[11]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn1024_reg[11] )
+INFO: [Synth 8-3886] merging instance 'PosYn512_reg[0]' (FDRE) to 'PosYn512_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn512_reg[12]' (FDRE) to 'PosYn512_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PosYn512_reg[13]' (FDRE) to 'PosYn512_reg[1]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosYn512_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosYn512_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn512_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn512_reg[7] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn512_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn512_reg[11] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosYn256_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosYn256_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn256_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn256_reg[7] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn256_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn256_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn128_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn128_reg[7] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn128_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn128_reg[11] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosYn128_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosYn128_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn64_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn64_reg[7] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn64_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn64_reg[11] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosYn64_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosYn64_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn32_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn32_reg[7] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn32_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn32_reg[11] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosYn32_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosYn32_reg[11] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosYn16_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosYn16_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn16_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn16_reg[7] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn16_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn16_reg[11] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosYn8_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosYn8_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn8_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn8_reg[7] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn8_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn8_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn4_reg[11] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosYn4_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosYn4_reg[11] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosYn2_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosYn2_reg[11] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn2_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn2_reg[11] )
+WARNING: [Synth 8-264] enable of latch \n4_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch \n4_reg[0]  is always disabled
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\clk_count_reg[31] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\PosXn4_reg[6] )
+WARNING: [Synth 8-264] enable of latch \n4_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch \n4_reg[0]  is always disabled
 WARNING: [Synth 8-3332] Sequential element (blank_reg) is unused and will be removed from module vga_ctrl_640x480_60Hz.
+WARNING: [Synth 8-3332] Sequential element (n4_reg[2]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (e2048_reg) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (e1024_reg) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (e512_reg) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (e256_reg) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (e128_reg) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (e64_reg) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (e32_reg) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (e16_reg) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (e8_reg) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[31]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[30]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[29]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[28]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[27]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[26]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[25]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[24]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[23]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[22]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[21]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[20]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[19]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[18]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[17]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[16]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[15]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[14]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[13]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[12]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[11]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[4]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn2048_reg[2]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosYn2048_reg[11]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (Presionado_reg[2]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (Presionado_reg[1]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (Presionado_reg[0]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[31]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[30]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[29]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[28]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[27]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[26]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[25]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[24]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[23]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[22]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[21]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[20]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[19]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[18]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[17]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[16]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[15]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[14]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[13]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[12]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[11]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[10]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[9]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[8]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[7]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[6]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[5]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[4]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[3]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[2]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[1]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (clk_count_reg[0]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[31]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[30]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[29]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[28]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[27]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[26]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[25]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[24]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[23]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[22]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[21]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[20]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[19]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[18]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[17]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[16]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[15]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[14]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[13]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[12]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[11]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[4]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn1024_reg[2]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosYn1024_reg[11]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn512_reg[31]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn512_reg[30]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn512_reg[29]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn512_reg[28]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn512_reg[27]) is unused and will be removed from module VGACounter.
+WARNING: [Synth 8-3332] Sequential element (PosXn512_reg[26]) is unused and will be removed from module VGACounter.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\n4_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PosXn4_reg[2] )
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:23 . Memory (MB): peak = 1656.254 ; gain = 468.711 ; free physical = 25084 ; free virtual = 90419
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:26 . Memory (MB): peak = 1693.285 ; gain = 505.742 ; free physical = 24562 ; free virtual = 90107
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -475,13 +994,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:28 . Memory (MB): peak = 1656.254 ; gain = 468.711 ; free physical = 24967 ; free virtual = 90303
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:31 . Memory (MB): peak = 1693.285 ; gain = 505.742 ; free physical = 24449 ; free virtual = 89994
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:29 . Memory (MB): peak = 1656.254 ; gain = 468.711 ; free physical = 24957 ; free virtual = 90293
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 1693.285 ; gain = 505.742 ; free physical = 24443 ; free virtual = 89988
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -493,7 +1012,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:29 . Memory (MB): peak = 1656.254 ; gain = 468.711 ; free physical = 24955 ; free virtual = 90291
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 1693.285 ; gain = 505.742 ; free physical = 24446 ; free virtual = 89992
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -517,7 +1036,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 1656.254 ; gain = 468.711 ; free physical = 24955 ; free virtual = 90291
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 1693.285 ; gain = 505.742 ; free physical = 24446 ; free virtual = 89992
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -530,7 +1049,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 1656.254 ; gain = 468.711 ; free physical = 24955 ; free virtual = 90291
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 1693.285 ; gain = 505.742 ; free physical = 24446 ; free virtual = 89992
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -542,25 +1061,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 1656.254 ; gain = 468.711 ; free physical = 24955 ; free virtual = 90291
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 1693.285 ; gain = 505.742 ; free physical = 24446 ; free virtual = 89992
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 1656.254 ; gain = 468.711 ; free physical = 24955 ; free virtual = 90291
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 1693.285 ; gain = 505.742 ; free physical = 24446 ; free virtual = 89992
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 1656.254 ; gain = 468.711 ; free physical = 24955 ; free virtual = 90291
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 1693.285 ; gain = 505.742 ; free physical = 24446 ; free virtual = 89992
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 1656.254 ; gain = 468.711 ; free physical = 24955 ; free virtual = 90291
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 1693.285 ; gain = 505.742 ; free physical = 24446 ; free virtual = 89992
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -577,17 +1096,17 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     2|
-|2     |CARRY4 |   618|
-|3     |LUT1   |   899|
-|4     |LUT2   |  1002|
-|5     |LUT3   |    17|
-|6     |LUT4   |    81|
-|7     |LUT5   |    38|
-|8     |LUT6   |   279|
+|2     |CARRY4 |   116|
+|3     |LUT1   |   126|
+|4     |LUT2   |   185|
+|5     |LUT3   |    33|
+|6     |LUT4   |    76|
+|7     |LUT5   |    20|
+|8     |LUT6   |   113|
 |9     |MUXF7  |    15|
 |10    |MUXF8  |     2|
-|11    |FDRE   |   165|
-|12    |IBUF   |    16|
+|11    |FDRE   |   154|
+|12    |IBUF   |    15|
 |13    |OBUF   |    22|
 |14    |OBUFT  |     2|
 +------+-------+------+
@@ -596,34 +1115,33 @@ Report Instance Areas:
 +------+-----------------------------+----------------------+------+
 |      |Instance                     |Module                |Cells |
 +------+-----------------------------+----------------------+------+
-|1     |top                          |                      |  3158|
-|2     |  Inst_vga_ctrl_640x480_60Hz |vga_ctrl_640x480_60Hz |  2831|
+|1     |top                          |                      |   881|
+|2     |  Inst_vga_ctrl_640x480_60Hz |vga_ctrl_640x480_60Hz |   527|
 |3     |  Teclado                    |ps2_keyboard_to_ascii |   283|
 |4     |    ps2_keyboard_0           |ps2_keyboard          |   214|
 |5     |      debounce_ps2_clk       |debounce              |    26|
 |6     |      debounce_ps2_data      |debounce_0            |    25|
 +------+-----------------------------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 1656.254 ; gain = 468.711 ; free physical = 24955 ; free virtual = 90291
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 1693.285 ; gain = 505.742 ; free physical = 24446 ; free virtual = 89992
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 484 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1656.254 ; gain = 114.383 ; free physical = 25007 ; free virtual = 90343
-Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 1656.254 ; gain = 468.711 ; free physical = 25007 ; free virtual = 90343
+Synthesis finished with 0 errors, 0 critical warnings and 806 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1693.285 ; gain = 149.383 ; free physical = 24495 ; free virtual = 90040
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 1693.285 ; gain = 505.742 ; free physical = 24495 ; free virtual = 90040
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 651 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 148 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-WARNING: [Netlist 29-101] Netlist 'VGACounter' is not ideal for floorplanning, since the cellview 'vga_ctrl_640x480_60Hz' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-78 Infos, 117 Warnings, 0 Critical Warnings and 0 Errors encountered.
+397 Infos, 229 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:31 . Memory (MB): peak = 1664.262 ; gain = 476.961 ; free physical = 25011 ; free virtual = 90347
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:33 . Memory (MB): peak = 1693.285 ; gain = 505.984 ; free physical = 24499 ; free virtual = 90044
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint '/home/estudiante/Final_Digital_2048/Final_Digital_2048.runs/synth_1/VGACounter.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file VGACounter_utilization_synth.rpt -pb VGACounter_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.13 . Memory (MB): peak = 1688.273 ; gain = 0.000 ; free physical = 25011 ; free virtual = 90347
-INFO: [Common 17-206] Exiting Vivado at Wed Oct 12 16:51:57 2022...
+report_utilization: Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.13 . Memory (MB): peak = 1717.297 ; gain = 0.000 ; free physical = 24498 ; free virtual = 90044
+INFO: [Common 17-206] Exiting Vivado at Fri Oct 14 17:56:13 2022...
