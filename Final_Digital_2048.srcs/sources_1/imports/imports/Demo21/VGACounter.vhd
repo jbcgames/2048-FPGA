@@ -69,7 +69,8 @@ COMPONENT Dos
                     POSY: in integer;
                     HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
                     VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0); 
-                    PAINT : out  STD_LOGIC
+                    PAINT : out  STD_LOGIC;
+                    FONDO : out  STD_LOGIC
                     );
                 END COMPONENT;
 COMPONENT Cuatro
@@ -78,7 +79,8 @@ COMPONENT Cuatro
                             POSY: in integer;
                             HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
                             VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0); 
-                            PAINT : out  STD_LOGIC
+                            PAINT : out  STD_LOGIC;
+                                                FONDO : out  STD_LOGIC
                             );
                         END COMPONENT;
 COMPONENT Ocho
@@ -87,7 +89,8 @@ COMPONENT Ocho
                                     POSY: in integer;
                                     HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
                                     VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0); 
-                                    PAINT : out  STD_LOGIC
+                                    PAINT : out  STD_LOGIC;
+                                                        FONDO : out  STD_LOGIC
                                     );
                                 END COMPONENT;
 COMPONENT diesyseis
@@ -96,7 +99,8 @@ COMPONENT diesyseis
                                             POSY: in integer;
                                             HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
                                             VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0); 
-                                            PAINT : out  STD_LOGIC
+                                            PAINT : out  STD_LOGIC;
+                                                                FONDO : out  STD_LOGIC
                                             );
                                         END COMPONENT;
 COMPONENT treintaydos
@@ -105,7 +109,8 @@ COMPONENT treintaydos
                                                     POSY: in integer;
                                                     HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
                                                     VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0); 
-                                                    PAINT : out  STD_LOGIC
+                                                    PAINT : out  STD_LOGIC;
+                                                                        FONDO : out  STD_LOGIC
                                                     );
                                                 END COMPONENT;
 COMPONENT Sesentaycuatro
@@ -114,9 +119,61 @@ COMPONENT Sesentaycuatro
                                                             POSY: in integer;
                                                             HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
                                                             VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0); 
-                                                            PAINT : out  STD_LOGIC
+                                                            PAINT : out  STD_LOGIC;
+                                                                                FONDO : out  STD_LOGIC
                                                             );
                                                         END COMPONENT;
+COMPONENT cientoveintiocho
+                                                                PORT(
+                                                                    POSX: in integer;
+                                                                    POSY: in integer;
+                                                                    HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
+                                                                    VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0); 
+                                                                    PAINT : out  STD_LOGIC;
+                                                                                        FONDO : out  STD_LOGIC
+                                                                    );
+                                                                END COMPONENT;
+COMPONENT doscientoscincuentayseis
+                                                                        PORT(
+                                                                            POSX: in integer;
+                                                                            POSY: in integer;
+                                                                            HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
+                                                                            VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0); 
+                                                                            PAINT : out  STD_LOGIC;
+                                                                                                FONDO : out  STD_LOGIC
+                                                                            );
+                                                                        END COMPONENT;
+COMPONENT quinientosdoce
+                                                                                PORT(
+                                                                                    POSX: in integer;
+                                                                                    POSY: in integer;
+                                                                                    HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
+                                                                                    VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0); 
+                                                                                    PAINT : out  STD_LOGIC;
+                                                                                                        FONDO : out  STD_LOGIC
+                                                                                    );
+                                                                                END COMPONENT;
+ COMPONENT milveinticuatro
+                                                                                        PORT(
+                                                                                            POSX: in integer;
+                                                                                            POSY: in integer;
+                                                                                            HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
+                                                                                            VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0); 
+                                                                                            PAINT : out  STD_LOGIC;
+                                                                                            FONDO : out  STD_LOGIC
+                                                                                            );
+                                                                                        END COMPONENT;
+   COMPONENT dosmilcuarentayocho
+                                                                                                        PORT(
+                                                                                                            POSX: in integer;
+                                                                                                            POSY: in integer;
+                                                                                                            HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
+                                                                                                            VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0); 
+                                                                                                            PAINT : out  STD_LOGIC;
+                                                                                                            FONDO : out  STD_LOGIC
+                                                                                                            );
+                                                                                                        END COMPONENT;
+    
     Component Display Port (  
                           DW: in integer;
                           LW: in integer;
@@ -160,6 +217,17 @@ COMPONENT Sesentaycuatro
 	signal numero11: integer:=0;
 	signal numero12: integer:=0;
 	Signal ndos: std_logic:='0';
+	Signal fondodos: std_logic:='0';
+	Signal fondocuatro: std_logic:='0';
+	Signal fondoocho: std_logic:='0';
+	Signal fondodiez: std_logic:='0';
+	Signal fondotreinta: std_logic:='0';
+	Signal fondosesenta: std_logic:='0';
+	Signal fondocien: std_logic:='0';
+	Signal fondodosientos: std_logic:='0';
+	Signal fondoquinientos: std_logic:='0';
+	Signal fondomil: std_logic:='0';
+	Signal fondodosmil: std_logic:='0';
 	Signal ncuatro: std_logic:='0';
 	Signal nocho: std_logic:='0';
 	Signal ndiez: std_logic:='0';
@@ -219,45 +287,141 @@ begin
                 POSY=>0+40,
                 HCOUNT=>hcount,
                 VCOUNT=>vcount,
-                PAINT=>ndos); 
+                PAINT=>ndos,
+                FONDO=>fondodos); 
     Num4: cuatro
        port map(
        POSX=>100+100,
        POSY=>0+40,
        HCOUNT=>hcount,
        VCOUNT=>vcount,
-       PAINT=>ncuatro); 
+       PAINT=>ncuatro,
+                       FONDO=>fondocuatro); 
     Num8: Ocho
               port map(
               POSX=>200+100,
               POSY=>0+40,
               HCOUNT=>hcount,
               VCOUNT=>vcount,
-              PAINT=>nocho);
+              PAINT=>nocho,
+                              FONDO=>fondoocho);
     Num16: diesyseis
                      port map(
                      POSX=>300+100,
                      POSY=>0+40,
                      HCOUNT=>hcount,
                      VCOUNT=>vcount,
-                     PAINT=>ndiez);   
+                     PAINT=>ndiez,
+                                     FONDO=>fondodiez);   
     Num32: treintaydos
                              port map(
                              POSX=>0+100,
                              POSY=>0+40+100,
                              HCOUNT=>hcount,
                              VCOUNT=>vcount,
-                             PAINT=>ntreinta);   
+                             PAINT=>ntreinta,
+                                             FONDO=>fondotreinta);   
     Num64: Sesentaycuatro
                                      port map(
-                                     POSX=>0+200,
+                                     POSX=>100+100,
                                      POSY=>0+40+100,
                                      HCOUNT=>hcount,
                                      VCOUNT=>vcount,
-                                     PAINT=>nsesenta);                                                                             
-	rgb_aux1 <=  "111100110000" when paint1='1' or ndos='1' or ncuatro='1' or nocho='1' or ndiez='1'or ntreinta='1' or nsesenta ='1'
-	else not W ;
-	
+                                     PAINT=>nsesenta,
+                                                     FONDO=>fondosesenta);                                                                             
+	Num128: Cientoveintiocho
+                                            port map(
+                                            POSX=>200+100,
+                                            POSY=>0+40+100,
+                                            HCOUNT=>hcount,
+                                            VCOUNT=>vcount,
+                                            PAINT=>ncien,
+                                                            FONDO=>fondocien); 
+	Num256: doscientoscincuentayseis
+                                                   port map(
+                                                   POSX=>300+100,
+                                                   POSY=>0+40+100,
+                                                   HCOUNT=>hcount,
+                                                   VCOUNT=>vcount,
+                                                   PAINT=>ndosientos,
+                                                                   FONDO=>fondodosientos); 
+	Num512: quinientosdoce
+                                                          port map(
+                                                          POSX=>0+100,
+                                                          POSY=>0+40+200,
+                                                          HCOUNT=>hcount,
+                                                          VCOUNT=>vcount,
+                                                          PAINT=>nquinientos,
+                                                                          FONDO=>fondoquinientos); 
+	Num1024: milveinticuatro
+                                                                                          port map(
+                                                                                          POSX=>0+200,
+                                                                                          POSY=>0+40+200,
+                                                                                          HCOUNT=>hcount,
+                                                                                          VCOUNT=>vcount,
+                                                                                          PAINT=>nmil,
+                                                                                          FONDO=>fondomil); 
+	Num2048: dosmilcuarentayocho
+                                                                                                 port map(
+                                                                                                 POSX=>0+300,
+                                                                                                 POSY=>0+40+200,
+                                                                                                 HCOUNT=>hcount,
+                                                                                                 VCOUNT=>vcount,
+                                                                                                 PAINT=>ndosmil,
+                                                                                                 FONDO=>fondodosmil); 
+	process
+	begin
+	if(paint1='1')then
+	rgb_aux1 <=  "111111101110";
+	elsif(ndos='1')then
+	rgb_aux1 <=  W+20;
+	elsif(ncuatro='1')then
+        rgb_aux1 <=  W+30;
+        elsif(nocho='1')then
+            rgb_aux1 <=  W+40;
+            elsif(ndiez='1')then
+                rgb_aux1 <=  W+50;
+                elsif(ntreinta='1')then
+                    rgb_aux1 <=  W+60;
+                    elsif(nsesenta ='1')then
+                        rgb_aux1 <=  W+70;
+                        elsif(ncien='1')then
+                            rgb_aux1 <=  W+80;
+                            elsif(ndosientos ='1')then
+                                rgb_aux1 <=  W+90;
+                                elsif( nquinientos='1')then
+                                    rgb_aux1 <=  W+100;
+                                    elsif( nmil='1')then
+                                    rgb_aux1 <=  W+110;
+                                    elsif( ndosmil='1')then
+                                    rgb_aux1 <=  W+120;
+                                    elsif( fondodos='1')then
+                                      rgb_aux1 <=  Not(W+20);
+                                        elsif( fondocuatro='1')then
+                                        rgb_aux1 <=  Not(W+30);
+                                        elsif( fondoocho='1')then
+                                          rgb_aux1 <=  Not(W+40);
+                                        elsif( fondodiez='1')then
+                                            rgb_aux1 <=  Not(W+50);
+                                        elsif( fondotreinta='1')then
+                                              rgb_aux1 <=  Not(W+60);
+                                        elsif( fondosesenta='1')then
+                                                rgb_aux1 <=  Not(W+70);
+                                        elsif( fondocien='1')then
+                                                  rgb_aux1 <=  Not(W+80);
+                                                    elsif( fondodosientos='1')then
+                                                    rgb_aux1 <=  Not(W+90);
+                                                      elsif( fondoquinientos='1')then
+                                                      rgb_aux1 <=  Not(W+100);
+                                                      elsif( fondomil='1')then
+                                                      rgb_aux1 <=  Not(W+110);
+                                                      elsif( fondodosmil='1')then
+                                                      rgb_aux1 <=  Not(W+120);
+                                                                                    
+	else 
+	rgb_aux1 <= "000000000000";
+	end if;
+	end process;
 	
 	Inst_vga_ctrl_640x480_60Hz: vga_ctrl_640x480_60Hz PORT MAP(
 		rst => RST,

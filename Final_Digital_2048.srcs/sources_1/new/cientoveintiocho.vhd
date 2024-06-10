@@ -8,23 +8,43 @@ Port (
            POSY: in integer;
            HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
            VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0); 
-           PAINT : out  STD_LOGIC);
+           PAINT : out  STD_LOGIC;
+                      FONDO : out std_logic);
 end cientoveintiocho;
 architecture Behavioral of cientoveintiocho is
 Signal UbicacionX, UbicacionY: Integer;
-signal cambio: integer:=0;
+signal cambio: std_logic;
 begin
 process (HCOUNT, VCOUNT, UbicacionX, UbicacionY)
 begin
 if(
 (UbicacionX+25<=HCOUNT and UbicacionY+30<=VCOUNT and UbicacionX+30>HCOUNT and UbicacionY+70>VCOUNT)or
 (UbicacionX+35<=HCOUNT and UbicacionY+30<=VCOUNT and UbicacionX+60>HCOUNT and UbicacionY+35>VCOUNT)or
-(UbicacionX+35<=HCOUNT and UbicacionY+30<=VCOUNT and UbicacionX+60>HCOUNT and UbicacionY+35>VCOUNT)or
-
+(UbicacionX+35<=HCOUNT and UbicacionY+65<=VCOUNT and UbicacionX+60>HCOUNT and UbicacionY+70>VCOUNT)or
+(UbicacionX+35<=HCOUNT and UbicacionY+47<=VCOUNT and UbicacionX+60>HCOUNT and UbicacionY+52>VCOUNT)or
+(UbicacionX+35<=HCOUNT and UbicacionY+47<=VCOUNT and UbicacionX+40>HCOUNT and UbicacionY+70>VCOUNT)or
+(UbicacionX+55<=HCOUNT and UbicacionY+30<=VCOUNT and UbicacionX+60>HCOUNT and UbicacionY+47>VCOUNT)or
+(UbicacionX+65<=HCOUNT and UbicacionY+30<=VCOUNT and UbicacionX+90>HCOUNT and UbicacionY+35>VCOUNT)or
+(UbicacionX+65<=HCOUNT and UbicacionY+47<=VCOUNT and UbicacionX+90>HCOUNT and UbicacionY+52>VCOUNT)or
+(UbicacionX+65<=HCOUNT and UbicacionY+65<=VCOUNT and UbicacionX+90>HCOUNT and UbicacionY+70>VCOUNT)or
+(UbicacionX+65<=HCOUNT and UbicacionY+30<=VCOUNT and UbicacionX+70>HCOUNT and UbicacionY+70>VCOUNT)or
+(UbicacionX+85<=HCOUNT and UbicacionY+30<=VCOUNT and UbicacionX+90>HCOUNT and UbicacionY+70>VCOUNT)
 )then
 PAINT<='1';
+cambio<='1';
 else
 PAINT<='0';
+cambio<='0';
+end if;
+end process;
+process (HCOUNT, VCOUNT, UbicacionX, UbicacionY)
+begin
+if(
+(UbicacionX<=HCOUNT and UbicacionY<=VCOUNT and UbicacionX+100>HCOUNT and UbicacionY+100>VCOUNT and cambio='0')
+)then
+FONDO<='1';
+else
+FONDO<='0';
 end if;
 end process;
 UbicacionX<=POSX;

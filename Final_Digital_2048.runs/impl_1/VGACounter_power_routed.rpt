@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date             : Fri Oct  7 16:40:41 2022
+| Date             : Wed Oct 12 16:53:04 2022
 | Host             : PARALED03 running 64-bit Ubuntu 18.04.6 LTS
 | Command          : report_power -file VGACounter_power_routed.rpt -pb VGACounter_power_summary_routed.pb -rpx VGACounter_power_routed.rpx
 | Design           : VGACounter
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.068        |
+| Total On-Chip Power (W)  | 0.075        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.006        |
+| Dynamic (W)              | 0.013        |
 | Device Static (W)        | 0.062        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 99.7         |
-| Junction Temperature (C) | 25.3         |
+| Max Ambient (C)          | 99.6         |
+| Junction Temperature (C) | 25.4         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,17 +53,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |     1354 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      755 |     20800 |            3.63 |
-|   CARRY4       |    <0.001 |      235 |      8150 |            2.88 |
+| Slice Logic    |     0.003 |     3129 |       --- |             --- |
+|   LUT as Logic |     0.003 |     1907 |     20800 |            9.17 |
+|   CARRY4       |    <0.001 |      618 |      8150 |            7.58 |
 |   BUFG         |    <0.001 |        1 |        32 |            3.13 |
-|   Register     |    <0.001 |      149 |     41600 |            0.36 |
-|   Others       |     0.000 |       26 |       --- |             --- |
+|   Register     |    <0.001 |      165 |     41600 |            0.40 |
+|   Others       |     0.000 |       12 |       --- |             --- |
 |   F7/F8 Muxes  |     0.000 |       17 |     32600 |            0.05 |
-| Signals        |     0.001 |      540 |       --- |             --- |
-| I/O            |     0.002 |       40 |       106 |           37.74 |
+| Signals        |     0.004 |     1301 |       --- |             --- |
+| I/O            |     0.004 |       40 |       106 |           37.74 |
 | Static Power   |     0.062 |          |           |                 |
-| Total          |     0.068 |          |           |                 |
+| Total          |     0.075 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       0.950 |     0.010 |       0.004 |      0.006 |
+| Vccint    |       0.950 |     0.015 |       0.009 |      0.006 |
 | Vccaux    |       1.800 |     0.011 |       0.000 |      0.011 |
 | Vcco33    |       3.300 |     0.002 |       0.001 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -142,15 +142,8 @@ Table of Contents
 +------------------------------+-----------+
 | Name                         | Power (W) |
 +------------------------------+-----------+
-| VGACounter                   |     0.006 |
-|   Inst_vga_ctrl_640x480_60Hz |     0.001 |
-|   Num16                      |    <0.001 |
-|   Num2                       |    <0.001 |
-|   Num32                      |    <0.001 |
-|   Num4                       |    <0.001 |
-|   Num64                      |    <0.001 |
-|   Num8                       |    <0.001 |
-|   Principal                  |    <0.001 |
+| VGACounter                   |     0.013 |
+|   Inst_vga_ctrl_640x480_60Hz |     0.007 |
 |   Teclado                    |     0.002 |
 |     ps2_keyboard_0           |    <0.001 |
 |       debounce_ps2_clk       |    <0.001 |
