@@ -204,22 +204,22 @@ COMPONENT quinientosdoce
 	signal puntaje: integer:=0;
 	Signal sumado: std_logic:='0';
 	Signal paint1: std_logic:='0';
-	signal n1: integer:=0;
-	signal n2: integer:=0;
-	signal n3: integer:=0;
-	signal n4: integer:=0;
+	signal n1: integer:=4;
+	signal n2: integer:=4;
+	signal n3: integer:=4;
+	signal n4: integer:=2;
 	signal n5: integer:=0;
 	signal n6: integer:=0;
-	signal n7: integer:=0;
-	signal n8: integer:=0;
+	signal n7: integer:=2;
+	signal n8: integer:=2;
 	signal n9: integer:=0;
-	signal n10: integer:=0;
-	signal n11: integer:=0;
+	signal n10: integer:=2;
+	signal n11: integer:=2;
 	signal n12: integer:=2;
-	signal n13: integer:=0;
-	signal n14: integer:=0;
-	signal n15: integer:=0;
-	signal n16: integer:=0;
+	signal n13: integer:=2;
+	signal n14: integer:=2;
+	signal n15: integer:=2;
+	signal n16: integer:=2;
         signal PosXn2: integer:=1000;
         signal PosXn4: integer:=1000;
         signal PosXn8: integer:=1000;
@@ -439,7 +439,7 @@ begin
             posyn2<=40;
             e2<='1';    
             elsif(n3=4)then
-            posxn4<=100;
+            posxn4<=300;
             posyn4<=40;
             e4<='1';
             elsif(n3=8)then
@@ -1235,9 +1235,9 @@ begin
     elsif(BDW='1')then
     Presionado<=Down;
     elsif(BLF='1')then
-    Presionado<=Right;
-    elsif(BRG='1')then
     Presionado<=Left;
+    elsif(BRG='1')then
+    Presionado<=Right;
     else
     press<="0000";
     Presionado<=Ready;
@@ -1250,6 +1250,134 @@ begin
     When Up=>
     press<="0001";
     
+         if(clk_count=1 or clk_count=4 or clk_count=7)then
+                if(n1 = n5 and clk_count=1)then
+                n1<=n5+n1;
+                n5<=0;
+                elsif(n1=0)then
+                n1<=n5;
+                n5<=0;
+                else
+                n5<=n5;
+                end if;
+                
+                if(n2 = n6 and clk_count=1)then
+                n2<=n2+n6;
+                n6<=0;
+                elsif(n2=0)then
+                n2<=n6;
+                n6<=0;
+                else
+                n6<=n6;
+                end if;
+                
+                if(n3 = n7 and clk_count=1)then
+                n3<=n7+n3;
+                n7<=0;
+                elsif(n3=0)then
+                n3<=n7;
+                n7<=0;
+                else
+                n7<=n7;
+                end if;
+               
+                if(n4 = n8 and clk_count=1)then
+                n4<=n8+n4;
+                n8<=0;
+                elsif(n4=0)then
+                n4<=n8;
+                n8<=0;
+                else
+                n8<=n8;
+                end if;            
+                end if;
+                   
+                             if(clk_count=3 or clk_count=5 or clk_count=8)then
+                             if(n5 = n9 and clk_count=3)then
+                             n5<=n5+n9;
+                             n9<=0;
+                             elsif(n5=0)then
+                             n5<=n9;
+                             n9<=0;
+                             else
+                             n9<=n9;
+                             end if;
+                             
+                             if(n6 = n10 and clk_count=3)then
+                             n6<=n6+n10;
+                             n10<=0;
+                             elsif(n6=0)then
+                             n6<=n10;
+                             n10<=0;
+                             else
+                             n10<=n10;
+                             end if;
+                             
+                             if(n11 = n7 and clk_count=3)then
+                             n7<=n11+n7;
+                             n11<=0;
+                             elsif(n7=0)then
+                             n7<=n11;
+                             n11<=0;
+                             else
+                             n11<=n11;
+                             end if;
+                            
+                             if(n8 = n12 and clk_count=3)then
+                             n8<=n8+n12;
+                             n12<=0;
+                             elsif(n8=0)then
+                             n8<=n12;
+                             n12<=0;
+                             else
+                             n12<=n12;
+                             end if;            
+                             end if;
+                                             --n1  n2  n3  n4
+                                             --n5  n6  n7  n8
+                                             --n9  n10 n11 n12
+                                             --n13 n14 n15 n16
+                                                       if(clk_count=2 or clk_count=6  or clk_count=9)then
+                                                       if(n9 = n13 and clk_count=2)then
+                                                       n9<=n13+n9;
+                                                       n13<=0;
+                                                       elsif(n9=0)then
+                                                       n9<=n13;
+                                                       n13<=0;
+                                                       else
+                                                       n13<=n13;
+                                                       end if;
+                                                       
+                                                       if(n10 = n14 and clk_count=2)then
+                                                       n10<=n14+n10;
+                                                       n14<=0;
+                                                       elsif(n10=0)then
+                                                       n10<=n14;
+                                                       n14<=0;
+                                                       else
+                                                       n14<=n14;
+                                                       end if;
+                                                       
+                                                       if(n11 = n15 and clk_count=2)then
+                                                       n11<=n15+n11;
+                                                       n15<=0;
+                                                       elsif(n11=0)then
+                                                       n11<=n15;
+                                                       n15<=0;
+                                                       else
+                                                       n15<=n15;
+                                                       end if;
+                                                      
+                                                       if(n12 = n16 and clk_count=2)then
+                                                       n12<=n12+n16;
+                                                       n16<=0;
+                                                       elsif(n12=0)then
+                                                       n12<=n16;
+                                                       n16<=0;
+                                                       else
+                                                       n16<=n16;
+                                                       end if;            
+                                                       end if;
          if(clk_count=50000000)then
          clk_count<=0;
          Presionado<=Ready;
@@ -1261,17 +1389,135 @@ begin
     
     When Down=>
      press<="0010";
-
-             if(clk_count=1)then
-             if(n12 = n16)then
-             n16<=n16+n16;
+     
+             if(clk_count=1 or clk_count=4 or clk_count=7)then
+             if(n12 = n16 and clk_count=1)then
+             n16<=n12+n16;
+             n12<=0;
              elsif(n16=0)then
              n16<=n12;
              n12<=0;
              else
              n12<=n12;
              end if;
+             
+             if(n11 = n15 and clk_count=1)then
+             n15<=n11+n15;
+             n11<=0;
+             elsif(n15=0)then
+             n15<=n11;
+             n11<=0;
+             else
+             n11<=n11;
              end if;
+             
+             if(n10 = n14 and clk_count=1)then
+             n14<=n10+n14;
+             n10<=0;
+             elsif(n14=0)then
+             n14<=n10;
+             n10<=0;
+             else
+             n10<=n10;
+             end if;
+            
+             if(n9 = n13 and clk_count=1)then
+             n13<=n9+n13;
+             n9<=0;
+             elsif(n13=0)then
+             n13<=n9;
+             n9<=0;
+             else
+             n9<=n9;
+             end if;            
+             end if;
+                
+                          if(clk_count=3 or clk_count=5 or clk_count=8)then
+                          if(n8 = n12 and clk_count=3)then
+                          n12<=n8+n12;
+                          n8<=0;
+                          elsif(n12=0)then
+                          n12<=n8;
+                          n8<=0;
+                          else
+                          n8<=n8;
+                          end if;
+                          
+                          if(n11 = n7 and clk_count=3)then
+                          n11<=n7+n11;
+                          n7<=0;
+                          elsif(n11=0)then
+                          n11<=n7;
+                          n7<=0;
+                          else
+                          n7<=n7;
+                          end if;
+                          
+                          if(n10 = n6 and clk_count=3)then
+                          n10<=n10+n6;
+                          n6<=0;
+                          elsif(n10=0)then
+                          n10<=n6;
+                          n6<=0;
+                          else
+                          n6<=n6;
+                          end if;
+                         
+                          if(n9 = n5 and clk_count=3)then
+                          n9<=n9+n5;
+                          n5<=0;
+                          elsif(n9=0)then
+                          n9<=n5;
+                          n5<=0;
+                          else
+                          n5<=n5;
+                          end if;            
+                          end if;
+                                          --n1  n2  n3  n4
+                                          --n5  n6  n7  n8
+                                          --n9  n10 n11 n12
+                                          --n13 n14 n15 n16
+                                                    if(clk_count=2 or clk_count=6  or clk_count=9)then
+                                                    if(n8 = n4 and clk_count=2)then
+                                                    n8<=n8+n4;
+                                                    n4<=0;
+                                                    elsif(n8=0)then
+                                                    n8<=n4;
+                                                    n4<=0;
+                                                    else
+                                                    n4<=n4;
+                                                    end if;
+                                                    
+                                                    if(n7 = n3 and clk_count=2)then
+                                                    n7<=n7+n3;
+                                                    n3<=0;
+                                                    elsif(n7=0)then
+                                                    n7<=n3;
+                                                    n3<=0;
+                                                    else
+                                                    n3<=n3;
+                                                    end if;
+                                                    
+                                                    if(n2 = n6 and clk_count=2)then
+                                                    n6<=n2+n6;
+                                                    n2<=0;
+                                                    elsif(n6=0)then
+                                                    n6<=n2;
+                                                    n2<=0;
+                                                    else
+                                                    n2<=n2;
+                                                    end if;
+                                                   
+                                                    if(n1 = n5 and clk_count=2)then
+                                                    n5<=n1+n5;
+                                                    n1<=0;
+                                                    elsif(n5=0)then
+                                                    n5<=n1;
+                                                    n1<=0;
+                                                    else
+                                                    n1<=n1;
+                                                    end if;            
+                                                    end if;
              if(clk_count=50000000)then
              clk_count<=0;
              Presionado<=Ready;
@@ -1282,7 +1528,134 @@ begin
 
     When Right=>
     press<="0100";
-
+             if(clk_count=1 or clk_count=4 or clk_count=7)then
+                    if(n4 = n3 and clk_count=1)then
+                    n4<=n3+n4;
+                    n3<=0;
+                    elsif(n4=0)then
+                    n4<=n3;
+                    n3<=0;
+                    else
+                    n3<=n3;
+                    end if;
+                    
+                    if(n8 = n7 and clk_count=1)then
+                    n8<=n8+n7;
+                    n7<=0;
+                    elsif(n8=0)then
+                    n8<=n7;
+                    n7<=0;
+                    else
+                    n7<=n7;
+                    end if;
+                    
+                    if(n11 = n12 and clk_count=1)then
+                    n12<=n12+n11;
+                    n11<=0;
+                    elsif(n12=0)then
+                    n12<=n11;
+                    n11<=0;
+                    else
+                    n12<=n12;
+                    end if;
+                   
+                    if(n16 = n15 and clk_count=1)then
+                    n16<=n15+n16;
+                    n15<=0;
+                    elsif(n16=0)then
+                    n16<=n15;
+                    n15<=0;
+                    else
+                    n15<=n15;
+                    end if;            
+                    end if;
+                       
+                                 if(clk_count=3 or clk_count=5 or clk_count=8)then
+                                 if(n2 = n3 and clk_count=3)then
+                                 n3<=n2+n3;
+                                 n2<=0;
+                                 elsif(n3=0)then
+                                 n3<=n2;
+                                 n2<=0;
+                                 else
+                                 n2<=n2;
+                                 end if;
+                                 
+                                 if(n6 = n7 and clk_count=3)then
+                                 n7<=n6+n7;
+                                 n6<=0;
+                                 elsif(n7=0)then
+                                 n7<=n6;
+                                 n6<=0;
+                                 else
+                                 n6<=n6;
+                                 end if;
+                                 
+                                 if(n11 = n10 and clk_count=3)then
+                                 n11<=n11+n10;
+                                 n10<=0;
+                                 elsif(n11=0)then
+                                 n11<=n10;
+                                 n10<=0;
+                                 else
+                                 n10<=n10;
+                                 end if;
+                                
+                                 if(n14 = n15 and clk_count=3)then
+                                 n15<=n14+n15;
+                                 n14<=0;
+                                 elsif(n15=0)then
+                                 n15<=n14;
+                                 n14<=0;
+                                 else
+                                 n14<=n14;
+                                 end if;            
+                                 end if;
+                                                 --n1  n2  n3  n4
+                                                 --n5  n6  n7  n8
+                                                 --n9  n10 n11 n12
+                                                 --n13 n14 n15 n16
+                                                           if(clk_count=2 or clk_count=6  or clk_count=9)then
+                                                           if(n2 = n1 and clk_count=2)then
+                                                           n2<=n2+n1;
+                                                           n1<=0;
+                                                           elsif(n2=0)then
+                                                           n2<=n1;
+                                                           n1<=0;
+                                                           else
+                                                           n1<=n1;
+                                                           end if;
+                                                           
+                                                           if(n5 = n6 and clk_count=2)then
+                                                           n6<=n5+n6;
+                                                           n5<=0;
+                                                           elsif(n6=0)then
+                                                           n6<=n5;
+                                                           n5<=0;
+                                                           else
+                                                           n5<=n5;
+                                                           end if;
+                                                           
+                                                           if(n9 = n10 and clk_count=2)then
+                                                           n10<=n9+n10;
+                                                           n15<=0;
+                                                           elsif(n10=0)then
+                                                           n10<=n9;
+                                                           n9<=0;
+                                                           else
+                                                           n9<=n9;
+                                                           end if;
+                                                          
+                                                           if(n13 = n14 and clk_count=2)then
+                                                           n14<=n13+n14;
+                                                           n13<=0;
+                                                           elsif(n14=0)then
+                                                           n14<=n13;
+                                                           n13<=0;
+                                                           else
+                                                           n13<=n13;
+                                                           end if;            
+                                                           end if;
              
              if(clk_count=50000000)then
              clk_count<=0;
@@ -1304,7 +1677,135 @@ begin
 --    end if;
     When Left=>
     press<="1000";
-
+                if(clk_count=1 or clk_count=4 or clk_count=7)then
+                        if(n1 = n2 and clk_count=1)then
+                        n1<=n1+n2;
+                        n2<=0;
+                        elsif(n1=0)then
+                        n1<=n2;
+                        n2<=0;
+                        else
+                        n2<=n2;
+                        end if;
+                        
+                        if(n5 = n6 and clk_count=1)then
+                        n5<=n6+n5;
+                        n6<=0;
+                        elsif(n5=0)then
+                        n5<=n6;
+                        n6<=0;
+                        else
+                        n6<=n6;
+                        end if;
+                        
+                        if(n9 = n10 and clk_count=1)then
+                        n9<=n9+n10;
+                        n10<=0;
+                        elsif(n9=0)then
+                        n9<=n10;
+                        n10<=0;
+                        else
+                        n10<=n10;
+                        end if;
+                       
+                        if(n13 = n14 and clk_count=1)then
+                        n13<=n13+n14;
+                        n14<=0;
+                        elsif(n13=0)then
+                        n13<=n14;
+                        n14<=0;
+                        else
+                        n14<=n14;
+                        end if;            
+                        end if;
+                           
+                                     if(clk_count=3 or clk_count=5 or clk_count=8)then
+                                     if(n2 = n3 and clk_count=3)then
+                                     n2<=n2+n3;
+                                     n3<=0;
+                                     elsif(n2=0)then
+                                     n2<=n3;
+                                     n3<=0;
+                                     else
+                                     n3<=n3;
+                                     end if;
+                                     
+                                     if(n6 = n7 and clk_count=3)then
+                                     n6<=n6+n7;
+                                     n7<=0;
+                                     elsif(n6=0)then
+                                     n6<=n7;
+                                     n7<=0;
+                                     else
+                                     n7<=n7;
+                                     end if;
+                                     
+                                     if(n10 = n11 and clk_count=3)then
+                                     n10<=n11+n10;
+                                     n11<=0;
+                                     elsif(n10=0)then
+                                     n10<=n11;
+                                     n11<=0;
+                                     else
+                                     n11<=n11;
+                                     end if;
+                                    
+                                     if(n14 = n15 and clk_count=3)then
+                                     n14<=n14+n15;
+                                     n15<=0;
+                                     elsif(n14=0)then
+                                     n14<=n15;
+                                     n15<=0;
+                                     else
+                                     n15<=n15;
+                                     end if;            
+                                     end if;
+                                                     --n1  n2  n3  n4
+                                                     --n5  n6  n7  n8
+                                                     --n9  n10 n11 n12
+                                                     --n13 n14 n15 n16
+                                                               if(clk_count=2 or clk_count=6  or clk_count=9)then
+                                                               if(n3 = n4 and clk_count=2)then
+                                                               n3<=n4+n3;
+                                                               n4<=0;
+                                                               elsif(n3=0)then
+                                                               n3<=n4;
+                                                               n4<=0;
+                                                               else
+                                                               n4<=n4;
+                                                               end if;
+                                                               
+                                                               if(n8 = n7 and clk_count=2)then
+                                                               n7<=n7+n8;
+                                                               n5<=0;
+                                                               elsif(n7=0)then
+                                                               n7<=n8;
+                                                               n8<=0;
+                                                               else
+                                                               n7<=n7;
+                                                               end if;
+                                                               
+                                                               if(n11 = n12 and clk_count=2)then
+                                                               n11<=n11+n12;
+                                                               n12<=0;
+                                                               elsif(n12=0)then
+                                                               n12<=n11;
+                                                               n11<=0;
+                                                               else
+                                                               n11<=n11;
+                                                               end if;
+                                                              
+                                                               if(n15 = n16 and clk_count=2)then
+                                                               n15<=n15+n16;
+                                                               n16<=0;
+                                                               elsif(n15=0)then
+                                                               n14<=n16;
+                                                               n16<=0;
+                                                               else
+                                                               n16<=n16;
+                                                               end if;            
+                                                               end if;
+                 
              
              if(clk_count=50000000)then
              clk_count<=0;

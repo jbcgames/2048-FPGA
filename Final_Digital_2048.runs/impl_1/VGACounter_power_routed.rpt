@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date             : Fri Oct 21 17:55:40 2022
+| Date             : Wed Oct 26 16:11:43 2022
 | Host             : PARALED03 running 64-bit Ubuntu 18.04.6 LTS
 | Command          : report_power -file VGACounter_power_routed.rpt -pb VGACounter_power_summary_routed.pb -rpx VGACounter_power_routed.rpx
 | Design           : VGACounter
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.076        |
+| Total On-Chip Power (W)  | 0.071        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.015        |
+| Dynamic (W)              | 0.009        |
 | Device Static (W)        | 0.062        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 99.6         |
@@ -53,16 +53,16 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.007 |     4478 |       --- |             --- |
-|   LUT as Logic |     0.006 |     2526 |     20800 |           12.14 |
-|   CARRY4       |    <0.001 |     1022 |      8150 |           12.54 |
+| Slice Logic    |     0.004 |    10014 |       --- |             --- |
+|   LUT as Logic |     0.004 |     6748 |     20800 |           32.44 |
+|   CARRY4       |    <0.001 |     1346 |      8150 |           16.52 |
 |   BUFG         |    <0.001 |        2 |        32 |            6.25 |
-|   Register     |    <0.001 |      212 |     41600 |            0.51 |
-|   Others       |     0.000 |        7 |       --- |             --- |
-| Signals        |     0.007 |     2433 |       --- |             --- |
+|   Register     |    <0.001 |      799 |     41600 |            1.92 |
+|   Others       |     0.000 |        4 |       --- |             --- |
+| Signals        |     0.005 |     7519 |       --- |             --- |
 | I/O            |    <0.001 |       35 |       106 |           33.02 |
 | Static Power   |     0.062 |          |           |                 |
-| Total          |     0.076 |          |           |                 |
+| Total          |     0.071 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       0.950 |     0.021 |       0.015 |      0.006 |
+| Vccint    |       0.950 |     0.016 |       0.010 |      0.006 |
 | Vccaux    |       1.800 |     0.011 |       0.000 |      0.011 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -141,8 +141,8 @@ Table of Contents
 +------------------------------+-----------+
 | Name                         | Power (W) |
 +------------------------------+-----------+
-| VGACounter                   |     0.015 |
-|   Inst_vga_ctrl_640x480_60Hz |     0.011 |
+| VGACounter                   |     0.009 |
+|   Inst_vga_ctrl_640x480_60Hz |     0.007 |
 +------------------------------+-----------+
 
 
