@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date             : Thu Nov 10 16:51:10 2022
-| Host             : PARALED03 running 64-bit Ubuntu 18.04.6 LTS
+| Date             : Fri Nov 11 18:04:21 2022
+| Host             : PARALED04 running 64-bit Ubuntu 18.04.6 LTS
 | Command          : report_power -file VGACounter_power_routed.rpt -pb VGACounter_power_summary_routed.pb -rpx VGACounter_power_routed.rpx
 | Design           : VGACounter
 | Device           : xc7a35ticpg236-1L
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.083        |
+| Total On-Chip Power (W)  | 0.094        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.021        |
+| Dynamic (W)              | 0.032        |
 | Device Static (W)        | 0.062        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 99.6         |
-| Junction Temperature (C) | 25.4         |
+| Max Ambient (C)          | 99.5         |
+| Junction Temperature (C) | 25.5         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,18 +52,18 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.002 |        3 |       --- |             --- |
-| Slice Logic    |     0.009 |    16258 |       --- |             --- |
-|   LUT as Logic |     0.008 |    10103 |     20800 |           48.57 |
-|   CARRY4       |    <0.001 |     2272 |      8150 |           27.88 |
+| Clocks         |     0.003 |        3 |       --- |             --- |
+| Slice Logic    |     0.015 |    22241 |       --- |             --- |
+|   LUT as Logic |     0.013 |    14014 |     20800 |           67.38 |
+|   CARRY4       |    <0.001 |     3225 |      8150 |           39.57 |
+|   Register     |    <0.001 |     1819 |     41600 |            4.37 |
 |   BUFG         |    <0.001 |        2 |        32 |            6.25 |
-|   Register     |    <0.001 |     1725 |     41600 |            4.15 |
-|   F7/F8 Muxes  |    <0.001 |        2 |     32600 |           <0.01 |
-|   Others       |     0.000 |       26 |       --- |             --- |
-| Signals        |     0.009 |    10000 |       --- |             --- |
+|   F7/F8 Muxes  |    <0.001 |       19 |     32600 |            0.06 |
+|   Others       |     0.000 |       25 |       --- |             --- |
+| Signals        |     0.014 |    14033 |       --- |             --- |
 | I/O            |    <0.001 |       47 |       106 |           44.34 |
 | Static Power   |     0.062 |          |           |                 |
-| Total          |     0.083 |          |           |                 |
+| Total          |     0.094 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       0.950 |     0.027 |       0.021 |      0.006 |
+| Vccint    |       0.950 |     0.039 |       0.033 |      0.006 |
 | Vccaux    |       1.800 |     0.011 |       0.000 |      0.011 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -142,18 +142,16 @@ Table of Contents
 +------------------------------+-----------+
 | Name                         | Power (W) |
 +------------------------------+-----------+
-| VGACounter                   |     0.021 |
-|   Inst_MouseCtl              |     0.003 |
-|     Inst_Ps2Interface        |    <0.001 |
-|   Inst_vga_ctrl_640x480_60Hz |     0.013 |
-|   Num16                      |    <0.001 |
-|   Num32                      |    <0.001 |
-|   Num512                     |    <0.001 |
+| VGACounter                   |     0.032 |
+|   Inst_MouseCtl              |     0.004 |
+|     Inst_Ps2Interface        |     0.001 |
+|   Inst_vga_ctrl_640x480_60Hz |     0.018 |
+|   Num1024                    |    <0.001 |
+|   Num64                      |    <0.001 |
 |   Numa2                      |    <0.001 |
-|   Numa4                      |    <0.001 |
 |   P2Clk_IOBUF_inst           |     0.000 |
 |   P2Data_IOBUF_inst          |     0.000 |
-|   Teclado                    |     0.002 |
+|   Teclado                    |     0.001 |
 |     ps2_keyboard_0           |    <0.001 |
 |       debounce_ps2_clk       |    <0.001 |
 |       debounce_ps2_data      |    <0.001 |

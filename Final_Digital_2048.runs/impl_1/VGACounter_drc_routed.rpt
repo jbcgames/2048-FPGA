@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Thu Nov 10 16:51:04 2022
-| Host         : PARALED03 running 64-bit Ubuntu 18.04.6 LTS
+| Date         : Fri Nov 11 18:04:14 2022
+| Host         : PARALED04 running 64-bit Ubuntu 18.04.6 LTS
 | Command      : report_drc -file VGACounter_drc_routed.rpt -pb VGACounter_drc_routed.pb -rpx VGACounter_drc_routed.rpx
 | Design       : VGACounter
 | Device       : xc7a35ticpg236-1L
@@ -24,11 +24,12 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 1
+             Violations found: 6
 +----------+----------+-----------------------------------------------------+------------+
 | Rule     | Severity | Description                                         | Violations |
 +----------+----------+-----------------------------------------------------+------------+
 | CFGBVS-1 | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
+| PDRC-153 | Warning  | Gated clock check                                   | 5          |
 +----------+----------+-----------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -44,6 +45,31 @@ Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_des
  #where value2 is the voltage provided to configuration bank 0
 
 Refer to the device configuration user guide for more information.
+Related violations: <none>
+
+PDRC-153#1 Warning
+Gated clock check  
+Net Inst_MouseCtl/E[0] is a gated clock net sourced by a combinational pin Inst_MouseCtl/FinalTouch_reg[2]_i_2/O, cell Inst_MouseCtl/FinalTouch_reg[2]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#2 Warning
+Gated clock check  
+Net Inst_MouseCtl/FinalTouch1214_out is a gated clock net sourced by a combinational pin Inst_MouseCtl/Mdw_reg_i_1/O, cell Inst_MouseCtl/Mdw_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#3 Warning
+Gated clock check  
+Net Inst_MouseCtl/Presionado_reg[2]_rep__1_1 is a gated clock net sourced by a combinational pin Inst_MouseCtl/Mlf_reg_i_1/O, cell Inst_MouseCtl/Mlf_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#4 Warning
+Gated clock check  
+Net Inst_MouseCtl/Presionado_reg[2]_rep__1_2 is a gated clock net sourced by a combinational pin Inst_MouseCtl/Mup_reg_i_1/O, cell Inst_MouseCtl/Mup_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#5 Warning
+Gated clock check  
+Net Inst_MouseCtl/Presionado_reg[2]_rep__1_3 is a gated clock net sourced by a combinational pin Inst_MouseCtl/Mrg_reg_i_1/O, cell Inst_MouseCtl/Mrg_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 

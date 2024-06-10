@@ -46,6 +46,38 @@ entity VGACounter is
 end VGACounter;
 
 architecture Behavioral of VGACounter is
+Component UpArrow is
+Port ( 
+           POSX: in integer;
+           POSY: in integer;
+           HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
+           VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0); 
+           PAINT : out  STD_LOGIC);
+end component;
+Component DownArrow is
+Port ( 
+           POSX: in integer;
+           POSY: in integer;
+           HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
+           VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0); 
+           PAINT : out  STD_LOGIC);
+end component;
+Component LeftArrow is
+Port ( 
+           POSX: in integer;
+           POSY: in integer;
+           HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
+           VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0); 
+           PAINT : out  STD_LOGIC);
+end component;
+Component RightArrow is
+Port ( 
+           POSX: in integer;
+           POSY: in integer;
+           HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
+           VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0); 
+           PAINT : out  STD_LOGIC);
+end component;
 COMPONENT MouseCtl
   GENERIC
   (
@@ -94,17 +126,7 @@ COMPONENT MouseCtl
                BCD1 : out  integer;
                BCD0 : out  integer);
                    end component;
-component Mouse_Movement 
-                     Port (
-                        posx : in integer;
-                          posy : in integer;
-                          clk  : in std_logic;
-                          click: in std_logic;
-                          MouseUp: out std_logic;
-                          MouseDown: out std_logic;
-                          MouseLeft: out std_logic;
-                          MouseRight: out std_logic);
-                   end component;                  
+               
 COMPONENT display34segm
                        
                           PORT (  
@@ -387,6 +409,10 @@ COMPONENT quinientosdoce
 	Signal clk_count: integer:=0;
 	Signal nocho: std_logic:='0';
 	Signal ndiez: std_logic:='0';
+	Signal Upaw: std_logic:='0';
+	Signal Dwaw: std_logic:='0'; 
+	Signal Lfaw: std_logic:='0'; 
+	Signal Rgaw: std_logic:='0';  
 	Signal ntreinta: std_logic:='0';
 	Signal nsesenta: std_logic:='0';
 	Signal ncien: std_logic:='0';
@@ -416,6 +442,7 @@ COMPONENT quinientosdoce
 	Signal YPlay:integer:=0;
 	Signal paintnumero: std_logic:='0';
 	signal touch:std_logic:='0';
+	Signal FinalTouch:integer;
 	signal Mup:std_logic:='0';
 	signal Mdw:std_logic:='0';
 	signal Mlf:std_logic:='0';
@@ -426,10 +453,43 @@ COMPONENT quinientosdoce
 	--n13 n14 n15 n16
 begin
 
-        IndicadorSalida<=indicador;
+        IndicadorSalida<=touch;
         directo<=clk;
         led<=TecladoSalida;
- 
+    process
+    begin
+    if(to_integer(unsigned(MOUSE_X_POS))<(4*to_integer(unsigned(MOUSE_Y_POS)))/3 and to_integer(unsigned(MOUSE_X_POS))>((-4*to_integer(unsigned(MOUSE_Y_POS)))/3)+640)then
+    FinalTouch<=2;
+    if(touch='1')then
+    Mdw<='1';
+    else
+    Mdw<='0';
+    end if;
+    elsif(to_integer(unsigned(MOUSE_X_POS))>(4*to_integer(unsigned(MOUSE_Y_POS)))/3 and to_integer(unsigned(MOUSE_X_POS))<((-4*to_integer(unsigned(MOUSE_Y_POS)))/3)+640)then
+    FinalTouch<=1;
+    if(touch='1')then
+        Mup<='1';
+        else
+        Mup<='0';
+        end if;
+    elsif(to_integer(unsigned(MOUSE_Y_POS))<((-3*to_integer(unsigned(MOUSE_X_POS)))/4)+480 and to_integer(unsigned(MOUSE_Y_POS))>((3*to_integer(unsigned(MOUSE_X_POS)))/4))then
+    FinalTouch<=3;
+    if(touch='1')then
+        Mlf<='1';
+        else
+        Mlf<='0';
+        end if;
+    elsif(to_integer(unsigned(MOUSE_Y_POS))>((-3*to_integer(unsigned(MOUSE_X_POS)))/4)+480 and to_integer(unsigned(MOUSE_Y_POS))<((3*to_integer(unsigned(MOUSE_X_POS)))/4))then
+    FinalTouch<=4;
+    if(touch='1')then
+        Mrg<='1';
+        else
+        Mrg<='0';
+        end if;
+    else
+    FinalTouch<=Finaltouch;
+    end if;
+    end process;
     process(clk_interno)
     begin
     if(clk_interno'event and clk_interno='1')then
@@ -1375,11 +1435,11 @@ begin
              n16p<=n16;
     if(random_number=0 or Random_number=17)then
     Presionado<=Aleatory;
-    elsif(BUP='1' or (TecladoSalida="1110111" and indicador='1'and selector='1'))then
+    elsif(BUP='1' or (TecladoSalida="1110111" and indicador='1'and selector='1')or Mup='1')then
     Presionado<=Up;
-    elsif(BDW='1' or (TecladoSalida="1110011" and indicador='1'and selector='1'))then
+    elsif(BDW='1' or (TecladoSalida="1110011" and indicador='1'and selector='1')or Mdw='1')then
     Presionado<=Down;
-    elsif(BLF='1' or (TecladoSalida="1100001" and indicador='1'and selector='1'))then
+    elsif(BLF='1' or (TecladoSalida="1100001" and indicador='1'and selector='1')or Mlf='1')then
     Presionado<=Left;
     elsif(TecladoSalida="0011011"and indicador='1'and selector='1')then
     n1<=2;
@@ -1399,10 +1459,10 @@ begin
             n15<=16;
             n16<=32;
             apress<="1111";
-    elsif(BRG='1' or (TecladoSalida="1100100" and indicador='1'))then
+    elsif(BRG='1' or (TecladoSalida="1100100" and indicador='1')or Mrg='1')then
     Presionado<=Right;
     elsif(apress="1111")then
-        if(PBTON='1' or (TecladoSalida="0001101" and indicador='1' and selector='1'))then
+        if(PBTON='1' or (TecladoSalida="0001101" and indicador='1' and selector='1') or touch='1')then
         n1<=0;
         n2<=0;
         n3<=0;
@@ -2080,7 +2140,7 @@ begin
     if(clk_count=17 and random_number=0)then
     clk_count<=1;
     Presionado<=Aleatory;
-    elsif(PBTON='1' or (TecladoSalida="0001101" and indicador='1'and selector='1'))then
+    elsif(PBTON='1' or (TecladoSalida="0001101" and indicador='1'and selector='1')or touch='1')then
     random_number<=clk_count;
     if(random_number=1)then
     n1<=2;
@@ -2224,16 +2284,7 @@ begin
     end case;
     end if;
     end process;
-    Mouse :Mouse_Movement
-    Port Map(
-    posx=>to_integer(unsigned(MOUSE_X_POS)),
-    posy=>to_integer(unsigned(MOUSE_Y_POS)),
-    clk=>clk_interno,
-         click=>touch,
-         MouseUp=>Mup,
-         MouseDown=>Mdw,
-         MouseLeft=>Mlf,
-         MouseRight=>Mrg);
+
     Inst_MouseCtl: MouseCtl
            GENERIC MAP
         (
@@ -2421,20 +2472,49 @@ Num3: Numero
         ascii_new=>Indicador);
     Conversor : Bin2BCD_0a999
             Port map ( 
-            BIN=>to_integer(unsigned(MOUSE_X_POS)),
+            BIN=>puntaje,
             BCD5=>numero6,
             BCD4=>numero5,
             BCD3=>numero4,
             BCD2=>numero3,
             BCD1=>numero2,           
             BCD0=>numero1);
+
     Principal: Panel
         port map(
         POSX=>0,
         POSY=>0,
         HCOUNT=>hcount,
         VCOUNT=>vcount,
-        PAINT=>paint1);  
+        PAINT=>paint1);
+Upawr: UpArrow
+                        port map(
+                        POSX=>to_integer(unsigned(MOUSE_X_POS)),
+                        POSY=>to_integer(unsigned(MOUSE_Y_POS)),
+                        HCOUNT=>hcount,
+                        VCOUNT=>vcount,
+                        PAINT=>Upaw);
+Dwawr: DownArrow
+                                                port map(
+                                                POSX=>to_integer(unsigned(MOUSE_X_POS)),
+                                                POSY=>to_integer(unsigned(MOUSE_Y_POS)),
+                                                HCOUNT=>hcount,
+                                                VCOUNT=>vcount,
+                                                PAINT=>Dwaw);               
+Ltawr: LeftArrow
+                                                                        port map(
+                                                                        POSX=>to_integer(unsigned(MOUSE_X_POS)),
+                                                                        POSY=>to_integer(unsigned(MOUSE_Y_POS)),
+                                                                        HCOUNT=>hcount,
+                                                                        VCOUNT=>vcount,
+                                                                        PAINT=>Lfaw); 
+Rgawr: RightArrow
+                                                                                                port map(
+                                                                                                POSX=>to_integer(unsigned(MOUSE_X_POS)),
+                                                                                                POSY=>to_integer(unsigned(MOUSE_Y_POS)),
+                                                                                                HCOUNT=>hcount,
+                                                                                                VCOUNT=>vcount,
+                                                                                                PAINT=>Rgaw); 
     Numa2: dos
                 port map(
                 POSX=>posxn2,
@@ -2527,7 +2607,7 @@ Num3: Numero
 	begin
 	if((random_number=0 or Random_number=17 or apress="1111") and (paint2='1'or paint3='1'or paint4='1'or paint5='1'or paint6='1'or paint7='1'or paint8='1'or paint9='1'or paint10='1'or paint11='1'))then
 	rgb_aux1 <=  "111100000000";
-	elsif((paint1='1'or paint101='1'or paint102='1'or paint103='1'or paint104='1'or paint105='1'or paint106='1')and not(random_number=0 or Random_number=17 or apress="1111"))then
+	elsif((paint1='1'or (upaw='1'and FinalTouch=1 and Selector ='0')or (lfaw='1'and FinalTouch=3 and Selector ='0')or (dwaw='1'and FinalTouch=2 and Selector ='0')or (rgaw='1'and FinalTouch=4 and Selector ='0') or paint101='1'or paint102='1'or paint103='1'or paint104='1'or paint105='1'or paint106='1')and not(random_number=0 or Random_number=17 or apress="1111"))then
     rgb_aux1 <=  "111111101110";
 	elsif(ndos='1' and e2='1'and not(random_number=0 or Random_number=17 or apress="1111"))then
 	rgb_aux1 <=  W+20;

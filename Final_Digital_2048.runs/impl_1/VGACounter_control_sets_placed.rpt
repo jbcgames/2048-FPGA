@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Thu Nov 10 16:50:41 2022
-| Host         : PARALED03 running 64-bit Ubuntu 18.04.6 LTS
+| Date         : Fri Nov 11 18:03:47 2022
+| Host         : PARALED04 running 64-bit Ubuntu 18.04.6 LTS
 | Command      : report_control_sets -verbose -file VGACounter_control_sets_placed.rpt
 | Design       : VGACounter
 | Device       : xc7a35ti
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    79 |
-| Unused register locations in slices containing registers |   110 |
+| Number of unique control sets                            |    86 |
+| Unused register locations in slices containing registers |   170 |
 +----------------------------------------------------------+-------+
 
 
@@ -34,11 +34,12 @@ Table of Contents
 +--------+--------------+
 | Fanout | Control Sets |
 +--------+--------------+
-|      2 |            6 |
-|      4 |            1 |
-|      8 |           18 |
-|     14 |            4 |
-|    16+ |           50 |
+|      2 |           10 |
+|      6 |            1 |
+|      8 |           14 |
+|     10 |            1 |
+|     14 |            3 |
+|    16+ |           57 |
 +--------+--------------+
 
 
@@ -48,12 +49,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             242 |           66 |
-| No           | No                    | Yes                    |             116 |           19 |
-| No           | Yes                   | No                     |             222 |           47 |
-| Yes          | No                    | No                     |            2378 |          570 |
-| Yes          | No                    | Yes                    |              20 |            6 |
-| Yes          | Yes                   | No                     |             472 |           81 |
+| No           | No                    | No                     |             324 |           94 |
+| No           | No                    | Yes                    |             118 |           24 |
+| No           | Yes                   | No                     |             260 |           56 |
+| Yes          | No                    | No                     |            1898 |          427 |
+| Yes          | No                    | Yes                    |              42 |            7 |
+| Yes          | Yes                   | No                     |             996 |          270 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -63,85 +64,92 @@ Table of Contents
 +----------------------------------------------+--------------------------------------------------------------------+--------------------------------------------------------------+------------------+----------------+
 |                 Clock Signal                 |                            Enable Signal                           |                       Set/Reset Signal                       | Slice Load Count | Bel Load Count |
 +----------------------------------------------+--------------------------------------------------------------------+--------------------------------------------------------------+------------------+----------------+
+|  Inst_MouseCtl/Presionado_reg[2]_rep__1_3    |                                                                    |                                                              |                1 |              2 |
 |  clk_BUFG                                    | press[3]_i_1_n_0                                                   |                                                              |                1 |              2 |
-|  clk_BUFG                                    | press[0]_i_1_n_0                                                   |                                                              |                1 |              2 |
+|  clk_BUFG                                    | press[2]_i_1_n_0                                                   |                                                              |                1 |              2 |
 |  clk_BUFG                                    | press[1]_i_1_n_0                                                   |                                                              |                1 |              2 |
+|  clk_BUFG                                    | press[0]_i_1_n_0                                                   |                                                              |                1 |              2 |
 |  HS_reg_i_2_n_0                              |                                                                    | Inst_vga_ctrl_640x480_60Hz/VS0                               |                1 |              2 |
 |  HS_reg_i_2_n_0                              |                                                                    | Inst_vga_ctrl_640x480_60Hz/HS0                               |                1 |              2 |
-|  clk_BUFG                                    | press[2]_i_1_n_0                                                   |                                                              |                1 |              2 |
-|  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/x_overflow_reg                     | Selector_IBUF                                                |                2 |              4 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn64_reg[7]                          | Inst_vga_ctrl_640x480_60Hz/PosXn64_reg[7]_0                  |                3 |              8 |
-|  CLK_IBUF_BUFG                               |                                                                    | Inst_MouseCtl/Inst_Ps2Interface/clk_inter0                   |                1 |              8 |
+|  Inst_MouseCtl/FinalTouch1214_out            |                                                                    |                                                              |                1 |              2 |
+|  Inst_MouseCtl/Presionado_reg[2]_rep__1_1    |                                                                    |                                                              |                1 |              2 |
+|  Inst_MouseCtl/Presionado_reg[2]_rep__1_2    |                                                                    |                                                              |                1 |              2 |
+|  Inst_MouseCtl/E[0]                          |                                                                    |                                                              |                2 |              6 |
+|  clk_BUFG                                    |                                                                    | Inst_vga_ctrl_640x480_60Hz/PosXn1024_reg[7]                  |                2 |              8 |
+|  clk_BUFG                                    |                                                                    | Inst_vga_ctrl_640x480_60Hz/PosXn64_reg[2][0]                 |                1 |              8 |
+|  clk_BUFG                                    |                                                                    | Inst_vga_ctrl_640x480_60Hz/PosXn2_reg[7]                     |                1 |              8 |
+|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn128_reg[7]_0                       | Inst_vga_ctrl_640x480_60Hz/PosXn128_reg[7]                   |                1 |              8 |
+|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn16_reg[7]_0                        | Inst_vga_ctrl_640x480_60Hz/PosXn16_reg[7]                    |                1 |              8 |
+|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn2048_reg[7]                        | Inst_vga_ctrl_640x480_60Hz/PosXn2048_reg[7]_0                |                2 |              8 |
+|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn256_reg[7]_0                       | Inst_vga_ctrl_640x480_60Hz/PosXn256_reg[7]                   |                1 |              8 |
+|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn4_reg[7]_1                         | Inst_vga_ctrl_640x480_60Hz/PosXn4_reg[7]_0                   |                1 |              8 |
+|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn512_reg[7]                         | Inst_vga_ctrl_640x480_60Hz/PosXn512_reg[2][0]                |                1 |              8 |
+|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn8_reg[7]_0                         | Inst_vga_ctrl_640x480_60Hz/PosXn8_reg[7]                     |                1 |              8 |
+|  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/shift_frame                        | Inst_MouseCtl/Inst_Ps2Interface/reset_bit_count              |                2 |              8 |
+|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn32_reg[7]_0                        | Inst_vga_ctrl_640x480_60Hz/PosXn32_reg[7]                    |                3 |              8 |
 |  CLK_IBUF_BUFG                               |                                                                    | Inst_MouseCtl/Inst_Ps2Interface/data_inter0                  |                1 |              8 |
-|  clk_BUFG                                    |                                                                    | Inst_vga_ctrl_640x480_60Hz/PosXn512_reg[7]                   |                2 |              8 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/E[0]                                    | Inst_vga_ctrl_640x480_60Hz/PosYn2_reg[4]                     |                3 |              8 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/E[0]                                    |                                                              |                3 |              8 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn512_reg[4]                         | Inst_vga_ctrl_640x480_60Hz/PosYn512_reg[4]_0                 |                1 |              8 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn512_reg[4]                         |                                                              |                2 |              8 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn8_reg[2]                           | Inst_vga_ctrl_640x480_60Hz/PosXn8_reg[7]                     |                1 |              8 |
-|  clk_BUFG                                    |                                                                    | Inst_vga_ctrl_640x480_60Hz/PosXn2_reg[2][0]                  |                2 |              8 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn4_reg[3]_0                         | Inst_vga_ctrl_640x480_60Hz/PosXn4_reg[7]_0                   |                1 |              8 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn1024_reg[7]                        | Inst_vga_ctrl_640x480_60Hz/PosXn1024_reg[7]_0                |                1 |              8 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn128_reg[5]                         | Inst_vga_ctrl_640x480_60Hz/PosXn128_reg[7]                   |                1 |              8 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn16_reg[2]                          | Inst_vga_ctrl_640x480_60Hz/PosXn16_reg[7]                    |                2 |              8 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn2048_reg[7]                        | Inst_vga_ctrl_640x480_60Hz/PosXn2048_reg[7]_0                |                1 |              8 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn256_reg[7]                         | Inst_vga_ctrl_640x480_60Hz/PosXn256_reg[2][0]                |                1 |              8 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosXn32_reg[3]                          | Inst_vga_ctrl_640x480_60Hz/PosXn32_reg[2][0]                 |                1 |              8 |
-|  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/shift_frame                        | Inst_MouseCtl/Inst_Ps2Interface/reset_bit_count              |                1 |              8 |
-|  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/ps2_data_h_reg_inv_0               |                                                              |                3 |             14 |
-|  CLK_IBUF_BUFG                               | Teclado/ps2_keyboard_0/ascii_reg[0]                                |                                                              |                7 |             14 |
+|  CLK_IBUF_BUFG                               |                                                                    | Inst_MouseCtl/Inst_Ps2Interface/clk_inter0                   |                1 |              8 |
+|  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/left_down_reg                      | Selector_IBUF                                                |                2 |             10 |
+|  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/err_reg_0                          |                                                              |                2 |             14 |
 |  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/delay_63clk_count[6]_i_2_n_0       | Inst_MouseCtl/Inst_Ps2Interface/delay_63clk_count[6]_i_1_n_0 |                2 |             14 |
-|  clk_BUFG                                    | Teclado/FSM_onehot_Presionado_reg[0][0]                            |                                                              |                6 |             14 |
-|  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/load_rx_data                       |                                                              |                2 |             16 |
+|  CLK_IBUF_BUFG                               | Teclado/ps2_keyboard_0/ascii_reg[2]_0                              |                                                              |                3 |             14 |
+|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn256_reg[2][0]                      |                                                              |                3 |             16 |
+|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/E[0]                                    |                                                              |                4 |             16 |
 |  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn1024_reg[2][0]                     |                                                              |                5 |             16 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn128_reg[2][0]                      |                                                              |                2 |             16 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn16_reg[2][0]                       |                                                              |                3 |             16 |
+|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn128_reg[2][0]                      |                                                              |                3 |             16 |
+|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn16_reg[2][0]                       |                                                              |                4 |             16 |
 |  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn2048_reg[2][0]                     |                                                              |                3 |             16 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn256_reg[2][0]                      |                                                              |                2 |             16 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn32_reg[2][0]                       |                                                              |                3 |             16 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn4_reg[2][0]                        |                                                              |                3 |             16 |
+|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn32_reg[2][0]                       |                                                              |                4 |             16 |
+|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn4_reg[2][0]                        |                                                              |                4 |             16 |
+|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn512_reg[2][0]                      |                                                              |                3 |             16 |
 |  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn64_reg[2][0]                       |                                                              |                2 |             16 |
-|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn8_reg[2][0]                        |                                                              |                3 |             16 |
-|  CLK_IBUF_BUFG                               | Inst_MouseCtl/tx_data[7]_i_1_n_0                                   |                                                              |                3 |             16 |
+|  clk_BUFG                                    | Inst_vga_ctrl_640x480_60Hz/PosYn8_reg[2][0]                        |                                                              |                4 |             16 |
+|  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/load_rx_data                       |                                                              |                4 |             16 |
+|  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/y_inc_reg[0][0]                    | Selector_IBUF                                                |                3 |             16 |
+|  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/E[0]                               | Selector_IBUF                                                |                2 |             16 |
 |  CLK_IBUF_BUFG                               | Teclado/ps2_keyboard_0/ps2_code_new0                               |                                                              |                1 |             16 |
-|  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/E[0]                               | Selector_IBUF                                                |                4 |             16 |
-|  CLK_IBUF_BUFG                               | Teclado/ps2_keyboard_0/debounce_ps2_data/counter_out[8]_i_2__0_n_0 | Teclado/ps2_keyboard_0/debounce_ps2_data/counter_set         |                3 |             18 |
+|  CLK_IBUF_BUFG                               | Inst_MouseCtl/tx_data[7]_i_1_n_0                                   |                                                              |                2 |             16 |
 |  CLK_IBUF_BUFG                               | Teclado/ps2_keyboard_0/debounce_ps2_clk/sel                        | Teclado/ps2_keyboard_0/debounce_ps2_clk/counter_set          |                2 |             18 |
+|  CLK_IBUF_BUFG                               | Teclado/ps2_keyboard_0/debounce_ps2_data/counter_out[8]_i_2__0_n_0 | Teclado/ps2_keyboard_0/debounce_ps2_data/counter_set         |                2 |             18 |
 |  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/frame[9]_i_1_n_0                   |                                                              |                2 |             20 |
-| ~Teclado/ps2_keyboard_0/debounce_ps2_clk/CLK |                                                                    |                                                              |                2 |             22 |
-|  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/delay_20us_count[10]_i_2_n_0       | Inst_MouseCtl/Inst_Ps2Interface/delay_20us_count[10]_i_1_n_0 |                3 |             22 |
-|  CLK_IBUF_BUFG                               | Inst_MouseCtl/x_new_reg_n_0                                        |                                                              |                4 |             24 |
-|  HS_reg_i_2_n_0                              |                                                                    | Inst_vga_ctrl_640x480_60Hz/rgb_out[11]_i_1_n_0               |               10 |             24 |
+| ~Teclado/ps2_keyboard_0/debounce_ps2_clk/CLK |                                                                    |                                                              |                3 |             22 |
+|  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/delay_20us_count[10]_i_2_n_0       | Inst_MouseCtl/Inst_Ps2Interface/delay_20us_count[10]_i_1_n_0 |                4 |             22 |
+|  CLK_IBUF_BUFG                               | Inst_MouseCtl/y_new_reg_n_0                                        |                                                              |                3 |             24 |
+|  CLK_IBUF_BUFG                               | Inst_MouseCtl/x_new_reg_n_0                                        |                                                              |                6 |             24 |
+|  HS_reg_i_2_n_0                              |                                                                    | Inst_vga_ctrl_640x480_60Hz/rgb_out[11]_i_1_n_0               |               12 |             24 |
 |  CLK_IBUF_BUFG                               | Teclado/ps2_keyboard_0/count_idle[0]_i_2_n_0                       | Teclado/ps2_keyboard_0/debounce_ps2_clk/clear                |                4 |             26 |
-|  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/delay_100us_count[0]_i_2_n_0       | Inst_MouseCtl/Inst_Ps2Interface/clear                        |                4 |             28 |
+|  clk_BUFG                                    | Teclado/n1_reg[2]                                                  | Teclado/n1_reg[29]                                           |                9 |             26 |
 |  CLK_IBUF_BUFG                               | Teclado/sig_ascii_new_i_1_n_0                                      |                                                              |                6 |             28 |
+|  CLK_IBUF_BUFG                               | Inst_MouseCtl/Inst_Ps2Interface/delay_100us_count[0]_i_2_n_0       | Inst_MouseCtl/Inst_Ps2Interface/clear                        |                4 |             28 |
+|  clk_BUFG                                    | Teclado/n7_reg[2]_0                                                | Teclado/n7_reg[2]                                            |               14 |             32 |
+|  clk_BUFG                                    | Teclado/n7_reg[2]_0                                                |                                                              |               15 |             32 |
+|  clk_BUFG                                    | Teclado/n1_reg[2]                                                  |                                                              |               13 |             38 |
 |  CLK_IBUF_BUFG                               | Teclado/st1                                                        | Teclado/counter1sec[23]_i_1_n_0                              |                6 |             46 |
-|  CLK_IBUF_BUFG                               |                                                                    | Inst_MouseCtl/reset_timeout_cnt_reg_n_0                      |                6 |             48 |
+|  CLK_IBUF_BUFG                               |                                                                    | Inst_MouseCtl/reset_timeout_cnt_reg_n_0                      |                5 |             48 |
 |  CLK_IBUF_BUFG                               |                                                                    | Inst_MouseCtl/reset_periodic_check_cnt__0                    |                6 |             52 |
-|  clk_BUFG                                    | Teclado/clk_count_reg[1]_0                                         | Teclado/clk_count_reg[1]                                     |                9 |             62 |
-|  HS_reg_i_2_n_0                              |                                                                    | Inst_vga_ctrl_640x480_60Hz/eqOp                              |               17 |             62 |
-|  clk_BUFG                                    | Teclado/n12_reg[0][0]                                              |                                                              |               19 |             64 |
+|  clk_BUFG                                    | Teclado/n6_reg[0]_0                                                | Teclado/n6_reg[0]                                            |               18 |             60 |
+|  clk_BUFG                                    | Teclado/n11_reg[0]_0                                               | Teclado/n11_reg[0]                                           |               20 |             60 |
+|  clk_BUFG                                    | Teclado/n15_reg[0]_0                                               | Teclado/n15_reg[0]                                           |               21 |             60 |
+|  clk_BUFG                                    | Teclado/n16_reg[0]                                                 | Teclado/n16_reg[31]                                          |               25 |             60 |
+|  clk_BUFG                                    | Teclado/n2_reg[0]_0                                                | Teclado/n2_reg[0]                                            |               22 |             60 |
+|  clk_BUFG                                    | Teclado/n3_reg[0]_0                                                | Teclado/n3_reg[0]                                            |               17 |             60 |
+|  clk_BUFG                                    | Teclado/n5_reg[0]_0                                                | Teclado/n5_reg[0]                                            |               12 |             60 |
+|  clk_BUFG                                    | Teclado/clk_count_reg[1]                                           | Teclado/clk_count_reg[1]_0                                   |                8 |             62 |
+|  clk_BUFG                                    | Teclado/puntaje                                                    | Teclado/puntaje_reg[0]                                       |               32 |             64 |
+|  clk_BUFG                                    | Teclado/n9_reg[0][0]                                               |                                                              |               20 |             64 |
 |  clk_BUFG                                    | Teclado/n8_reg[0][0]                                               |                                                              |               22 |             64 |
-|  clk_BUFG                                    | Teclado/random_number_reg[31]_0                                    | Teclado/random_number_reg[31]                                |               11 |             64 |
-|  clk_BUFG                                    | Teclado/E[0]                                                       |                                                              |               24 |             64 |
-|  clk_BUFG                                    | Teclado/n10_reg[0][0]                                              |                                                              |               28 |             64 |
-|  clk_BUFG                                    | Teclado/n11_reg[0][0]                                              |                                                              |               21 |             64 |
-|  clk_BUFG                                    | Teclado/n13_reg[0][0]                                              |                                                              |               22 |             64 |
-|  clk_BUFG                                    | Teclado/n14_reg[0][0]                                              |                                                              |               20 |             64 |
-|  clk_BUFG                                    | Teclado/n16_reg[0][0]                                              |                                                              |               21 |             64 |
-|  clk_BUFG                                    | Teclado/n1_reg[0][0]                                               |                                                              |               27 |             64 |
-|  clk_BUFG                                    | Teclado/n2_reg[0][0]                                               |                                                              |               21 |             64 |
-|  clk_BUFG                                    | Teclado/n3_reg[0][0]                                               |                                                              |               21 |             64 |
-|  clk_BUFG                                    | Teclado/n4_reg[0][0]                                               |                                                              |               17 |             64 |
-|  clk_BUFG                                    | Teclado/n5_reg[0][0]                                               |                                                              |               21 |             64 |
-|  clk_BUFG                                    | Teclado/n6_reg[0][0]                                               |                                                              |               29 |             64 |
-|  clk_BUFG                                    | Teclado/n7_reg[0][0]                                               |                                                              |               27 |             64 |
-|  clk_BUFG                                    | Teclado/n9_reg[0][0]                                               |                                                              |               17 |             64 |
-|  HS_reg_i_2_n_0                              | Inst_vga_ctrl_640x480_60Hz/eqOp                                    | Inst_vga_ctrl_640x480_60Hz/vcounter                          |               20 |             78 |
-|  CLK_IBUF_BUFG                               |                                                                    |                                                              |               27 |             98 |
-|  CLK_IBUF_BUFG                               |                                                                    | Selector_IBUF                                                |               19 |            116 |
-|  clk_BUFG                                    |                                                                    |                                                              |               37 |            122 |
-|  clk_BUFG                                    | n1p                                                                |                                                              |              144 |           1024 |
+|  clk_BUFG                                    | Teclado/n4_reg[0][0]                                               |                                                              |               24 |             64 |
+|  clk_BUFG                                    | Teclado/n14_reg[0][0]                                              |                                                              |               27 |             64 |
+|  clk_BUFG                                    | Teclado/n13_reg[0][0]                                              |                                                              |               26 |             64 |
+|  clk_BUFG                                    | Teclado/n12_reg[0][0]                                              |                                                              |               28 |             64 |
+|  clk_BUFG                                    | Teclado/n10_reg[0][0]                                              |                                                              |               27 |             64 |
+|  clk_BUFG                                    | Teclado/random_number_reg[0]                                       | Teclado/random_number_reg[31]                                |               11 |             64 |
+|  HS_reg_i_2_n_0                              | Inst_vga_ctrl_640x480_60Hz/eqOp                                    | Inst_vga_ctrl_640x480_60Hz/vcounter                          |               24 |             84 |
+|  HS_reg_i_2_n_0                              |                                                                    | Inst_vga_ctrl_640x480_60Hz/eqOp                              |               25 |             92 |
+|  CLK_IBUF_BUFG                               |                                                                    | Selector_IBUF                                                |               24 |            118 |
+|  CLK_IBUF_BUFG                               |                                                                    |                                                              |               28 |            126 |
+|  clk_BUFG                                    |                                                                    |                                                              |               57 |            162 |
+|  clk_BUFG                                    | n16p                                                               |                                                              |              153 |           1024 |
 +----------------------------------------------+--------------------------------------------------------------------+--------------------------------------------------------------+------------------+----------------+
 
 
