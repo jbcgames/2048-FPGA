@@ -94,6 +94,17 @@ COMPONENT MouseCtl
                BCD1 : out  integer;
                BCD0 : out  integer);
                    end component;
+component Mouse_Movement 
+                     Port (
+                        posx : in integer;
+                          posy : in integer;
+                          clk  : in std_logic;
+                          click: in std_logic;
+                          MouseUp: out std_logic;
+                          MouseDown: out std_logic;
+                          MouseLeft: out std_logic;
+                          MouseRight: out std_logic);
+                   end component;                  
 COMPONENT display34segm
                        
                           PORT (  
@@ -237,6 +248,7 @@ COMPONENT quinientosdoce
                 end Component;
 	component ps2_keyboard_to_ascii
 	Port(
+	      rst        : IN  STD_LOGIC;
           clk        : IN  STD_LOGIC;          
           ps2_clk    : IN  STD_LOGIC;            
           ps2_data   : IN  STD_LOGIC;                   
@@ -267,6 +279,7 @@ COMPONENT quinientosdoce
 	Signal paint102: std_logic:='0';
 	Signal paint103: std_logic:='0';
 	Signal paint104: std_logic:='0';
+	Signal senal: std_logic:='0';
 	Signal paint105: std_logic:='0';
 	Signal paint106: std_logic:='0';
 	signal directo1: std_logic;
@@ -282,6 +295,9 @@ COMPONENT quinientosdoce
 	signal n6: integer:=0;
 	signal n7: integer:=0;
 	signal n8: integer:=0;
+	signal red_mouse: std_logic_vector(3 downto 0):="0000";
+	signal green_mouse: std_logic_vector(3 downto 0):="0000";
+	signal blue_mouse: std_logic_vector(3 downto 0):="0000";
 	signal n9: integer:=0;
 	signal n10: integer:=0;
 	signal n11: integer:=0;
@@ -352,6 +368,7 @@ COMPONENT quinientosdoce
             signal numero4: integer;
             signal numero5: integer;
             signal numero6: integer;
+            signal siempre: std_logic:='1';
 	Signal ndos: std_logic:='0';
 	Signal fondodos: std_logic:='0';
 	Signal fondocuatro: std_logic:='0';
@@ -395,9 +412,14 @@ COMPONENT quinientosdoce
 	Signal indicador: std_logic;
 	signal play: integer:=0;
 	Signal Xplay:integer:=0;
-	
+	Signal apertura: std_logic:='1';
 	Signal YPlay:integer:=0;
 	Signal paintnumero: std_logic:='0';
+	signal touch:std_logic:='0';
+	signal Mup:std_logic:='0';
+	signal Mdw:std_logic:='0';
+	signal Mlf:std_logic:='0';
+	signal Mrg:std_logic:='0';
 	--n1  n2  n3  n4
 	--n5  n6  n7  n8
 	--n9  n10 n11 n12
@@ -407,6 +429,7 @@ begin
         IndicadorSalida<=indicador;
         directo<=clk;
         led<=TecladoSalida;
+ 
     process(clk_interno)
     begin
     if(clk_interno'event and clk_interno='1')then
@@ -2201,6 +2224,16 @@ begin
     end case;
     end if;
     end process;
+    Mouse :Mouse_Movement
+    Port Map(
+    posx=>to_integer(unsigned(MOUSE_X_POS)),
+    posy=>to_integer(unsigned(MOUSE_Y_POS)),
+    clk=>clk_interno,
+         click=>touch,
+         MouseUp=>Mup,
+         MouseDown=>Mdw,
+         MouseLeft=>Mlf,
+         MouseRight=>Mrg);
     Inst_MouseCtl: MouseCtl
            GENERIC MAP
         (
@@ -2215,7 +2248,7 @@ begin
               xpos           => MOUSE_X_POS,
               ypos           => MOUSE_Y_POS,
               zpos           => open,
-              left           => open,
+              left           => touch,
               middle         => open,
               right          => open,
               new_event      => open,
@@ -2229,8 +2262,8 @@ begin
            );
     LetraP: display34segm PORT MAP(
                                                 segments=>"1111001111000011000000000000000000",
-                                                POSX => to_integer(unsigned(MOUSE_X_POS)) ,
-                                                POSY => to_integer(unsigned(MOUSE_Y_POS)),
+                                                POSX =>10,
+                                                POSY =>50,
                                             HCOUNT => hcount,
                                             VCOUNT => vcount,
                                             PAINT => paint2
@@ -2380,6 +2413,7 @@ Num3: Numero
             );
     Teclado: ps2_keyboard_to_ascii
         port map(
+        rst=> selector,
         clk=> directo,                 
         ps2_clk=>p2clk,             
         ps2_data=>p2data,
@@ -2387,7 +2421,7 @@ Num3: Numero
         ascii_new=>Indicador);
     Conversor : Bin2BCD_0a999
             Port map ( 
-            BIN=>puntaje,
+            BIN=>to_integer(unsigned(MOUSE_X_POS)),
             BCD5=>numero6,
             BCD4=>numero5,
             BCD3=>numero4,
@@ -2556,7 +2590,6 @@ Num3: Numero
 		rgb_out => rgb_aux2,
 		blank => open
 	);
-	
 	
 	RGB <= rgb_aux2;
     process (CLK)

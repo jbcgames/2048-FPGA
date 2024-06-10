@@ -31,6 +31,7 @@ ENTITY ps2_keyboard_to_ascii IS
       clk_freq                  : INTEGER := 100_000_000; --system clock frequency in Hz
       ps2_debounce_counter_size : INTEGER := 8);         --set such that 2^size/clk_freq = 5us (size = 8 for 50MHz)
   PORT(
+      rst        : IN  STD_LOGIC;
       clk        : IN  STD_LOGIC;                     --system clock input
       ps2_clk    : IN  STD_LOGIC;                     --clock signal from PS2 keyboard
       ps2_data   : IN  STD_LOGIC;                     --data signal from PS2 keyboard
@@ -109,7 +110,15 @@ BEGIN
         WHEN ready =>
           tecla1<='0';
           tecla2<='0';
-          IF(prev_ps2_code_new = '0' AND ps2_code_new = '1') THEN --new PS2 code received
+          if(rst='0')then
+          prev_ps2_code_new <= '1';                      --value of ps2_code_new flag on previous clock                   --'1' for multi-code commands, '0' for single code commands
+            caps_lock<= '0';                      --'1' if caps lock is active, '0' if caps lock is inactive
+            control_r<= '0';                      --'1' if right control key is held down, else '0'
+           control_l<= '0';                      --'1' if left control key is held down, else '0'
+            shift_r<= '0';                      --'1' if right shift is held down, else '0'
+            shift_l<= '0';                      --'1' if left shift is held down, else '0'
+          state<=ready;
+          elsif(prev_ps2_code_new = '0' AND ps2_code_new = '1') THEN --new PS2 code received
             state <= new_code;                                      --proceed to new_code state
           ELSE                                                    --no new PS2 code received yet
             state <= ready;                                         --remain in ready state
@@ -119,7 +128,16 @@ BEGIN
         WHEN new_code =>
         tecla1<='0';
         tecla2<='0';
-          IF(ps2_code = x"F0") THEN    --code indicates that next command is break
+          if(rst='0')then
+          prev_ps2_code_new <= '1';                      --value of ps2_code_new flag on previous clock                   --'1' for multi-code commands, '0' for single code commands
+                      caps_lock<= '0';                      --'1' if caps lock is active, '0' if caps lock is inactive
+                      control_r<= '0';                      --'1' if right control key is held down, else '0'
+                     control_l<= '0';                      --'1' if left control key is held down, else '0'
+                      shift_r<= '0';                      --'1' if right shift is held down, else '0'
+                      shift_l<= '0';
+                  state<=ready;
+                  
+          elsif(ps2_code = x"F0") THEN    --code indicates that next command is break
             break <= '1';                --set break flag
             state <= ready;              --return to ready state to await next PS2 code
           ELSIF(ps2_code = x"E0") THEN --code indicates multi-key command
@@ -134,7 +152,15 @@ BEGIN
         WHEN translate =>
             break <= '0';    --reset break flag
             e0_code <= '0';  --reset multi-code command flag
-            
+            if(rst='0')then
+            prev_ps2_code_new <= '1';                      --value of ps2_code_new flag on previous clock                   --'1' for multi-code commands, '0' for single code commands
+                        caps_lock<= '0';                      --'1' if caps lock is active, '0' if caps lock is inactive
+                        control_r<= '0';                      --'1' if right control key is held down, else '0'
+                       control_l<= '0';                      --'1' if left control key is held down, else '0'
+                        shift_r<= '0';                      --'1' if right shift is held down, else '0'
+                        shift_l<= '0';
+                      state<=ready;
+            else      
             --handle codes for control, shift, and caps lock
             CASE ps2_code IS
               WHEN x"58" =>                   --caps lock code
@@ -332,10 +358,18 @@ BEGIN
           ELSE                  --code is a break
             state <= ready;       --return to ready state to await next PS2 code
           END IF;
-        
+        end if;
         --output state: verify the code is valid and output the ASCII value
         WHEN output =>
-          IF (ascii(7) = '0') THEN            --the PS2 code has an ASCII output
+        if(rst='0')then
+                   prev_ps2_code_new <= '1';                      --value of ps2_code_new flag on previous clock                   --'1' for multi-code commands, '0' for single code commands
+                              caps_lock<= '0';                      --'1' if caps lock is active, '0' if caps lock is inactive
+                              control_r<= '0';                      --'1' if right control key is held down, else '0'
+                             control_l<= '0';                      --'1' if left control key is held down, else '0'
+                              shift_r<= '0';                      --'1' if right shift is held down, else '0'
+                              shift_l<= '0';
+                                       state<=ready;
+          elsif (ascii(7) = '0') THEN            --the PS2 code has an ASCII output
             sig_ascii_new <= '1';                  --set flag indicating new ASCII output
             ascii_code <= ascii(6 DOWNTO 0);   --output the ASCII value
           END IF;
