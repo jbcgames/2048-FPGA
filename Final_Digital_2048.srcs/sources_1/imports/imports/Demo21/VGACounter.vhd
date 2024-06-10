@@ -27,14 +27,15 @@ USE ieee.numeric_std.ALL;
 
 entity VGACounter is
     Port ( CLK : in  STD_LOGIC;
+           Selector: in STD_LOGIC;
            BUP: in  STD_LOGIC;
            PBTON: in std_logic;
            W: in std_logic_vector(11 downto 0);
            BDW : in  STD_LOGIC;
            BLF: in  STD_LOGIC;
            BRG: in  STD_LOGIC;
-           TecladoData: inout Std_logic;
-           TecladoClk: inout std_logic;
+           P2Data: inout Std_logic;
+           P2Clk: inout std_logic;
            led: out std_logic_vector(6 downto 0);
            IndicadorSalida: out std_logic;
            HS : out  STD_LOGIC;
@@ -268,6 +269,7 @@ COMPONENT quinientosdoce
 	Signal paint104: std_logic:='0';
 	Signal paint105: std_logic:='0';
 	Signal paint106: std_logic:='0';
+	signal directo1: std_logic;
 	signal MOUSE_X_POS: std_logic_vector (11 downto 0);
     signal MOUSE_Y_POS: std_logic_vector (11 downto 0);
 	signal n1: integer:=0;
@@ -275,8 +277,8 @@ COMPONENT quinientosdoce
 	signal n3: integer:=0;
 	signal n4: integer:=0;
 	signal n5: integer:=0;
-	Signal mouse_clk: std_logic:=Tecladoclk;
-	Signal mouse_data:std_logic:=TecladoData;
+	Signal mouse_clk: std_logic;
+	Signal mouse_data:std_logic;
 	signal n6: integer:=0;
 	signal n7: integer:=0;
 	signal n8: integer:=0;
@@ -401,9 +403,7 @@ COMPONENT quinientosdoce
 	--n9  n10 n11 n12
 	--n13 n14 n15 n16
 begin
-    
-    tecladocl<=Tecladoclk;
-        tecladoda<=TecladoData;
+
         IndicadorSalida<=indicador;
         directo<=clk;
         led<=TecladoSalida;
@@ -1352,13 +1352,13 @@ begin
              n16p<=n16;
     if(random_number=0 or Random_number=17)then
     Presionado<=Aleatory;
-    elsif(BUP='1' or (TecladoSalida="1110111" and indicador='1'))then
+    elsif(BUP='1' or (TecladoSalida="1110111" and indicador='1'and selector='1'))then
     Presionado<=Up;
-    elsif(BDW='1' or (TecladoSalida="1110011" and indicador='1'))then
+    elsif(BDW='1' or (TecladoSalida="1110011" and indicador='1'and selector='1'))then
     Presionado<=Down;
-    elsif(BLF='1' or (TecladoSalida="1100001" and indicador='1'))then
+    elsif(BLF='1' or (TecladoSalida="1100001" and indicador='1'and selector='1'))then
     Presionado<=Left;
-    elsif(TecladoSalida="0011011"and indicador='1')then
+    elsif(TecladoSalida="0011011"and indicador='1'and selector='1')then
     n1<=2;
             n2<=4;
             n3<=8;
@@ -1379,7 +1379,7 @@ begin
     elsif(BRG='1' or (TecladoSalida="1100100" and indicador='1'))then
     Presionado<=Right;
     elsif(apress="1111")then
-        if(PBTON='1' or (TecladoSalida="0001101" and indicador='1'))then
+        if(PBTON='1' or (TecladoSalida="0001101" and indicador='1' and selector='1'))then
         n1<=0;
         n2<=0;
         n3<=0;
@@ -2057,7 +2057,7 @@ begin
     if(clk_count=17 and random_number=0)then
     clk_count<=1;
     Presionado<=Aleatory;
-    elsif(PBTON='1' or (TecladoSalida="0001101" and indicador='1'))then
+    elsif(PBTON='1' or (TecladoSalida="0001101" and indicador='1'and selector='1'))then
     random_number<=clk_count;
     if(random_number=1)then
     n1<=2;
@@ -2211,7 +2211,7 @@ begin
     PORT MAP
            (
               clk            => directo,
-              rst            => '0',
+              rst            => selector,
               xpos           => MOUSE_X_POS,
               ypos           => MOUSE_Y_POS,
               zpos           => open,
@@ -2224,8 +2224,8 @@ begin
               sety           => '0',
               setmax_x       => '0',
               setmax_y       => '0',
-              ps2_clk        => Mouse_clk,
-              ps2_data       => Mouse_data
+              ps2_clk        => p2clk,
+              ps2_data       => p2data
            );
     LetraP: display34segm PORT MAP(
                                                 segments=>"1111001111000011000000000000000000",
@@ -2381,8 +2381,8 @@ Num3: Numero
     Teclado: ps2_keyboard_to_ascii
         port map(
         clk=> directo,                 
-        ps2_clk=>Tecladoclk,             
-        ps2_data=>TecladoData,
+        ps2_clk=>p2clk,             
+        ps2_data=>p2data,
         ascii_code=>TecladoSalida,
         ascii_new=>Indicador);
     Conversor : Bin2BCD_0a999

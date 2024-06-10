@@ -285,7 +285,6 @@ signal x_pos,y_pos: std_logic_vector(11 downto 0) := (others => '0');
 -- bits 6 and 7 from the first byte received from the mouse
 signal x_overflow,y_overflow: std_logic := '0';
 
-
 -- active when the x,y movement is negative
 -- bits 4 and 5 from the first byte received from the mouse
 signal x_sign,y_sign: std_logic := '0';
