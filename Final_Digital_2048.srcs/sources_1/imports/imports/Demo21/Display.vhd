@@ -32,7 +32,7 @@ entity Numero is
           POSY: in integer; 
            HCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
            VCOUNT : in  STD_LOGIC_VECTOR (10 downto 0);
-           VALUE : in  STD_LOGIC_VECTOR (3 downto 0);
+           VALUE : in  integer;
            PAINT : out  STD_LOGIC);
 end Numero;
 
@@ -78,22 +78,22 @@ begin
 	xrectaneg2 <= xrectaneg + LW/2;
    with value select
 	--          "abcdefgh"
-   segments <= "11111101" when "0000",
-                        "01100000" when "0001",
-                        "11011010" when "0010",
-                        "11110010" when "0011",
-                        "01100110" when "0100",
-                        "10110110" when "0101",
-                        "10111110" when "0110",
-                        "11100000" when "0111",
-                        "11111110" when "1000",
-                        "11100110" when "1001",
-                        "11101110" when "1010",
-                        "00111110" when "1011",
-                        "10011100" when "1100",
-                        "01111010" when "1101",
-                        "10011110" when "1110",
-                        "10001110" when "1111",
+   segments <= "11111101" when 0,
+                        "01100000" when 1,
+                        "11011010" when 2,
+                        "11110010" when 3,
+                        "01100110" when 4,
+                        "10110110" when 5,
+                        "10111110" when 6,
+                        "11100000" when 7,
+                        "11111110" when 8,
+                        "11100110" when 9,
+                        "11101110" when 10,
+                        "00111110" when 11,
+                        "10011100" when 12,
+                        "01111010" when 13,
+                        "10011110" when 14,
+                        "10001110" when 15,
                         "00000000" when others;
 	DIPLAY: process(segments,HCOUNT,VCOUNT,xrectaneg,xrectaneg2,xrectaneg1)
 	begin

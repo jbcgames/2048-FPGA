@@ -33,6 +33,8 @@ entity VGACounter is
            BRG: in  STD_LOGIC;
            TecladoData: in Std_logic;
            TecladoClk: in std_logic;
+           led: out std_logic_vector(6 downto 0);
+           IndicadorSalida: out std_logic;
            HS : out  STD_LOGIC;
            press: out std_logic_vector(3 downto 0):="0000";
            VS : out  STD_LOGIC;
@@ -55,6 +57,15 @@ architecture Behavioral of VGACounter is
 		blank : OUT std_logic
 		);
 	END COMPONENT;
+	component BIN2BCD_0a999 is
+           Port ( BIN : in  integer;
+               BCD5 : out  integer;
+               BCD4 : out  integer;
+               BCD3 : out  integer; 
+               BCD2 : out  integer;
+               BCD1 : out  integer;
+               BCD0 : out  integer);
+                   end component;
 COMPONENT Panel
         PORT(
             POSX: in integer;
@@ -175,7 +186,7 @@ COMPONENT quinientosdoce
                                                                                                             );
                                                                                                         END COMPONENT;
     
-    Component Display Port (  
+    Component Numero Port (  
                           DW: in integer;
                           LW: in integer;
                           DL: in integer;
@@ -204,6 +215,12 @@ COMPONENT quinientosdoce
 	signal puntaje: integer:=0;
 	Signal sumado: std_logic:='0';
 	Signal paint1: std_logic:='0';
+	Signal paint101: std_logic:='0';
+	Signal paint102: std_logic:='0';
+	Signal paint103: std_logic:='0';
+	Signal paint104: std_logic:='0';
+	Signal paint105: std_logic:='0';
+	Signal paint106: std_logic:='0';
 	signal n1: integer:=0;
 	signal n2: integer:=0;
 	signal n3: integer:=0;
@@ -220,6 +237,26 @@ COMPONENT quinientosdoce
 	signal n14: integer:=0;
 	signal n15: integer:=0;
 	signal n16: integer:=0;
+	signal n1p: integer:=0;
+	signal eup: std_logic:='0';
+	signal edw: std_logic:='0';
+	signal elf: std_logic:='0';
+	signal erg: std_logic:='0';
+        signal n2p: integer:=0;
+        signal n3p: integer:=0;
+        signal n4p: integer:=0;
+        signal n5p: integer:=0;
+        signal n6p: integer:=0;
+        signal n7p: integer:=0;
+        signal n8p: integer:=0;
+        signal n9p: integer:=0;
+        signal n10p: integer:=0;
+        signal n11p: integer:=0;
+        signal n12p: integer:=0;
+        signal n13p: integer:=0;
+        signal n14p: integer:=0;
+        signal n15p: integer:=0;
+        signal n16p: integer:=0;
 	Signal random_number: integer:=0;
         signal PosXn2: integer:=1000;
         signal PosXn4: integer:=1000;
@@ -243,6 +280,7 @@ COMPONENT quinientosdoce
             signal PosYn512: integer:=1000;
             signal PosYn1024: integer:=1000;
             signal PosYn2048: integer:=1000;
+            signal apress: std_logic_vector(3 downto 0);
 	signal e2: std_logic:='0';
         signal e4: std_logic:='0';
         signal e8: std_logic:='0';
@@ -254,6 +292,12 @@ COMPONENT quinientosdoce
         signal e512: std_logic:='0';
         signal e1024: std_logic:='0';
         signal e2048: std_logic:='0';
+        signal numero1: integer;
+            signal numero2: integer;
+            signal numero3: integer;
+            signal numero4: integer;
+            signal numero5: integer;
+            signal numero6: integer;
 	Signal ndos: std_logic:='0';
 	Signal fondodos: std_logic:='0';
 	Signal fondocuatro: std_logic:='0';
@@ -297,6 +341,7 @@ COMPONENT quinientosdoce
 	Signal indicador: std_logic;
 	signal play: integer:=0;
 	Signal Xplay:integer:=0;
+	
 	Signal YPlay:integer:=0;
 	Signal paintnumero: std_logic:='0';
 	--n1  n2  n3  n4
@@ -304,7 +349,11 @@ COMPONENT quinientosdoce
 	--n9  n10 n11 n12
 	--n13 n14 n15 n16
 begin
-    
+    tecladocl<=Tecladoclk;
+        tecladoda<=TecladoData;
+        IndicadorSalida<=indicador;
+        directo<=clk;
+        led<=TecladoSalida;
     process(clk_interno)
     begin
     if(clk_interno'event and clk_interno='1')then
@@ -1226,24 +1275,67 @@ begin
                                                                                                                                                                                             end if;                                                                                                                                                                                                                                                                                                                                                           
     end if;
     end process;
+    
     process(clk_interno)
     begin
     if(clk_interno'event and clk_interno='1')then
     case Presionado is
     When Ready=>
+    n1p<=n1;
+             n2p<=n2;
+             n3p<=n3;
+             n4p<=n4;
+             n5p<=n5;
+             n6p<=n6;
+             n7p<=n7;
+             n8p<=n8;
+             n9p<=n9;
+             n10p<=n10;
+             n11p<=n11;
+             n12p<=n12;
+             n13p<=n13;
+             n14p<=n14;
+             n15p<=n15;
+             n16p<=n16;
     if(random_number=0 or Random_number=17)then
     Presionado<=Aleatory;
-    elsif(BUP='1')then
+    elsif(BUP='1' or (TecladoSalida="1110111" and indicador='1'))then
     Presionado<=Up;
-    elsif(BDW='1')then
+    elsif(BDW='1' or (TecladoSalida="1110011" and indicador='1'))then
     Presionado<=Down;
-    elsif(BLF='1')then
+    elsif(BLF='1' or (TecladoSalida="1100001" and indicador='1'))then
     Presionado<=Left;
-    elsif(BRG='1')then
+    elsif(BRG='1' or (TecladoSalida="1100100" and indicador='1'))then
     Presionado<=Right;
+    elsif(apress="1111")then
+        if(PBTON='1' or (TecladoSalida="0001101" and indicador='1'))then
+        n1<=0;
+        n2<=0;
+        n3<=0;
+        n4<=0;
+        n5<=0;
+        n6<=0;
+        n7<=0;
+        n8<=0;
+        n9<=0;
+        n10<=0;
+        n11<=0;
+        n12<=0;
+        n13<=0;
+        n14<=0;
+        n15<=0;
+        n16<=0;
+        eup<='0';
+            edw<='0';
+            elf<='0';
+            erg<='0';
+            apress<="0000";
+            puntaje<=0;
+            random_number<=0;
+        Presionado<=Aleatory;
+        end if;
     else
     Presionado<=Ready;
-        press<="0000";
     end if;
     
     --n1  n2  n3  n4
@@ -1251,11 +1343,11 @@ begin
     --n9  n10 n11 n12
     --n13 n14 n15 n16
     When Up=>
-    press<="0001";
-    
+         
          if(clk_count=1 or clk_count=4 or clk_count=7 or clk_count=10 or clk_count=13)then
                 if(n1 = n5  and clk_count=7)then
                 n1<=n5+n1;
+                puntaje<=n1+puntaje;
                 n5<=0;
                 elsif(n1=0 and (clk_count=1 or clk_count=4 or clk_count=10 or clk_count=13))then
                 n1<=n5;
@@ -1266,6 +1358,7 @@ begin
                 
                 if(n2 = n6 and clk_count=7)then
                 n2<=n2+n6;
+                puntaje<=n2+puntaje;
                 n6<=0;
                 elsif(n2=0 and (clk_count=1 or clk_count=4 or clk_count=10 or clk_count=13))then
                 n2<=n6;
@@ -1276,6 +1369,7 @@ begin
                 
                 if(n3 = n7 and clk_count=7)then
                 n3<=n7+n3;
+                puntaje<=n3+puntaje;
                 n7<=0;
                 elsif(n3=0 and (clk_count=1 or clk_count=4 or clk_count=10 or clk_count=13))then
                 n3<=n7;
@@ -1286,6 +1380,7 @@ begin
                
                 if(n4 = n8 and clk_count=7)then
                 n4<=n8+n4;
+                puntaje<=n4+puntaje;
                 n8<=0;
                 elsif(n4=0 and (clk_count=1 or clk_count=4 or clk_count=10 or clk_count=13))then
                 n4<=n8;
@@ -1298,6 +1393,7 @@ begin
                              if(clk_count=3 or clk_count=6 or clk_count=9 or clk_count=12 or clk_count=15)then
                              if(n5 = n9 and clk_count=9)then
                              n5<=n5+n9;
+                             puntaje<=n5+puntaje;
                              n9<=0;
                              elsif(n5=0 and (clk_count=3 or clk_count=6 or clk_count=12 or clk_count=15))then
                              n5<=n9;
@@ -1308,6 +1404,7 @@ begin
                              
                              if(n6 = n10 and clk_count=9)then
                              n6<=n6+n10;
+                             puntaje<=n6+puntaje;
                              n10<=0;
                              elsif(n6=0 and (clk_count=3 or clk_count=6 or clk_count=12 or clk_count=15))then
                              n6<=n10;
@@ -1318,6 +1415,7 @@ begin
                              
                              if(n11 = n7 and clk_count=9)then
                              n7<=n11+n7;
+                             puntaje<=n7+puntaje;
                              n11<=0;
                              elsif(n7=0 and (clk_count=3 or clk_count=6 or clk_count=12 or clk_count=15))then
                              n7<=n11;
@@ -1328,6 +1426,7 @@ begin
                             
                              if(n8 = n12 and clk_count=9)then
                              n8<=n8+n12;
+                             puntaje<=n8+puntaje;
                              n12<=0;
                              elsif(n8=0 and (clk_count=3 or clk_count=6 or clk_count=12 or clk_count=15))then
                              n8<=n12;
@@ -1343,6 +1442,7 @@ begin
                                                        if(clk_count=2 or clk_count=5  or clk_count=8 or clk_count=11 or clk_count=14)then
                                                        if(n9 = n13 and clk_count=8)then
                                                        n9<=n13+n9;
+                                                       puntaje<=n9+puntaje;
                                                        n13<=0;
                                                        elsif(n9=0 and (clk_count=2 or clk_count=5 or clk_count=11 or clk_count=14))then
                                                        n9<=n13;
@@ -1353,6 +1453,7 @@ begin
                                                        
                                                        if(n10 = n14 and clk_count=8)then
                                                        n10<=n14+n10;
+                                                       puntaje<=n10+puntaje;
                                                        n14<=0;
                                                        elsif(n10=0 and (clk_count=2 or clk_count=5 or clk_count=11 or clk_count=14))then
                                                        n10<=n14;
@@ -1363,6 +1464,7 @@ begin
                                                        
                                                        if(n11 = n15 and clk_count=8)then
                                                        n11<=n15+n11;
+                                                       puntaje<=n11+puntaje;
                                                        n15<=0;
                                                        elsif(n11=0 and (clk_count=2 or clk_count=5 or clk_count=11 or clk_count=14))then
                                                        n11<=n15;
@@ -1373,6 +1475,7 @@ begin
                                                       
                                                        if(n12 = n16 and clk_count=8)then
                                                        n12<=n12+n16;
+                                                       puntaje<=n12+puntaje;
                                                        n16<=0;
                                                        elsif(n12=0 and (clk_count=2 or clk_count=5 or clk_count=11 or clk_count=14))then
                                                        n12<=n16;
@@ -1383,7 +1486,14 @@ begin
                                                        end if;
          if(clk_count=25000000)then
          clk_count<=0;
+         if(n1=n1p and n2=n2p and n3=n3p and n4=n4p and n5=n5p and n6=n6p and n7=n7p and n8=n8p and n9=n9p and n10=n10p and n11=n11p and n12=n12p and n13=n13p and n14=n14p and n15=n15p and n16=n16p)then
+         eup<='1';
+         press(0)<='1';
+         apress(0)<='1';
+         Presionado<=Ready;
+         else
          Presionado<=Create;
+         end if;
          else 
          clk_count<=clk_count+1;
          Presionado<=Up;
@@ -1391,11 +1501,12 @@ begin
 
     
     When Down=>
-     press<="0010";
+    
      
              if(clk_count=1 or clk_count=4 or clk_count=7 or clk_count=10 or clk_count=13)then
              if(n12 = n16 and clk_count=7)then
              n16<=n12+n16;
+             puntaje<=n16+puntaje;
              n12<=0;
              elsif(n16=0 and (clk_count=1 or clk_count=4 or clk_count=10 or clk_count=13))then
              n16<=n12;
@@ -1406,6 +1517,7 @@ begin
              
              if(n11 = n15 and clk_count=7)then
              n15<=n11+n15;
+             puntaje<=n15+puntaje;
              n11<=0;
              elsif(n15=0 and (clk_count=1 or clk_count=4 or clk_count=10 or clk_count=13))then
              n15<=n11;
@@ -1416,6 +1528,7 @@ begin
              
              if(n10 = n14 and clk_count=7)then
              n14<=n10+n14;
+             puntaje<=n14+puntaje;
              n10<=0;
              elsif(n14=0 and (clk_count=1 or clk_count=4 or clk_count=10 or clk_count=13))then
              n14<=n10;
@@ -1426,6 +1539,7 @@ begin
             
              if(n9 = n13 and clk_count=7)then
              n13<=n9+n13;
+             puntaje<=n13+puntaje;
              n9<=0;
              elsif(n13=0 and (clk_count=1 or clk_count=4 or clk_count=10 or clk_count=13))then
              n13<=n9;
@@ -1438,6 +1552,7 @@ begin
                           if(clk_count=3 or clk_count=6 or clk_count=9 or clk_count=12 or clk_count=15)then
                           if(n8 = n12 and clk_count=9)then
                           n12<=n8+n12;
+                          puntaje<=n12+puntaje;
                           n8<=0;
                           elsif(n12=0 and (clk_count=3 or clk_count=6 or clk_count=12 or clk_count=15))then
                           n12<=n8;
@@ -1448,6 +1563,7 @@ begin
                           
                           if(n11 = n7 and clk_count=9)then
                           n11<=n7+n11;
+                          puntaje<=n11+puntaje;
                           n7<=0;
                           elsif(n11=0 and (clk_count=3 or clk_count=6 or clk_count=12 or clk_count=15))then
                           n11<=n7;
@@ -1458,6 +1574,7 @@ begin
                           
                           if(n10 = n6 and clk_count=9)then
                           n10<=n10+n6;
+                          puntaje<=n10+puntaje;
                           n6<=0;
                           elsif(n10=0 and (clk_count=3 or clk_count=6 or clk_count=12 or clk_count=15))then
                           n10<=n6;
@@ -1468,6 +1585,7 @@ begin
                          
                           if(n9 = n5 and clk_count=9)then
                           n9<=n9+n5;
+                          puntaje<=n9+puntaje;
                           n5<=0;
                           elsif(n9=0 and (clk_count=3 or clk_count=6 or clk_count=12 or clk_count=15))then
                           n9<=n5;
@@ -1483,6 +1601,7 @@ begin
                                                     if(clk_count=2 or clk_count=5  or clk_count=8 or clk_count=11 or clk_count=14)then
                                                     if(n8 = n4 and clk_count=8)then
                                                     n8<=n8+n4;
+                                                    puntaje<=n8+puntaje;
                                                     n4<=0;
                                                     elsif(n8=0 and (clk_count=2 or clk_count=5 or clk_count=11 or clk_count=14))then
                                                     n8<=n4;
@@ -1493,6 +1612,7 @@ begin
                                                     
                                                     if(n7 = n3 and clk_count=8)then
                                                     n7<=n7+n3;
+                                                    puntaje<=n7+puntaje;
                                                     n3<=0;
                                                     elsif(n7=0 and (clk_count=2 or clk_count=5 or clk_count=11 or clk_count=14))then
                                                     n7<=n3;
@@ -1503,6 +1623,7 @@ begin
                                                     
                                                     if(n2 = n6 and clk_count=8)then
                                                     n6<=n2+n6;
+                                                    puntaje<=n6+puntaje;
                                                     n2<=0;
                                                     elsif(n6=0 and (clk_count=2 or clk_count=5 or clk_count=11 or clk_count=14))then
                                                     n6<=n2;
@@ -1513,6 +1634,7 @@ begin
                                                    
                                                     if(n1 = n5 and clk_count=8)then
                                                     n5<=n1+n5;
+                                                    puntaje<=n5+puntaje;
                                                     n1<=0;
                                                     elsif(n5=0 and (clk_count=2 or clk_count=5 or clk_count=11 or clk_count=14))then
                                                     n5<=n1;
@@ -1523,17 +1645,24 @@ begin
                                                     end if;
              if(clk_count=25000000)then
              clk_count<=0;
-             Presionado<=Create;
+                      if(n1=n1p and n2=n2p and n3=n3p and n4=n4p and n5=n5p and n6=n6p and n7=n7p and n8=n8p and n9=n9p and n10=n10p and n11=n11p and n12=n12p and n13=n13p and n14=n14p and n15=n15p and n16=n16p)then
+                      press(1)<='1';
+                      apress(1)<='1';
+                      edw<='1';
+                      Presionado<=Ready;
+                      else
+                      Presionado<=Create;
+                      end if;
              else 
              clk_count<=clk_count+1;
              Presionado<=Down;
              end if;
 
     When Right=>
-    press<="0100";
              if(clk_count=1 or clk_count=4 or clk_count=7 or clk_count=10 or clk_count=13)then
                     if(n4 = n3 and clk_count=7)then
                     n4<=n3+n4;
+                    puntaje<=n4+puntaje;
                     n3<=0;
                     elsif(n4=0 and (clk_count=1 or clk_count=4 or clk_count=10 or clk_count=13))then
                     n4<=n3;
@@ -1544,6 +1673,7 @@ begin
                     
                     if(n8 = n7 and clk_count=7)then
                     n8<=n8+n7;
+                    puntaje<=n8+puntaje;
                     n7<=0;
                     elsif(n8=0 and (clk_count=1 or clk_count=4 or clk_count=10 or clk_count=13))then
                     n8<=n7;
@@ -1554,6 +1684,7 @@ begin
                     
                     if(n11 = n12 and clk_count=7)then
                     n12<=n12+n11;
+                    puntaje<=n12+puntaje;
                     n11<=0;
                     elsif(n12=0 and (clk_count=1 or clk_count=4 or clk_count=10 or clk_count=13))then
                     n12<=n11;
@@ -1564,6 +1695,7 @@ begin
                    
                     if(n16 = n15 and clk_count=7)then
                     n16<=n15+n16;
+                    puntaje<=n16+puntaje;
                     n15<=0;
                     elsif(n16=0 and (clk_count=1 or clk_count=4 or clk_count=10 or clk_count=13))then
                     n16<=n15;
@@ -1576,6 +1708,7 @@ begin
                                  if(clk_count=3 or clk_count=6 or clk_count=9 or clk_count=12 or clk_count=15)then
                                  if(n2 = n3 and clk_count=9)then
                                  n3<=n2+n3;
+                                 puntaje<=n3+puntaje;
                                  n2<=0;
                                  elsif(n3=0 and (clk_count=3 or clk_count=6 or clk_count=12 or clk_count=15))then
                                  n3<=n2;
@@ -1586,6 +1719,7 @@ begin
                                  
                                  if(n6 = n7 and clk_count=9)then
                                  n7<=n6+n7;
+                                 puntaje<=n7+puntaje;
                                  n6<=0;
                                  elsif(n7=0 and (clk_count=3 or clk_count=6 or clk_count=12 or clk_count=15))then
                                  n7<=n6;
@@ -1596,6 +1730,7 @@ begin
                                  
                                  if(n11 = n10 and clk_count=9)then
                                  n11<=n11+n10;
+                                 puntaje<=n11+puntaje;
                                  n10<=0;
                                  elsif(n11=0 and (clk_count=3 or clk_count=6 or clk_count=12 or clk_count=15))then
                                  n11<=n10;
@@ -1606,6 +1741,7 @@ begin
                                 
                                  if(n14 = n15 and clk_count=9)then
                                  n15<=n14+n15;
+                                 puntaje<=n15+puntaje;
                                  n14<=0;
                                  elsif(n15=0 and (clk_count=3 or clk_count=6 or clk_count=12 or clk_count=15))then
                                  n15<=n14;
@@ -1621,6 +1757,7 @@ begin
                                                            if(clk_count=2 or clk_count=5  or clk_count=8 or clk_count=11 or clk_count=14)then
                                                            if(n2 = n1 and clk_count=8)then
                                                            n2<=n2+n1;
+                                                           puntaje<=n2+puntaje;
                                                            n1<=0;
                                                            elsif(n2=0 and (clk_count=2 or clk_count=5 or clk_count=11 or clk_count=14))then
                                                            n2<=n1;
@@ -1631,6 +1768,7 @@ begin
                                                            
                                                            if(n5 = n6 and clk_count=8)then
                                                            n6<=n5+n6;
+                                                           puntaje<=n6+puntaje;
                                                            n5<=0;
                                                            elsif(n6=0 and (clk_count=2 or clk_count=5 or clk_count=11 or clk_count=14))then
                                                            n6<=n5;
@@ -1641,6 +1779,7 @@ begin
                                                            
                                                            if(n9 = n10 and clk_count=8)then
                                                            n10<=n9+n10;
+                                                           puntaje<=n10+puntaje;
                                                            n9<=0;
                                                            elsif(n10=0 and (clk_count=2 or clk_count=5 or clk_count=11 or clk_count=14))then
                                                            n10<=n9;
@@ -1651,6 +1790,7 @@ begin
                                                           
                                                            if(n13 = n14 and clk_count=8)then
                                                            n14<=n13+n14;
+                                                           puntaje<=n14+puntaje;
                                                            n13<=0;
                                                            elsif(n14=0 and (clk_count=2 or clk_count=5 or clk_count=11 or clk_count=14))then
                                                            n14<=n13;
@@ -1662,7 +1802,14 @@ begin
              
              if(clk_count=25000000)then
              clk_count<=0;
-             Presionado<=Create;
+                      if(n1=n1p and n2=n2p and n3=n3p and n4=n4p and n5=n5p and n6=n6p and n7=n7p and n8=n8p and n9=n9p and n10=n10p and n11=n11p and n12=n12p and n13=n13p and n14=n14p and n15=n15p and n16=n16p)then
+                      press(2)<='1';
+                      apress(2)<='1';
+                      erg<='1';
+                      Presionado<=Ready;
+                      else
+                      Presionado<=Create;
+                      end if;
              else 
              clk_count<=clk_count+1;
              Presionado<=Right;
@@ -1679,10 +1826,10 @@ begin
 --     end if;
 --    end if;
     When Left=>
-    press<="1000";
                 if(clk_count=1 or clk_count=4 or clk_count=7 or clk_count=10 or clk_count=13)then
                         if(n1 = n2 and clk_count=7)then
                         n1<=n1+n2;
+                        puntaje<=n1+puntaje;
                         n2<=0;
                         elsif(n1=0 and (clk_count=1 or clk_count=4 or clk_count=10 or clk_count=13))then
                         n1<=n2;
@@ -1693,6 +1840,7 @@ begin
                         
                         if(n5 = n6 and clk_count=7)then
                         n5<=n6+n5;
+                        puntaje<=n5+puntaje;
                         n6<=0;
                         elsif(n5=0 and (clk_count=1 or clk_count=4 or clk_count=10 or clk_count=13))then
                         n5<=n6;
@@ -1703,6 +1851,7 @@ begin
                         
                         if(n9 = n10 and clk_count=7)then
                         n9<=n9+n10;
+                        puntaje<=n9+puntaje;
                         n10<=0;
                         elsif(n9=0 and (clk_count=1 or clk_count=4 or clk_count=10 or clk_count=13))then
                         n9<=n10;
@@ -1713,6 +1862,7 @@ begin
                        
                         if(n13 = n14 and clk_count=7)then
                         n13<=n13+n14;
+                        puntaje<=n13+puntaje;
                         n14<=0;
                         elsif(n13=0 and (clk_count=1 or clk_count=4 or clk_count=10 or clk_count=13))then
                         n13<=n14;
@@ -1725,6 +1875,7 @@ begin
                                      if(clk_count=3 or clk_count=6 or clk_count=9 or clk_count=12 or clk_count=15)then
                                      if(n2 = n3 and clk_count=9)then
                                      n2<=n2+n3;
+                                     puntaje<=n2+puntaje;
                                      n3<=0;
                                      elsif(n2=0 and (clk_count=3 or clk_count=6 or clk_count=12 or clk_count=15))then
                                      n2<=n3;
@@ -1735,6 +1886,7 @@ begin
                                      
                                      if(n6 = n7 and clk_count=9)then
                                      n6<=n6+n7;
+                                     puntaje<=n6+puntaje;
                                      n7<=0;
                                      elsif(n6=0 and (clk_count=3 or clk_count=6 or clk_count=12 or clk_count=15))then
                                      n6<=n7;
@@ -1745,6 +1897,7 @@ begin
                                      
                                      if(n10 = n11 and clk_count=9)then
                                      n10<=n11+n10;
+                                     puntaje<=n10+puntaje;
                                      n11<=0;
                                      elsif(n10=0 and (clk_count=3 or clk_count=6 or clk_count=12 or clk_count=15))then
                                      n10<=n11;
@@ -1755,6 +1908,7 @@ begin
                                     
                                      if(n14 = n15 and clk_count=9)then
                                      n14<=n14+n15;
+                                     puntaje<=n14+puntaje;
                                      n15<=0;
                                      elsif(n14=0 and (clk_count=3 or clk_count=6 or clk_count=12 or clk_count=15))then
                                      n14<=n15;
@@ -1770,6 +1924,7 @@ begin
                                                                if(clk_count=2 or clk_count=5  or clk_count=8 or clk_count=11 or clk_count=14)then
                                                                if(n3 = n4 and clk_count=8)then
                                                                n3<=n4+n3;
+                                                               puntaje<=n3+puntaje;
                                                                n4<=0;
                                                                elsif(n3=0 and (clk_count=2 or clk_count=5 or clk_count=11 or clk_count=14))then
                                                                n3<=n4;
@@ -1780,6 +1935,7 @@ begin
                                                                
                                                                if(n8 = n7 and clk_count=8)then
                                                                n7<=n7+n8;
+                                                               puntaje<=n7+puntaje;
                                                                n8<=0;
                                                                elsif(n7=0 and (clk_count=2 or clk_count=5 or clk_count=11 or clk_count=14))then
                                                                n7<=n8;
@@ -1790,6 +1946,7 @@ begin
                                                                
                                                                if(n11 = n12 and clk_count=8)then
                                                                n11<=n11+n12;
+                                                               puntaje<=n11+puntaje;
                                                                n12<=0;
                                                                elsif(n11=0 and (clk_count=2 or clk_count=5 or clk_count=11 or clk_count=14))then
                                                                n11<=n12;
@@ -1800,6 +1957,7 @@ begin
                                                               
                                                                if(n15 = n16 and clk_count=8)then
                                                                n15<=n15+n16;
+                                                               puntaje<=n15+puntaje;
                                                                n16<=0;
                                                                elsif(n15=0 and (clk_count=2 or clk_count=5 or clk_count=11 or clk_count=14))then
                                                                n15<=n16;
@@ -1812,17 +1970,23 @@ begin
              
              if(clk_count=25000000)then
              clk_count<=0;
-             Presionado<=Create;
+                      if(n1=n1p and n2=n2p and n3=n3p and n4=n4p and n5=n5p and n6=n6p and n7=n7p and n8=n8p and n9=n9p and n10=n10p and n11=n11p and n12=n12p and n13=n13p and n14=n14p and n15=n15p and n16=n16p)then
+                      press(3)<='1';
+                      apress(3)<='1';
+                      elf<='1';
+                      Presionado<=Ready;
+                      else
+                      Presionado<=Create;
+                      end if;
              else 
              clk_count<=clk_count+1;
              Presionado<=Left;
              end if;
     when Aleatory=>
-        press<="1111";
     if(clk_count=17 and random_number=0)then
     clk_count<=1;
     Presionado<=Aleatory;
-    elsif(PBTON='1')then
+    elsif(PBTON='1' or (TecladoSalida="0001101" and indicador='1'))then
     random_number<=clk_count;
     if(random_number=1)then
     n1<=2;
@@ -1905,6 +2069,11 @@ begin
     Presionado<=Ready;
     end if;
     when Create=>
+    eup<='0';
+    edw<='0';
+    elf<='0';
+    erg<='0';
+    press<="0000";
     if(n1=0)then
     n1<=2;
     Presionado<=Ready;
@@ -1960,7 +2129,96 @@ begin
     end case;
     end if;
     end process;
-
+    Num6: Numero
+            PORT MAP(
+            DW=>12,
+            LW=>1,
+            DL=>20,
+            POSX=> 470,
+            POSY=> 3, 
+            HCOUNT=> hcount,
+            VCOUNT=> vcount,
+            VALUE=> numero6,
+            PAINT=> paint106
+            );
+            
+            Num5: Numero
+            PORT MAP(
+            DW=>12,
+            LW=>1,
+            DL=>20,
+            POSX=> 490,
+            POSY=> 3, 
+            HCOUNT=> hcount,
+            VCOUNT=> vcount,
+            VALUE=> numero5,
+            PAINT=> paint105
+            );
+            Num4: Numero
+                PORT MAP(
+                DW=>12,
+                LW=>1,
+                DL=>20,
+                POSX=> 510,
+                POSY=> 3, 
+                HCOUNT=> hcount,
+                VCOUNT=> vcount,
+                VALUE=> numero4,
+                PAINT=> paint104
+                );
+Num3: Numero
+        PORT MAP(
+        DW=>12,
+        LW=>1,
+        DL=>20,
+        POSX=> 530,
+        POSY=> 3, 
+        HCOUNT=> hcount,
+        VCOUNT=> vcount,
+        VALUE=> numero3,
+        PAINT=> paint103
+        );
+        
+        num2: Numero
+        PORT MAP(
+        DW=>12,
+        LW=>1,
+        DL=>20,
+        POSX=> 550,
+        POSY=> 3, 
+        HCOUNT=> hcount,
+        VCOUNT=> vcount,
+        VALUE=> numero2,
+        PAINT=> paint102
+        );
+        num1: Numero
+            PORT MAP(
+            DW=>12,
+            LW=>1,
+            DL=>20,
+            POSX=> 570,
+            POSY=> 3, 
+            HCOUNT=> hcount,
+            VCOUNT=> vcount,
+            VALUE=> numero1,
+            PAINT=> paint101
+            );
+    Teclado: ps2_keyboard_to_ascii
+        port map(
+        clk=> directo,                 
+        ps2_clk=>Tecladoclk,             
+        ps2_data=>TecladoData,
+        ascii_code=>TecladoSalida,
+        ascii_new=>Indicador);
+    Conversor : Bin2BCD_0a999
+            Port map ( 
+            BIN=>puntaje,
+            BCD5=>numero6,
+            BCD4=>numero5,
+            BCD3=>numero4,
+            BCD2=>numero3,
+            BCD1=>numero2,           
+            BCD0=>numero1);
     Principal: Panel
         port map(
         POSX=>0,
@@ -1968,7 +2226,7 @@ begin
         HCOUNT=>hcount,
         VCOUNT=>vcount,
         PAINT=>paint1);  
-    Num2: dos
+    Numa2: dos
                 port map(
                 POSX=>posxn2,
                 POSY=>posyn2,
@@ -1976,7 +2234,7 @@ begin
                 VCOUNT=>vcount,
                 PAINT=>ndos,
                 FONDO=>fondodos); 
-    Num4: cuatro
+    Numa4: cuatro
        port map(
        POSX=>posxn4,
        POSY=>posyn4,
@@ -2058,7 +2316,7 @@ begin
                                                                                                  FONDO=>fondodosmil); 
 	process
 	begin
-	if(paint1='1')then
+	if(paint1='1'or paint101='1'or paint102='1'or paint103='1'or paint104='1'or paint105='1'or paint106='1')then
 	rgb_aux1 <=  "111111101110";
 	elsif(ndos='1' and e2='1')then
 	rgb_aux1 <=  W+20;
